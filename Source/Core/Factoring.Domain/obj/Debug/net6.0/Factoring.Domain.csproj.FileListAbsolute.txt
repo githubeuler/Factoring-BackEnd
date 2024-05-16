@@ -1,0 +1,11 @@
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Domain\bin\Debug\net6.0\Factoring.Domain.deps.json
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Domain\bin\Debug\net6.0\Factoring.Domain.dll
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Domain\bin\Debug\net6.0\Factoring.Domain.pdb
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Domain\obj\Debug\net6.0\Factoring.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Domain\obj\Debug\net6.0\Factoring.Domain.AssemblyInfoInputs.cache
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Domain\obj\Debug\net6.0\Factoring.Domain.AssemblyInfo.cs
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Domain\obj\Debug\net6.0\Factoring.Domain.csproj.CoreCompileInputs.cache
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Domain\obj\Debug\net6.0\Factoring.Domain.dll
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Domain\obj\Debug\net6.0\refint\Factoring.Domain.dll
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Domain\obj\Debug\net6.0\Factoring.Domain.pdb
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Domain\obj\Debug\net6.0\ref\Factoring.Domain.dll

@@ -1,0 +1,15 @@
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Application\bin\Debug\net6.0\Factoring.Application.deps.json
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Application\bin\Debug\net6.0\Factoring.Application.dll
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Application\bin\Debug\net6.0\Factoring.Application.pdb
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Application\obj\Debug\net6.0\Factoring.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Application\obj\Debug\net6.0\Factoring.Application.AssemblyInfoInputs.cache
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Application\obj\Debug\net6.0\Factoring.Application.AssemblyInfo.cs
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Application\obj\Debug\net6.0\Factoring.Application.csproj.CoreCompileInputs.cache
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Application\obj\Debug\net6.0\Factoring.Application.dll
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Application\obj\Debug\net6.0\refint\Factoring.Application.dll
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Application\obj\Debug\net6.0\Factoring.Application.pdb
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Application\obj\Debug\net6.0\ref\Factoring.Application.dll
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Application\obj\Debug\net6.0\Factoring.Application.csproj.AssemblyReference.cache
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Application\bin\Debug\net6.0\Factoring.Domain.dll
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Application\bin\Debug\net6.0\Factoring.Domain.pdb
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Application\obj\Debug\net6.0\Factorin.228A24CF.Up2Date

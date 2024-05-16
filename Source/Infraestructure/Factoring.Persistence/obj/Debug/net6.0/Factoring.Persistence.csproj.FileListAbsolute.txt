@@ -1,0 +1,17 @@
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Infraestructure\Factoring.Persistence\bin\Debug\net6.0\Factoring.Persistence.deps.json
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Infraestructure\Factoring.Persistence\bin\Debug\net6.0\Factoring.Persistence.dll
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Infraestructure\Factoring.Persistence\bin\Debug\net6.0\Factoring.Persistence.pdb
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Infraestructure\Factoring.Persistence\obj\Debug\net6.0\Factoring.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Infraestructure\Factoring.Persistence\obj\Debug\net6.0\Factoring.Persistence.AssemblyInfoInputs.cache
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Infraestructure\Factoring.Persistence\obj\Debug\net6.0\Factoring.Persistence.AssemblyInfo.cs
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Infraestructure\Factoring.Persistence\obj\Debug\net6.0\Factoring.Persistence.csproj.CoreCompileInputs.cache
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Infraestructure\Factoring.Persistence\obj\Debug\net6.0\Factoring.Persistence.dll
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Infraestructure\Factoring.Persistence\obj\Debug\net6.0\refint\Factoring.Persistence.dll
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Infraestructure\Factoring.Persistence\obj\Debug\net6.0\Factoring.Persistence.pdb
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Infraestructure\Factoring.Persistence\obj\Debug\net6.0\ref\Factoring.Persistence.dll
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Infraestructure\Factoring.Persistence\obj\Debug\net6.0\Factoring.Persistence.csproj.AssemblyReference.cache
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Infraestructure\Factoring.Persistence\bin\Debug\net6.0\Factoring.Application.dll
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Infraestructure\Factoring.Persistence\bin\Debug\net6.0\Factoring.Domain.dll
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Infraestructure\Factoring.Persistence\bin\Debug\net6.0\Factoring.Application.pdb
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Infraestructure\Factoring.Persistence\bin\Debug\net6.0\Factoring.Domain.pdb
+C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Infraestructure\Factoring.Persistence\obj\Debug\net6.0\Factorin.95C9D178.Up2Date

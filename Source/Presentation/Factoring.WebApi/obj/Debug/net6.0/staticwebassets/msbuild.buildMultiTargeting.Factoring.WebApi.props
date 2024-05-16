@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Factoring.WebApi.props" />
+</Project>
