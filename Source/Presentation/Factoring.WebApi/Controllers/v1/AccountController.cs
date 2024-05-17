@@ -11,6 +11,7 @@ namespace Factoring.WebApi.Controllers.v1
         [HttpPost]
         public async Task<IActionResult> Auth(AuthenticateCommand command)
         {
+            //comment
             return Ok(await Mediator.Send(command));
         }
     }
