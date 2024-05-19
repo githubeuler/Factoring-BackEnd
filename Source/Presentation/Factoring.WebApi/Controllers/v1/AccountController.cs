@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Factoring.WebApi.Controllers.v1
 {
-    //[ApiVersion("1.0")]
+    [ApiVersion("1.0")]
     public class AccountController : BaseApiController
     {
         [AllowAnonymous]
