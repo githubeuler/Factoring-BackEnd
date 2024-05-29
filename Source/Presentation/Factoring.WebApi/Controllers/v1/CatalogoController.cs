@@ -15,5 +15,12 @@ namespace Factoring.WebApi.Controllers.v1
             return Ok(await Mediator.Send(filter));
         }
 
+        [HttpGet("get-catogoria-girador")]
+        public async Task<IActionResult> GetCategoriaGirador([FromQuery] CatalogoListCategoriaQuery filter)
+        {
+            return Ok(await Mediator.Send(filter));
+        }
+
+
     }
 }

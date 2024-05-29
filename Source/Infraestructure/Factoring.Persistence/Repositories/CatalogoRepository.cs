@@ -32,6 +32,17 @@ namespace Factoring.Persistence.Repositories
                 return giradorList.AsList();
             }
         }
+        public async Task<IReadOnlyList<CatalogoResponseListDto>> GetListCategoriaCatalogo(CatalogoListDto model)
+        {
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_Consulta_Categoria_PorGirador";
+                var parameters = new DynamicParameters();
+                parameters.Add("@p_nIdGirador", model.Codigo);
+                var giradorList = await connection.QueryAsync<CatalogoResponseListDto>(query, parameters, commandType: CommandType.StoredProcedure);
+                return giradorList.AsList();
+            }
+        }
 
     }
 }

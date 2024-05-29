@@ -8,6 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Factoring.Persistence
-build_property.ProjectDir = C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Infraestructure\Factoring.Persistence\
-build_property.EnableComHosting = 
-build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.ProjectDir = C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Persistence\

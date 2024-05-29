@@ -14,6 +14,10 @@ namespace Factoring.Persistence
             services.AddTransient<IUsuarioRepositoryAsync, UsuarioRepositoryAsync>();
             services.AddTransient<ICatalogoRepository, CatalogoRepository>();
             services.AddTransient<IConnectionFactory, ConnectionFactory>();
+            services.AddTransient<IOperacionesRepositoryAsync, OperacionesRepositoryAsync>();
+            services.AddTransient<IAdquirienteRepositoryAsync, AdquirienteRepositoryAsync>();
+            services.AddTransient<IGiradorRepositoryAsync, GiradorRepositoryAsync>();
+            services.AddTransient<IOperacionesFacturaRepositoryAsync, OperacionesFacturaRepositoryAsync>();
             #endregion Repositories
         }
     }

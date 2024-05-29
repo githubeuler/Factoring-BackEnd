@@ -10,5 +10,6 @@ namespace Factoring.Application.Interfaces.Repositories
     public interface ICatalogoRepository
     {
         Task<IReadOnlyList<CatalogoResponseListDto>> GetListCatalogo(CatalogoListDto model);
+        Task<IReadOnlyList<CatalogoResponseListDto>> GetListCategoriaCatalogo(CatalogoListDto model);
     }
 }

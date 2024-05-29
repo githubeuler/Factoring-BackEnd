@@ -387,6 +387,7 @@
           "FluentValidation": "11.6.0",
           "FluentValidation.DependencyInjectionExtensions": "11.6.0",
           "MediatR.Extensions.Microsoft.DependencyInjection": "8.1.0",
+          "Newtonsoft.Json": "13.0.3",
           "System.IdentityModel.Tokens.Jwt": "7.5.2"
         },
         "compile": {
@@ -1004,24 +1005,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\chanc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Euler\\Proyectos\\Factoring Plus\\Fuentes\\BackEnd\\FactoringSolutionBack\\Source\\Infraestructure\\Factoring.Shared\\Factoring.Shared.csproj",
+      "projectUniqueName": "C:\\Rafael\\FuenteFactoring\\RamaDesarrollo\\Factoring-BackEnd\\Source\\Infraestructure\\Factoring.Shared\\Factoring.Shared.csproj",
       "projectName": "Factoring.Shared",
-      "projectPath": "C:\\Euler\\Proyectos\\Factoring Plus\\Fuentes\\BackEnd\\FactoringSolutionBack\\Source\\Infraestructure\\Factoring.Shared\\Factoring.Shared.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Euler\\Proyectos\\Factoring Plus\\Fuentes\\BackEnd\\FactoringSolutionBack\\Source\\Infraestructure\\Factoring.Shared\\obj\\",
+      "projectPath": "C:\\Rafael\\FuenteFactoring\\RamaDesarrollo\\Factoring-BackEnd\\Source\\Infraestructure\\Factoring.Shared\\Factoring.Shared.csproj",
+      "packagesPath": "C:\\Users\\chanc\\.nuget\\packages\\",
+      "outputPath": "C:\\Rafael\\FuenteFactoring\\RamaDesarrollo\\Factoring-BackEnd\\Source\\Infraestructure\\Factoring.Shared\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\chanc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1035,11 +1031,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Euler\\Proyectos\\Factoring Plus\\Fuentes\\BackEnd\\FactoringSolutionBack\\Source\\Core\\Factoring.Application\\Factoring.Application.csproj": {
-              "projectPath": "C:\\Euler\\Proyectos\\Factoring Plus\\Fuentes\\BackEnd\\FactoringSolutionBack\\Source\\Core\\Factoring.Application\\Factoring.Application.csproj"
+            "C:\\Rafael\\FuenteFactoring\\RamaDesarrollo\\Factoring-BackEnd\\Source\\Core\\Factoring.Application\\Factoring.Application.csproj": {
+              "projectPath": "C:\\Rafael\\FuenteFactoring\\RamaDesarrollo\\Factoring-BackEnd\\Source\\Core\\Factoring.Application\\Factoring.Application.csproj"
             },
-            "C:\\Euler\\Proyectos\\Factoring Plus\\Fuentes\\BackEnd\\FactoringSolutionBack\\Source\\Core\\Factoring.Domain\\Factoring.Domain.csproj": {
-              "projectPath": "C:\\Euler\\Proyectos\\Factoring Plus\\Fuentes\\BackEnd\\FactoringSolutionBack\\Source\\Core\\Factoring.Domain\\Factoring.Domain.csproj"
+            "C:\\Rafael\\FuenteFactoring\\RamaDesarrollo\\Factoring-BackEnd\\Source\\Core\\Factoring.Domain\\Factoring.Domain.csproj": {
+              "projectPath": "C:\\Rafael\\FuenteFactoring\\RamaDesarrollo\\Factoring-BackEnd\\Source\\Core\\Factoring.Domain\\Factoring.Domain.csproj"
             }
           }
         }
@@ -1048,11 +1044,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -1096,7 +1087,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
       }
     }
   }
