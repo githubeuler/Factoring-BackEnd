@@ -2,20 +2,15 @@
 using Factoring.Application.DTOs.Catalogo;
 using Factoring.Application.Interfaces.Repositories;
 using Factoring.Persistence.Data;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Factoring.Persistence.Repositories
 {
-    public class CatalogoRepository : ICatalogoRepository
+    public class CatalogoRepositoryAsync : ICatalogoRepositoryAsync
     {
         private readonly IConnectionFactory _connectionFactory;
 
-        public CatalogoRepository(IConnectionFactory connectionFactory)
+        public CatalogoRepositoryAsync(IConnectionFactory connectionFactory)
         {
             _connectionFactory = connectionFactory;
         }
