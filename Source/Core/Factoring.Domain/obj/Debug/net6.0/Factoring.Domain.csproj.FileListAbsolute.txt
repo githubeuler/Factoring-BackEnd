@@ -9,15 +9,3 @@ C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\C
 C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Domain\obj\Debug\net6.0\refint\Factoring.Domain.dll
 C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Domain\obj\Debug\net6.0\Factoring.Domain.pdb
 C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Core\Factoring.Domain\obj\Debug\net6.0\ref\Factoring.Domain.dll
-C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Core\Factoring.Domain\bin\Debug\net6.0\Factoring.Domain.deps.json
-C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Core\Factoring.Domain\bin\Debug\net6.0\Factoring.Domain.dll
-C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Core\Factoring.Domain\bin\Debug\net6.0\Factoring.Domain.pdb
-C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Core\Factoring.Domain\obj\Debug\net6.0\Factoring.Domain.csproj.AssemblyReference.cache
-C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Core\Factoring.Domain\obj\Debug\net6.0\Factoring.Domain.GeneratedMSBuildEditorConfig.editorconfig
-C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Core\Factoring.Domain\obj\Debug\net6.0\Factoring.Domain.AssemblyInfoInputs.cache
-C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Core\Factoring.Domain\obj\Debug\net6.0\Factoring.Domain.AssemblyInfo.cs
-C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Core\Factoring.Domain\obj\Debug\net6.0\Factoring.Domain.csproj.CoreCompileInputs.cache
-C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Core\Factoring.Domain\obj\Debug\net6.0\Factoring.Domain.dll
-C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Core\Factoring.Domain\obj\Debug\net6.0\refint\Factoring.Domain.dll
-C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Core\Factoring.Domain\obj\Debug\net6.0\Factoring.Domain.pdb
-C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Core\Factoring.Domain\obj\Debug\net6.0\ref\Factoring.Domain.dll
