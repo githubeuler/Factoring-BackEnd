@@ -1,14 +1,12 @@
 ﻿using Factoring.Application.DTOs.Adquiriente;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Factoring.Application.Wrappers;
 
 namespace Factoring.Application.Interfaces.Repositories
 {
     public interface IAdquirienteRepositoryAsync
     {
+        Task<Response<int>> AddAsync(AdquirienteInsertDto entity);
+        Task<IReadOnlyList<AdquirienteResponseDataTable>> GetListAdquiriente(AdquirienteRequestDataTable model);
         Task<IReadOnlyList<AdquirienteResponseLista>> GetListaAdquiriente();
     }
 }

@@ -16,9 +16,9 @@ namespace Factoring.Application.Features.Catalogo.Query.CatalogoListQuery
 
         public class EvaluacionOperacionesListDataTableQueryHandler : IRequestHandler<CatalogoListQuery, Response<IReadOnlyList<CatalogoResponseListDto>>>
         {
-            private readonly ICatalogoRepository _catalogoRepository;
+            private readonly ICatalogoRepositoryAsync _catalogoRepository;
             private readonly IMapper _mapper;
-            public EvaluacionOperacionesListDataTableQueryHandler(ICatalogoRepository catalogoRepository, IMapper mapper)
+            public EvaluacionOperacionesListDataTableQueryHandler(ICatalogoRepositoryAsync catalogoRepository, IMapper mapper)
             {
                 _catalogoRepository = catalogoRepository;
                 _mapper = mapper;

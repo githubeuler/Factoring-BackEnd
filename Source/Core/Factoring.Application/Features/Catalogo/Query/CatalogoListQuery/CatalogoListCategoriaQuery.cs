@@ -15,9 +15,9 @@ namespace Factoring.Application.Features.Catalogo.Query.CatalogoListQuery
         public int Codigo { get; set; }
         public class CatalogoListCategoriaQueryHandler : IRequestHandler<CatalogoListCategoriaQuery, Response<IReadOnlyList<CatalogoResponseListDto>>>
         {
-            private readonly ICatalogoRepository _catalogoRepository;
+            private readonly ICatalogoRepositoryAsync _catalogoRepository;
             private readonly IMapper _mapper;
-            public CatalogoListCategoriaQueryHandler(ICatalogoRepository catalogoRepository, IMapper mapper)
+            public CatalogoListCategoriaQueryHandler(ICatalogoRepositoryAsync catalogoRepository, IMapper mapper)
             {
                 _catalogoRepository = catalogoRepository;
                 _mapper = mapper;

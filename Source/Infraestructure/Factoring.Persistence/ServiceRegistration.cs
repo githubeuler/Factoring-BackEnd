@@ -12,12 +12,16 @@ namespace Factoring.Persistence
         {
             #region Repositories
             services.AddTransient<IUsuarioRepositoryAsync, UsuarioRepositoryAsync>();
-            services.AddTransient<ICatalogoRepository, CatalogoRepository>();
+            services.AddTransient<ICatalogoRepositoryAsync, CatalogoRepositoryAsync>();
             services.AddTransient<IConnectionFactory, ConnectionFactory>();
             services.AddTransient<IOperacionesRepositoryAsync, OperacionesRepositoryAsync>();
             services.AddTransient<IAdquirienteRepositoryAsync, AdquirienteRepositoryAsync>();
             services.AddTransient<IGiradorRepositoryAsync, GiradorRepositoryAsync>();
+            services.AddTransient<IGiradorCategoriaRepositoryAsync, GiradorCategoriaRepositoryAsync>();
             services.AddTransient<IOperacionesFacturaRepositoryAsync, OperacionesFacturaRepositoryAsync>();
+            services.AddTransient<IOperacionesRepositoryAsync, OperacionesRepositoryAsync>();
+            services.AddTransient<IAdquirienteDireccionRepositoryAsync, AdquirienteDireccionRepositoryAsync>();
+            services.AddTransient<IGiradorDireccionRepositoryAsync, GiradorDireccionRepositoryAsync>();
             #endregion Repositories
         }
     }
