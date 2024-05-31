@@ -16,7 +16,7 @@ using Factoring.Application.Features.Girador.Commands;
 using Factoring.Application.Features.Girador.Queries;
 using Factoring.Application.Features.GiradorDetails.GiradorUbicacion.Commands;
 using Factoring.Application.Features.Operaciones.Commands;
-using Factoring.Application.Features.Operaciones.Commands;
+//using Factoring.Application.Features.Operaciones.Commands;
 using Factoring.Application.Features.Operaciones.Queries.OperacionesSearchDataTable;
 using Factoring.Application.Features.OperacionesFacturas.Commands;
 using Factoring.Application.Features.Usuario.Commands;

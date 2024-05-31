@@ -25,6 +25,11 @@ namespace Factoring.WebApi.Controllers.v1
         {
             return Ok(await Mediator.Send(new OperacionesGetByidQuery { Id = id }));
         }
+        [HttpPost("update")]
+        public async Task<IActionResult> Update(UpdateOperacionCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
 
     }
 }

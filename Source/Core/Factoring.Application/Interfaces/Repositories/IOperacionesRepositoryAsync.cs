@@ -13,5 +13,6 @@ namespace Factoring.Application.Interfaces.Repositories
         Task<Response<int>> AddAsync(OperacionesInsertDto entity);
         Task<IReadOnlyList<OperacionesResponseDataTable>> GetListOperaciones(OperacionesRequestDataTableDto model);
         Task<OperacionesGetByIdDto> GetByIdAsync(int id);
+        Task<Response<int>> UpdateAsync(OperacionesUpdateDto entity);
     }
 }

@@ -101,5 +101,42 @@ namespace Factoring.Persistence.Repositories
                 return operacionesList.AsList();
             }
         }
+        public async Task<Response<int>> UpdateAsync(OperacionesUpdateDto entity)
+        {
+            var parameters = new DynamicParameters();
+
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_Actualiza_Operaciones";
+                parameters.Add("@p_nIdOperaciones", entity.IdOperaciones);
+                parameters.Add("@p_nIdGirador", entity.IdGirador);
+                parameters.Add("@p_nIdAdquiriente", entity.IdAdquiriente);
+                parameters.Add("@p_nIdTipoMoneda", entity.IdTipoMoneda);
+                parameters.Add("@p_nIdGiradorDireccion", entity.IdGiradorDireccion);
+                parameters.Add("@p_nIdAdquirienteDireccion", entity.IdAdquirienteDireccion);
+                parameters.Add("@p_nTEM", entity.TEM);
+                parameters.Add("@p_nPorcentajeFinanciamiento", entity.PorcentajeFinanciamiento);
+                parameters.Add("@p_nMontoOperacion", entity.MontoOperacion);
+                parameters.Add("@p_nDescContrato", entity.DescContrato);
+                parameters.Add("@p_nDescFactura", entity.DescFactura);
+                parameters.Add("@p_nDescCobranza", entity.DescCobranza);
+                parameters.Add("@p_cUsuarioActualizacion", entity.UsuarioActualizacion);
+                parameters.Add("@p_nPorcentajeRetencion", entity.PorcentajeRetencion);
+                parameters.Add("@p_nInteresMoratorio", entity.InteresMoratorio);
+                parameters.Add("@p_iCategoria", entity.IdCategoria);
+                parameters.Add("@p_cMotivoTransaccion", entity.MotivoTransaccion);
+                parameters.Add("@p_cSustentoComercial", entity.SustentoComercial);
+                parameters.Add("@p_nPlazo", entity.Plazo);
+
+                parameters.Add("@p_nDescMensaje", null, DbType.String, direction: ParameterDirection.Output, size: 250);
+                parameters.Add("@p_nIdOperacionesOut", DbType.Int32, direction: ParameterDirection.ReturnValue);
+
+                await connection.ExecuteAsync(query, param: parameters, commandType: CommandType.StoredProcedure);
+
+                int IdOperaciones = parameters.Get<int>("p_nIdOperacionesOut");
+                if (parameters.Get<int>("p_nIdOperacionesOut") == 0) return new Response<int>(parameters.Get<string>("p_nDescMensaje"));
+                else return new Response<int>(parameters.Get<int>("p_nIdOperacionesOut"), parameters.Get<string>("p_nDescMensaje"));
+            }
+        }
     }
 }
