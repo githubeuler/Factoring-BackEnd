@@ -220,6 +220,7 @@
         public string SustentoComercial { get; set; }
         public string MotivoTransaccion { get; set; }
         public int Plazo { get; set; }
+        public int CantidadFactura { get; set; }
         public int IdSolEvalOperacion { get; set; }
         //*************Fin-09-01-2023-RCARRILLO******//
 

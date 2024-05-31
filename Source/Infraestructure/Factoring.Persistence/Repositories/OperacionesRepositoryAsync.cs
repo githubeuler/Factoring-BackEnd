@@ -48,6 +48,7 @@ namespace Factoring.Persistence.Repositories
                     parameters.Add("@p_cMotivoTransaccion", entity.MotivoTransaccion);
                     parameters.Add("@p_cSustentoComercial", entity.SustentoComercial);
                     parameters.Add("@p_nPlazo", entity.Plazo);
+                    parameters.Add("@p_nCantidadFactura", entity.CantidadFactura);
                     //*************Fin-09-01-2023-RCARRILLO******//
 
                     parameters.Add("@p_nDescMensaje", null, DbType.String, direction: ParameterDirection.Output, size: 250);
