@@ -14,5 +14,6 @@ namespace Factoring.Application.Interfaces.Repositories
         Task<IReadOnlyList<OperacionesResponseDataTable>> GetListOperaciones(OperacionesRequestDataTableDto model);
         Task<OperacionesGetByIdDto> GetByIdAsync(int id);
         Task<Response<int>> UpdateAsync(OperacionesUpdateDto entity);
+        Task DeleteAsync(OperacionesDeleteDto entity);
     }
 }

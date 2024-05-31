@@ -138,5 +138,17 @@ namespace Factoring.Persistence.Repositories
                 else return new Response<int>(parameters.Get<int>("p_nIdOperacionesOut"), parameters.Get<string>("p_nDescMensaje"));
             }
         }
+        public async Task DeleteAsync(OperacionesDeleteDto entity)
+        {
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_Elimina_Operaciones";
+                var parameters = new DynamicParameters();
+                parameters.Add("@p_nIdOperaciones", entity.IdOperaciones);
+                parameters.Add("@p_cUsuarioActualizacion", entity.UsuarioActualizacion);
+                await connection.ExecuteAsync(query, param: parameters, commandType: CommandType.StoredProcedure);
+            }
+
+        }
     }
 }

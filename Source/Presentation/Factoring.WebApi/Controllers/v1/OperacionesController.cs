@@ -1,4 +1,6 @@
 ﻿using Factoring.Application.Features.Operaciones.Commands;
+using Factoring.Application.Features.Operaciones.Commands.DeleteOperacion;
+using Factoring.Application.Features.Operaciones.Commands.UpdateOperacion;
 using Factoring.Application.Features.Operaciones.Queries.OperacionesGetByidQuery;
 using Factoring.Application.Features.Operaciones.Queries.OperacionesSearchDataTable;
 using Microsoft.AspNetCore.Authorization;
@@ -27,6 +29,11 @@ namespace Factoring.WebApi.Controllers.v1
         }
         [HttpPost("update")]
         public async Task<IActionResult> Update(UpdateOperacionCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+        [HttpGet("delete")]
+        public async Task<IActionResult> Delete([FromQuery] DeleteOperacionByIdCommand command)
         {
             return Ok(await Mediator.Send(command));
         }

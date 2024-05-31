@@ -102,5 +102,17 @@ namespace Factoring.Persistence.Repositories
                 return products.AsList();
             }
         }
+        public async Task<IReadOnlyList<OperacionesFacturaListDto>> GetAllFacturasByOperacionesFacturas(int id)
+        {
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_Consulta_OperacionesFacturasxId";
+                var parameters = new DynamicParameters();
+                parameters.Add("@p_nIdOperacionFactura", id);
+
+                var products = await connection.QueryAsync<OperacionesFacturaListDto>(query, param: parameters, commandType: CommandType.StoredProcedure);
+                return products.AsList();
+            }
+        }
     }
 }

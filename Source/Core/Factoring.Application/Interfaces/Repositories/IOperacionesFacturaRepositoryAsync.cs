@@ -10,6 +10,7 @@ namespace Factoring.Application.Interfaces.Repositories
         Task EditAsync(OperacionesFacturaEditDto entity);
         Task<OperacionesFacturaListDto> FindByNumberAsync(int IdGirador, int IdAdquiriente, string NroFactura);
         Task<IReadOnlyList<OperacionesFacturaListDto>> GetAllFacturasByOperaciones(int id);
+        Task<IReadOnlyList<OperacionesFacturaListDto>> GetAllFacturasByOperacionesFacturas(int id);
 
     }
 }

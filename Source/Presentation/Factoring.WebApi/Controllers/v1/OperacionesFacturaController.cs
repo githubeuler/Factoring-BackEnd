@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Factoring.Application.Features.OperacionesFacturas.Queries;
 using Factoring.Application.Features.OperacionesFacturas.Commands;
+using Factoring.Application.Features.OperacionesFacturas.Queries.GetAllFacturasByOperacionQuery;
 
 namespace Factoring.WebApi.Controllers.v1
 {
@@ -28,7 +29,7 @@ namespace Factoring.WebApi.Controllers.v1
         [HttpGet("{id}")]
         public async Task<IActionResult> GetAllRepresentanteLegalByIdGirador(int id)
         {
-            return Ok(await Mediator.Send(new GetAllFacturasByOperacionQuery()
+            return base.Ok(await Mediator.Send(new GetAllFacturasByOperacionFacturaQuery()
             {
                 Id = id
             }));
@@ -54,6 +55,10 @@ namespace Factoring.WebApi.Controllers.v1
         {
             return Ok(await Mediator.Send(new GetFacturaByNumero { IdGirador = idGirador, IdAdquiriente = idAdquiriente, NroFactura = nroFactura }));
         }
-
+        [HttpPost("consultar-factura")]
+        public async Task<IActionResult> ConsultarFactura(GetIdAllFacturasByOperacionFacturaQuery model)
+        {
+            return Ok(await Mediator.Send(model));
+        }
     }
 }
