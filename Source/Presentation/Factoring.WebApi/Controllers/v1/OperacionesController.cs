@@ -2,6 +2,7 @@
 using Factoring.Application.Features.Operaciones.Commands.DeleteOperacion;
 using Factoring.Application.Features.Operaciones.Commands.UpdateOperacion;
 using Factoring.Application.Features.Operaciones.Queries.OperacionesGetByidQuery;
+using Factoring.Application.Features.Operaciones.Queries.OperacionesReport;
 using Factoring.Application.Features.Operaciones.Queries.OperacionesSearchDataTable;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -36,6 +37,11 @@ namespace Factoring.WebApi.Controllers.v1
         public async Task<IActionResult> Delete([FromQuery] DeleteOperacionByIdCommand command)
         {
             return Ok(await Mediator.Send(command));
+        }
+        [HttpGet("get-registro-operacion-base64")]
+        public async Task<IActionResult> GetDowloadRegistroOperacion([FromQuery] GetOperacionesGetDataTableDonwloadQuery query)
+        {
+            return Ok(await Mediator.Send(query));
         }
 
     }

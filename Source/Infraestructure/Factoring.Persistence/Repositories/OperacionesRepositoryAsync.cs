@@ -101,6 +101,24 @@ namespace Factoring.Persistence.Repositories
                 return operacionesList.AsList();
             }
         }
+        public async Task<IReadOnlyList<OperacionesResponseDataTable>> GetListOperacionesDonwload(OperacionesRequestDataTableDto model)
+        {
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_Consulta_Operaciones_Exportar";
+                var parameters = new DynamicParameters();
+
+                parameters.Add("@filter_nNroOperacion", model.FilterNroOperacion);
+                parameters.Add("@filter_cRazonGirador", model.FilterRazonGirador);
+                parameters.Add("@filter_cRazonAdquiriente", model.FilterRazonAdquiriente);
+                parameters.Add("@filter_FecCrea", model.FilterFecCrea);
+                parameters.Add("@filter_nEstado", model.Estado);
+
+                var operacionesList = await connection.QueryAsync<OperacionesResponseDataTable>(query, parameters, commandType: CommandType.StoredProcedure);
+                return operacionesList.AsList();
+            }
+        }
+
         public async Task<Response<int>> UpdateAsync(OperacionesUpdateDto entity)
         {
             var parameters = new DynamicParameters();

@@ -32,6 +32,8 @@ namespace Factoring.Persistence.Repositories
                 parameters.Add("@p_nIdOperaciones", entity.IdOperaciones);
                 parameters.Add("@p_nIdCatalogoEstado", entity.IdCatalogoEstado);
                 parameters.Add("@p_cUsuarioCreador", entity.UsuarioCreador);
+                parameters.Add("@p_cUsuarioCreador", entity.Comentario);
+                parameters.Add("@p_Comentario", entity.Comentario);
                 parameters.Add("@p_nIdEstadosOperaciones", DbType.String, direction: ParameterDirection.Output);
                 await connection.QueryAsync<int>(query, param: parameters, commandType: CommandType.StoredProcedure);
                 int respuesta = parameters.Get<int>("p_nIdEstadosOperaciones");
@@ -62,7 +64,7 @@ namespace Factoring.Persistence.Repositories
                     parameters.Add("@p_TipoProceso", 0);
                     parameters.Add("@p_nIdEstadoFactura", DbType.String, direction: ParameterDirection.Output);
                     await connection.QueryAsync<int>(query, param: parameters, commandType: CommandType.StoredProcedure);
-                    int respuesta = parameters.Get<int>("p_nIdEstadosOperaciones");
+                    int respuesta = parameters.Get<int>("p_nIdEstadoFactura");
                     if (respuesta == 0) return new Response<int>("Existen facturas que no estan anotadas en cavally.");
                     else return new Response<int>(respuesta, "Actualizado Correctamente");
                 }

@@ -22,6 +22,7 @@ using Factoring.Application.Features.OperacionesFacturas.Commands;
 using Factoring.Application.Features.Usuario.Commands;
 using Factoring.Application.Features.Operaciones.Commands.UpdateOperacion;
 using Factoring.Application.Features.Operaciones.Commands.DeleteOperacion;
+using Factoring.Application.Features.Operaciones.Queries.OperacionesReport;
 
 namespace Factoring.Application.Mappings
 {
@@ -47,7 +48,10 @@ namespace Factoring.Application.Mappings
             CreateMap<UpdateOperacionCommand, OperacionesUpdateDto>();
             CreateMap<DeleteOperacionFacturaCommand, OperacionesFacturaDeleteDto>();
             CreateMap<DeleteOperacionByIdCommand, OperacionesDeleteDto>();
+            CreateMap<GetOperacionesGetDataTableDonwloadQuery, OperacionesRequestDataTableDto>();
             
+
+
         }
     }
 }

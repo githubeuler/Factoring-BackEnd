@@ -13,6 +13,7 @@ namespace Factoring.Application.Features.Operaciones.Commands
         public int IdOperaciones { get; set; }
         public int IdCatalogoEstado { get; set; }
         public string UsuarioCreador { get; set; } 
+       public string? Comentario { get; set; }
     }
 
     public class CreateEvaluacionOperacionCommandHandler : IRequestHandler<CreateEvaluacionOperacionCommand, Response<int>>
