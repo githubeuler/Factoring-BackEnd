@@ -19,5 +19,10 @@ namespace Factoring.WebApi.Controllers.v1
         {
             return Ok(await Mediator.Send(new AdquirienteListQuery { }));
         }
+        [HttpGet]
+        public async Task<IActionResult> Get([FromQuery] GetAdquirienteListAll filter)
+        {
+            return Ok(await Mediator.Send(filter));
+        }
     }
 }
