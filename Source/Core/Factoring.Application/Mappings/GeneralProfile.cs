@@ -49,7 +49,10 @@ namespace Factoring.Application.Mappings
             CreateMap<DeleteOperacionFacturaCommand, OperacionesFacturaDeleteDto>();
             CreateMap<DeleteOperacionByIdCommand, OperacionesDeleteDto>();
             CreateMap<GetOperacionesGetDataTableDonwloadQuery, OperacionesRequestDataTableDto>();
+            CreateMap<EditOperacionFacturaCommand, OperacionesFacturaEditDto>();
             
+
+
 
 
         }
