@@ -57,7 +57,7 @@ namespace Factoring.Persistence.Repositories
                     var query = "pe_Inserta_EstadoFactura";
                     var parameters = new DynamicParameters();
                     parameters.Add("@p_nIdOperaciones", entity.IdOperaciones);
-                    parameters.Add("@p_nIdOperacionesFactura", entity.IdOperacionesFactura);
+                    parameters.Add("@p_nIdOperacionesFactura", entity.IdCatalogoEstado);
                     parameters.Add("@p_nIdCatalogoEstado", entity.IdCatalogoEstado);
                     parameters.Add("@p_cUsuarioCreador", entity.UsuarioCreador);
                     parameters.Add("@p_cComentario", entity.Comentario);
