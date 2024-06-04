@@ -48,12 +48,43 @@ namespace Factoring.Application.Features.Operaciones.Queries.OperacionesReport
                     const int startRow = 5;
                     var row = startRow;
 
-                    worksheet.Cells["A1"].Value = "OPERACIÓN";
-                    worksheet.Cells["B1"].Value = "GIRADOR";
-                    worksheet.Cells["C1"].Value = "ACEPTANTE";
-                    worksheet.Cells["D1"].Value = "FECHA REGISTRO";
-                    worksheet.Cells["E1"].Value = "ESTADO";
-                    using (var r = worksheet.Cells["A1:E1"])
+                    worksheet.Cells["A1"].Value = "GIRADOR";
+
+                    worksheet.Cells["B1"].Value = "ACEPTANTE";
+                    //worksheet.Cells["C1"].Value = "FONDEADOR";
+
+                    worksheet.Cells["C1"].Value = "NRO OPERACIÓN";
+                    worksheet.Cells["D1"].Value = "NRO FACTURA";
+                    worksheet.Cells["E1"].Value = "MONTO OPERACIÓN";
+                    worksheet.Cells["F1"].Value = "MONEDA";
+                    worksheet.Cells["G1"].Value = "IMPORTE NETO FACTURA	";
+                    worksheet.Cells["H1"].Value = "PORCENTAJE FINANCIAMIENTO";
+                    worksheet.Cells["I1"].Value = "TEM";
+                    worksheet.Cells["J1"].Value = "COMISIÓN COBRANZA";
+                    worksheet.Cells["K1"].Value = "NRO DOCUMENTO";
+                    worksheet.Cells["L1"].Value = "DÍAS ADELANTO";
+                    worksheet.Cells["M1"].Value = "IMPORTE FINANCIAR";
+                    worksheet.Cells["N1"].Value = "TASA ANUAL";
+                    worksheet.Cells["O1"].Value = "INTERES";
+                    worksheet.Cells["P1"].Value = "COMISIÓN COBRANZA";
+                    worksheet.Cells["Q1"].Value = "INTERES MORATORIO";
+                    worksheet.Cells["R1"].Value = "INTERES COMPENSATORIO GIRADOR";
+                    //worksheet.Cells["T1"].Value = "PLAN COBERTURA";
+                    //worksheet.Cells["U1"].Value = "RETENCIÓN";
+                    worksheet.Cells["S1"].Value = "IGV";
+                    worksheet.Cells["T1"].Value = "DEVOLUCIÓN ESTIMADA GIRADOR";
+                    worksheet.Cells["U1"].Value = "DEVOLUCIÓN TOTAL GIRADOR";
+                    //worksheet.Cells["Y1"].Value = "DESEMBOLSO PROTECTUM";
+                    //worksheet.Cells["Z1"].Value = "DESEMBOLSO PALANTE";
+                    worksheet.Cells["V1"].Value = "MONTO DESEMBOLSAR";
+                    worksheet.Cells["W1"].Value = "FECHA DESEMBOLSO";
+                    worksheet.Cells["X1"].Value = "FECHA VENCIMIENTO";
+                    worksheet.Cells["Y1"].Value = "FECHA COBRANZA";
+                    worksheet.Cells["Z1"].Value = "FECHA PAGO NEGOCIADO";
+                    worksheet.Cells["AA1"].Value = "FECHA CREACION OPERACION";
+                    worksheet.Cells["AB1"].Value = "MONTO TOTAL SERVICIOS";
+                    worksheet.Cells["AC1"].Value = "ESTADO";
+                    using (var r = worksheet.Cells["A1:AC1"])
                     {
                         //r.Merge = true;
                         r.Style.Font.Color.SetColor(Color.White);
@@ -65,12 +96,40 @@ namespace Factoring.Application.Features.Operaciones.Queries.OperacionesReport
                     row = 2;
                     foreach (var item in response)
                     {
-                        worksheet.Cells[row, 1].Value = item.nNroOperacion;
-                        worksheet.Cells[row, 2].Value = item.cRazonSocialGirador;
-                        worksheet.Cells[row, 3].Value = item.cRazonSocialAdquiriente;
-                        worksheet.Cells[row, 4].Value = item.dFechaCreacion.ToString("dd/MM/yyyy");
-                        worksheet.Cells[row, 5].Value = item.NombreEstado;
-
+                        worksheet.Cells[row, 1].Value = item.Girador;
+                        worksheet.Cells[row, 2].Value = item.Adquirente;
+                        //worksheet.Cells[row, 3].Value = item.Aceptante;
+                        worksheet.Cells[row, 3].Value = item.nNroOperacion;
+                        worksheet.Cells[row, 4].Value = item.NroFactura;
+                        worksheet.Cells[row, 5].Value = item.nMontoOperacion;
+                        worksheet.Cells[row, 6].Value = item.cMoneda;
+                        worksheet.Cells[row, 7].Value = item.ImporteNetoFactura;
+                        worksheet.Cells[row, 8].Value = item.nPorcentajeFinanciamiento;
+                        worksheet.Cells[row, 9].Value = item.nTEM;
+                        worksheet.Cells[row, 10].Value = item.ComisionCobranza;
+                        worksheet.Cells[row, 11].Value = item.nNroDocumento;
+                        worksheet.Cells[row, 12].Value = item.nDiasAdelanto;
+                        worksheet.Cells[row, 13].Value = item.nImporteaFinanciar;
+                        worksheet.Cells[row, 14].Value = item.nTasaAnual;
+                        worksheet.Cells[row, 15].Value = item.Interes;
+                        worksheet.Cells[row, 16].Value = item.CostoComisionCobranza;
+                        worksheet.Cells[row, 17].Value = item.interesMoratorio;
+                        worksheet.Cells[row, 18].Value = item.interesCompuestoGirador;
+                        //worksheet.Cells[row, 20].Value = item.planCobertura;
+                        //worksheet.Cells[row, 21].Value = item.retencion;
+                        worksheet.Cells[row, 19].Value = item.nIgv;
+                        worksheet.Cells[row, 20].Value = item.devolucionEstimadaGirador;
+                        worksheet.Cells[row, 21].Value = item.devolucionTotalGirador; ;
+                        //worksheet.Cells[row, 25].Value = item.desenbolsoProtectum;
+                        //worksheet.Cells[row, 26].Value = item.desenbolsoPalante; 
+                        worksheet.Cells[row, 22].Value = item.MontoaDesembolsarGirador;
+                        worksheet.Cells[row, 23].Value = item.dFechaDesembolso?.ToString("dd/MM/yyyy");
+                        worksheet.Cells[row, 24].Value = item.dFechaVencimiento?.ToString("dd/MM/yyyy");
+                        worksheet.Cells[row, 25].Value = item.dFechaCobranza?.ToString("dd/MM/yyyy");
+                        worksheet.Cells[row, 26].Value = item.dFechaPagoNegociado?.ToString("dd/MM/yyyy");
+                        worksheet.Cells[row, 27].Value = item.dFechaCreacionOperacion?.ToString("dd/MM/yyyy");
+                        worksheet.Cells[row, 28].Value = item.nComisionEstructuracionTotal;
+                        worksheet.Cells[row, 29].Value = item.Estado;
 
 
                         row++;

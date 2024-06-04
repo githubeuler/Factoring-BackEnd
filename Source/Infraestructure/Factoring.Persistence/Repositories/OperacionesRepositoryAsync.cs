@@ -101,7 +101,7 @@ namespace Factoring.Persistence.Repositories
                 return operacionesList.AsList();
             }
         }
-        public async Task<IReadOnlyList<OperacionesResponseDataTable>> GetListOperacionesDonwload(OperacionesRequestDataTableDto model)
+        public async Task<IReadOnlyList<ReportesGiradorOperacionesDTO>> GetListOperacionesDonwload(OperacionesRequestDataTableDto model)
         {
             using (var connection = _connectionFactory.GetConnection)
             {
@@ -114,7 +114,7 @@ namespace Factoring.Persistence.Repositories
                 parameters.Add("@filter_FecCrea", model.FilterFecCrea);
                 parameters.Add("@filter_nEstado", model.Estado);
 
-                var operacionesList = await connection.QueryAsync<OperacionesResponseDataTable>(query, parameters, commandType: CommandType.StoredProcedure);
+                var operacionesList = await connection.QueryAsync<ReportesGiradorOperacionesDTO>(query, parameters, commandType: CommandType.StoredProcedure);
                 return operacionesList.AsList();
             }
         }

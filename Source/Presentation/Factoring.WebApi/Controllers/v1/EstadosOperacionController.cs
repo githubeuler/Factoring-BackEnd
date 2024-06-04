@@ -1,4 +1,5 @@
 ﻿using Factoring.Application.Features.Operaciones.Commands;
+using Factoring.Application.Features.Operaciones.Commands.UpdateOperacion;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 //using Factoring.Application.Features.Condiciones.Command;
@@ -26,6 +27,11 @@ namespace Factoring.WebApi.Controllers.v1
         }
         [HttpPost("estado-facura")]
         public async Task<IActionResult> PostFactura(CreateEstadoFacturaOperacionCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+        [HttpPost("update-facura-calculo")]
+        public async Task<IActionResult> PostCalculoFactura(UpdateEvaluacionOperacionCalculoCommand command)
         {
             return Ok(await Mediator.Send(command));
         }

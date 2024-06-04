@@ -42,7 +42,6 @@ namespace Factoring.Application.Mappings
             CreateMap<CreateAdquirienteUbicacionCommand, UbicacionAdquirienteInsertDto>();
             CreateMap<GetOperacionesGetDataTableQuery, OperacionesRequestDataTableDto>();
             CreateMap<CatalogoListCategoriaQuery, CatalogoListDto>();
-
             CreateMap<CreateEvaluacionOperacionCommand, EvaluacionOperacionesInsertDto>();
             CreateMap<CreateEstadoFacturaOperacionCommand, EvaluacionOperacionesInsertDto>();
             CreateMap<UpdateOperacionCommand, OperacionesUpdateDto>();
@@ -50,11 +49,7 @@ namespace Factoring.Application.Mappings
             CreateMap<DeleteOperacionByIdCommand, OperacionesDeleteDto>();
             CreateMap<GetOperacionesGetDataTableDonwloadQuery, OperacionesRequestDataTableDto>();
             CreateMap<EditOperacionFacturaCommand, OperacionesFacturaEditDto>();
-            
-
-
-
-
+            CreateMap<UpdateEvaluacionOperacionCalculoCommand, EvaluacionOperacionesCalculoInsertDto>();
         }
     }
 }
