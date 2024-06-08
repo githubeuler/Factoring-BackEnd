@@ -83,8 +83,11 @@ namespace Factoring.Application.Features.Operaciones.Queries.OperacionesReport
                     worksheet.Cells["Z1"].Value = "FECHA PAGO NEGOCIADO";
                     worksheet.Cells["AA1"].Value = "FECHA CREACION OPERACION";
                     worksheet.Cells["AB1"].Value = "MONTO TOTAL SERVICIOS";
-                    worksheet.Cells["AC1"].Value = "ESTADO";
-                    using (var r = worksheet.Cells["A1:AC1"])
+                    worksheet.Cells["AC1"].Value = "ESTADO FACTURA";
+                    worksheet.Cells["AD1"].Value = "ESTADO OPERACIÓN";
+                    worksheet.Cells["AE1"].Value = "USUARIO CREADOR";
+                    worksheet.Cells["AF1"].Value = "COMENTARIO";
+                    using (var r = worksheet.Cells["A1:AF1"])
                     {
                         //r.Merge = true;
                         r.Style.Font.Color.SetColor(Color.White);
@@ -129,9 +132,11 @@ namespace Factoring.Application.Features.Operaciones.Queries.OperacionesReport
                         worksheet.Cells[row, 26].Value = item.dFechaPagoNegociado?.ToString("dd/MM/yyyy");
                         worksheet.Cells[row, 27].Value = item.dFechaCreacionOperacion?.ToString("dd/MM/yyyy");
                         worksheet.Cells[row, 28].Value = item.nComisionEstructuracionTotal;
-                        worksheet.Cells[row, 29].Value = item.Estado;
+                        worksheet.Cells[row, 29].Value = item.EstadoFactura;
 
-
+                        worksheet.Cells[row, 30].Value = item.EstadoOperacion;
+                        worksheet.Cells[row, 31].Value = item.UsuarioCreador;
+                        worksheet.Cells[row, 32].Value = item.Comentario;
                         row++;
                     }
                     worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();

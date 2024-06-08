@@ -348,6 +348,13 @@
         public string? Adquirente { get; set; }
         public decimal? nComisionEstructuracionTotal { get; set; }
         public DateTime? dFechaPagoNegociado { get; set; }
+
+
+        public string? EstadoFactura { get; set; }
+        public string? EstadoOperacion { get; set; }
+        public string? UsuarioCreador { get; set; }
+        public string? Comentario { get; set; }
+
     }
 
     public class OperacionesDeleteDto

@@ -32,7 +32,6 @@ namespace Factoring.Persistence.Repositories
                 parameters.Add("@p_nIdOperaciones", entity.IdOperaciones);
                 parameters.Add("@p_nIdCatalogoEstado", entity.IdCatalogoEstado);
                 parameters.Add("@p_cUsuarioCreador", entity.UsuarioCreador);
-                parameters.Add("@p_cUsuarioCreador", entity.Comentario);
                 parameters.Add("@p_Comentario", entity.Comentario);
                 parameters.Add("@p_nIdEstadosOperaciones", DbType.String, direction: ParameterDirection.Output);
                 await connection.QueryAsync<int>(query, param: parameters, commandType: CommandType.StoredProcedure);
