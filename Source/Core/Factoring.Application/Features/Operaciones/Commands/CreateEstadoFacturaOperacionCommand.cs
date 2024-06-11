@@ -18,6 +18,7 @@ namespace Factoring.Application.Features.Operaciones.Commands
         public int IdCatalogoEstado { get; set; }
         public string UsuarioCreador { get; set; }
         public string? Comentario { get; set; }
+        public bool? bRegistro { get; set; }
     }
 
     public class CreateEstadoFacturaOperacionCommandHandler : IRequestHandler<CreateEstadoFacturaOperacionCommand, Response<int>>

@@ -61,6 +61,7 @@ namespace Factoring.Persistence.Repositories
                     parameters.Add("@p_cUsuarioCreador", entity.UsuarioCreador);
                     parameters.Add("@p_cComentario", entity.Comentario);
                     parameters.Add("@p_TipoProceso", 0);
+                    parameters.Add("@p_bRegistro", entity.bRegistro);
                     parameters.Add("@p_nIdEstadoFactura", DbType.String, direction: ParameterDirection.Output);
                     await connection.QueryAsync<int>(query, param: parameters, commandType: CommandType.StoredProcedure);
                     int respuesta = parameters.Get<int>("p_nIdEstadoFactura");

@@ -79,7 +79,7 @@ namespace Factoring.Application.Features.Operaciones.Queries.OperacionesReport
                     worksheet.Cells["V1"].Value = "MONTO DESEMBOLSAR";
                     worksheet.Cells["W1"].Value = "FECHA DESEMBOLSO";
                     worksheet.Cells["X1"].Value = "FECHA VENCIMIENTO";
-                    worksheet.Cells["Y1"].Value = "FECHA COBRANZA";
+                    worksheet.Cells["Y1"].Value = "FECHA CANCELADO";
                     worksheet.Cells["Z1"].Value = "FECHA PAGO NEGOCIADO";
                     worksheet.Cells["AA1"].Value = "FECHA CREACION OPERACION";
                     worksheet.Cells["AB1"].Value = "MONTO TOTAL SERVICIOS";

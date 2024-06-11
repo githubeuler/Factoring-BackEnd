@@ -303,6 +303,7 @@
         public string nEstado { get; set; }
         public string NombreEstado { get; set; }
         public int nAprobadoRiesgo { get; set; }
+        public int nEditar { get; set; }
 
         public int TotalRecords { get; set; }
 
