@@ -17,6 +17,7 @@ namespace Factoring.Application.Features.Operaciones.Queries.OperacionesSearchDa
         public string? FilterRazonAdquiriente { get; set; }
         public string? FilterFecCrea { get; set; }
         public string? Estado { get; set; }
+        public string? Usuario { get; set; }
         public int PageSize { get; set; }
         public string? Sorting { get; set; }
         public string? SortOrder { get; set; }
