@@ -93,6 +93,7 @@ namespace Factoring.Persistence.Repositories
                 parameters.Add("@filter_cRazonAdquiriente", model.FilterRazonAdquiriente);
                 parameters.Add("@filter_FecCrea", model.FilterFecCrea);
                 parameters.Add("@filter_nEstado", model.Estado);
+                parameters.Add("@nUsuario", model.Usuario);
                 parameters.Add("@pagesize", model.PageSize);
                 parameters.Add("@Sorting", model.Sorting);
                 parameters.Add("@SortOrder", model.SortOrder);
