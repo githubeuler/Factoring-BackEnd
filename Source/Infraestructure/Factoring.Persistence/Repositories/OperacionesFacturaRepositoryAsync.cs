@@ -76,6 +76,20 @@ namespace Factoring.Persistence.Repositories
             }
         }
 
+        public async Task EditMontoAsync(OperacionesFacturaEditMontoDto entity)
+        {
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_Update_OperacionesFacturas";
+                var parameters = new DynamicParameters();
+                parameters.Add("@p_nIdOperaciones", entity.nIdOperaciones);
+                parameters.Add("@p_nIdOperacionesFactura", entity.nIdOperacionesFacturas);
+                parameters.Add("@p_nMonto", entity.nMonto);
+                parameters.Add("@p_cUsuarioActualizacion", entity.cUsuarioActualizacion);
+                await connection.ExecuteAsync(query, param: parameters, commandType: CommandType.StoredProcedure);
+
+            }
+        }
         public async Task<OperacionesFacturaListDto> FindByNumberAsync(int IdGirador, int IdAdquiriente, string NroFactura)
         {
             using (var connection = _connectionFactory.GetConnection)

@@ -131,6 +131,13 @@ namespace Factoring.Application.DTOs.Operaciones.OperacionFactura
         public DateTime FechaPagoNegociado { get; set; }
     }
 
+    public class OperacionesFacturaEditMontoDto
+    {
+        public int nIdOperaciones { get; set; }
+        public int nIdOperacionesFacturas { get; set; }
+        public string? cUsuarioActualizacion { get; set; }
+        public decimal nMonto { get; set; }
+    }
     public class OperacionesFacturaInsertCavaliDto
     {
         public string ConjuntoFacturasJson { get; set; }

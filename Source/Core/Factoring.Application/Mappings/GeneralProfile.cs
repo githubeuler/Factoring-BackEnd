@@ -50,6 +50,8 @@ namespace Factoring.Application.Mappings
             CreateMap<GetOperacionesGetDataTableDonwloadQuery, OperacionesRequestDataTableDto>();
             CreateMap<EditOperacionFacturaCommand, OperacionesFacturaEditDto>();
             CreateMap<UpdateEvaluacionOperacionCalculoCommand, EvaluacionOperacionesCalculoInsertDto>();
+            CreateMap<EditOperacionFacturaMontoCommand, OperacionesFacturaEditMontoDto>();
+            
         }
     }
 }

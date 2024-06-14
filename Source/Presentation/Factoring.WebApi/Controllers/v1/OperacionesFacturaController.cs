@@ -46,5 +46,10 @@ namespace Factoring.WebApi.Controllers.v1
         {
             return Ok(await Mediator.Send(model));
         }
+        [HttpPost("edit-monto")]
+        public async Task<IActionResult> EditMonto(EditOperacionFacturaMontoCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
     }
 }
