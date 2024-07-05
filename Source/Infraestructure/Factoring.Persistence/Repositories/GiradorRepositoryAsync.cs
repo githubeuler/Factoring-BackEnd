@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Factoring.Application.DTOs.Girador;
+using Factoring.Application.Features.Girador.Queries;
 using Factoring.Application.Interfaces.Repositories;
 using Factoring.Application.Wrappers;
 using Factoring.Persistence.Data;
@@ -70,6 +71,55 @@ namespace Factoring.Persistence.Repositories
                 var giradorList = await connection.QueryAsync<GiradorResponseList>(query, null, commandType: CommandType.StoredProcedure);
                 return giradorList.AsList();
             }
+        }
+
+        public async Task<GiradorGetByIdDto> GetByIdAsync(int id)
+        {
+
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_Consulta_Girador_Edicion";
+                var parameters = new DynamicParameters();
+                parameters.Add("@p_nIdGirador", id);
+                var girador = await connection.QueryFirstOrDefaultAsync<GiradorGetByIdDto>(query, param: parameters, commandType: CommandType.StoredProcedure);
+                return girador;
+            }
+
+        }
+
+        public async Task<bool> UpdateAsync(GiradorUpdateDto entity)
+        {
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_Actualiza_Girador";
+                var parameters = new DynamicParameters();
+
+
+                parameters.Add("@p_nIdGirador", entity.IdGirador);
+               
+                parameters.Add("@p_cRegUnicoEmpresa", entity.RegUnicoEmpresa);
+                parameters.Add("@p_cRazonSocial", entity.RazonSocial);
+               
+                parameters.Add("@p_cUsuarioActualizacion", entity.UsuarioActualizacion);
+
+                await connection.ExecuteAsync(query, param: parameters, commandType: CommandType.StoredProcedure);
+                return true;
+            }
+        }
+
+        public async Task<GetGiradorDocumentosFileName> GetDocumentosFileName(int IdDocumento, int IdTipo)
+        {
+
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_Consulta_Documentos_Girador_Tipo";
+                var parameters = new DynamicParameters();
+                parameters.Add("@p_nIdDocumento", IdDocumento);
+                parameters.Add("@p_nIdTipo", IdTipo);
+                var girador = await connection.QueryFirstOrDefaultAsync<GetGiradorDocumentosFileName>(query, param: parameters, commandType: CommandType.StoredProcedure);
+                return girador;
+            }
+
         }
     }
 }

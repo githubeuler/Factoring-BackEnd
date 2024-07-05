@@ -25,5 +25,23 @@ namespace Factoring.WebApi.Controllers.v1
         {
             return Ok(await Mediator.Send(new GiradorListQuery { }));
         }
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(int id)
+        {
+            return Ok(await Mediator.Send(new GetGiradorByIdQuery { Id = id }));
+        }
+
+        [HttpPost("update")]
+        public async Task<IActionResult> Update(UpdateGiradorCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
+
+        [HttpPost("obtener-filename-documento")]
+        public async Task<IActionResult> Post(GetGiradorDocumentosFileName command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
     }
 }

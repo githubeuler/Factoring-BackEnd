@@ -23,6 +23,12 @@ using Factoring.Application.Features.Usuario.Commands;
 using Factoring.Application.Features.Operaciones.Commands.UpdateOperacion;
 using Factoring.Application.Features.Operaciones.Commands.DeleteOperacion;
 using Factoring.Application.Features.Operaciones.Queries.OperacionesReport;
+using Factoring.Application.DTOs.Girador.ContactoGirador;
+using Factoring.Application.Features.GiradorDetails.Contacto.Commands.CreateContactoGirador;
+using Factoring.Application.Features.GiradorDetails.Contacto.Commands.DeleteContactoGirador;
+using Factoring.Application.DTOs.Girador.Documentos;
+using Factoring.Application.Features.GiradorDetails.Documentos.Commands.GiradorDocumentoDeleteCommand;
+using Factoring.Application.Features.GiradorDetails.Documentos.Commands.GiradorDocumentoInsertCommand;
 
 namespace Factoring.Application.Mappings
 {
@@ -51,7 +57,12 @@ namespace Factoring.Application.Mappings
             CreateMap<EditOperacionFacturaCommand, OperacionesFacturaEditDto>();
             CreateMap<UpdateEvaluacionOperacionCalculoCommand, EvaluacionOperacionesCalculoInsertDto>();
             CreateMap<EditOperacionFacturaMontoCommand, OperacionesFacturaEditMontoDto>();
-            
+
+            CreateMap<CreateGiradorContactoCommand, ContactoGiradorCreateDto>();
+            CreateMap<DeleteContactoGiradorCommand, ContactoGiradorDeleteDto>();
+            CreateMap<GiradorDocumentoInsertCommand, DocumentosGiradorInsertDto>();
+            CreateMap<GiradorDocumentoDeleteCommand, DocumentosGiradorDeleteDto>();
+
         }
     }
 }
