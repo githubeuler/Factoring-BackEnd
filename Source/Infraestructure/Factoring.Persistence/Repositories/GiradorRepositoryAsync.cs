@@ -99,7 +99,10 @@ namespace Factoring.Persistence.Repositories
                
                 parameters.Add("@p_cRegUnicoEmpresa", entity.RegUnicoEmpresa);
                 parameters.Add("@p_cRazonSocial", entity.RazonSocial);
-               
+                parameters.Add("@p_dFechaInicioActividad", entity.FechaInicioActividad);
+                parameters.Add("@p_nIdActividadEconomica", entity.IdActividadEconomica);
+                parameters.Add("@p_dFechaFirmaContrato", entity.FechaFirmaContrato);
+                parameters.Add("@p_cAntecedente", entity.Antecedente);
                 parameters.Add("@p_cUsuarioActualizacion", entity.UsuarioActualizacion);
 
                 await connection.ExecuteAsync(query, param: parameters, commandType: CommandType.StoredProcedure);

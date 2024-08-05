@@ -19,6 +19,10 @@ namespace Factoring.Application.Features.Girador.Commands
         public decimal Compra { get; set; }
         public int IdGrupoEconomico { get; set; }
         public string UsuarioActualizacion { get; set; }
+        public int IdActividadEconomica { get; set; }
+        public string? FechaInicioActividad { get; set; }
+        public string? FechaFirmaContrato { get; set; }
+        public string? Antecedente { get; set; }
 
         public class UpdateGiradorCommandHandler : IRequestHandler<UpdateGiradorCommand, Response<int>>
         {

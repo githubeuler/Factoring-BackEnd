@@ -26,7 +26,7 @@ namespace Factoring.Application.Features.Girador.Queries
             {
                 var girador = await _giradorRepositoryAsync.GetByIdAsync(query.Id);
                 if (girador == null) throw new ApiException($"Girador no encontrado.");
-                //girador.FormatoUbigeoPais = JsonConvert.DeserializeObject<string>(girador.cFormatoUbigeo).Split(",").ToList();
+                girador.FormatoUbigeoPais = JsonConvert.DeserializeObject<string>(girador.cFormatoUbigeo).Split(",").ToList();
 
                 return new Response<GiradorGetByIdDto>(girador);
             }

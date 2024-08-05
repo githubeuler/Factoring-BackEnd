@@ -44,6 +44,10 @@ namespace Factoring.Application.DTOs.Girador
         public int nEstado { get; set; }
         public string NombreEstado { get; set; }
         public List<string> FormatoUbigeoPais { get; set; }
+        public int nIdActividadEconomica { get; set; }
+        public string dFechaInicioActividad { get; set; }
+        public string? dFechaFirmaContrato { get; set; }
+        public string? cAntecedente { get; set; }
 
     }
 }

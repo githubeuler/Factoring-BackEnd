@@ -29,6 +29,9 @@ using Factoring.Application.Features.GiradorDetails.Contacto.Commands.DeleteCont
 using Factoring.Application.DTOs.Girador.Documentos;
 using Factoring.Application.Features.GiradorDetails.Documentos.Commands.GiradorDocumentoDeleteCommand;
 using Factoring.Application.Features.GiradorDetails.Documentos.Commands.GiradorDocumentoInsertCommand;
+using Factoring.Application.DTOs.Fondeador;
+using Factoring.Application.Features.Fondeador.Queries.FondeadorSearch;
+using Factoring.Application.Features.Fondeador.Commands;
 
 namespace Factoring.Application.Mappings
 {
@@ -46,6 +49,7 @@ namespace Factoring.Application.Mappings
             CreateMap<CreateOperacionFacturaCommand, OperacionesFacturaInsertDto>();
             CreateMap<CreateGiradorUbicacionCommand, UbicacionGiradorInsertDto>();
             CreateMap<CreateAdquirienteUbicacionCommand, UbicacionAdquirienteInsertDto>();
+            CreateMap<DeleteGiradorUbicacionCommand, UbicacionGiradorDeleteDto>();
             CreateMap<GetOperacionesGetDataTableQuery, OperacionesRequestDataTableDto>();
             CreateMap<CatalogoListCategoriaQuery, CatalogoListDto>();
             CreateMap<CreateEvaluacionOperacionCommand, EvaluacionOperacionesInsertDto>();
@@ -62,6 +66,9 @@ namespace Factoring.Application.Mappings
             CreateMap<DeleteContactoGiradorCommand, ContactoGiradorDeleteDto>();
             CreateMap<GiradorDocumentoInsertCommand, DocumentosGiradorInsertDto>();
             CreateMap<GiradorDocumentoDeleteCommand, DocumentosGiradorDeleteDto>();
+            CreateMap<UpdateGiradorCommand, GiradorUpdateDto>();
+            CreateMap<GetFondeadorListAll, FondeadorRequestDataTable>();
+            CreateMap<CreateFondeadorCommand, FondeadorInsertDto>();
 
         }
     }
