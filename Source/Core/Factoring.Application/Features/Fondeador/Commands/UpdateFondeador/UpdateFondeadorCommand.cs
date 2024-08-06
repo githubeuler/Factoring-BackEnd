@@ -17,6 +17,12 @@ namespace Factoring.Application.Features.Fondeador.Commands.UpdateFondeador
         public int IdTipoNegocio { get; set; }
         public string UsuarioActualizacion { get; set; }
 
+        public int IdProducto { get; set; }
+        public int IdInteresCalculado { get; set; }
+        public int IdTipoFondeo { get; set; }
+        public string? DistribucionFondeador { get; set; }
+
+
         public class UpdateFondeadorCommandHandler : IRequestHandler<UpdateFondeadorCommand, Response<int>>
         {
             private readonly IFondeadorRepositoryAsync _fondeadorRepositoryAsync;

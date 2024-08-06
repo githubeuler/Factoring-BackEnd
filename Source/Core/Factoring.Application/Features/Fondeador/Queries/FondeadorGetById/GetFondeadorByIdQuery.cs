@@ -26,7 +26,7 @@ namespace Factoring.Application.Features.Fondeador.Queries.FondeadorGetById
             {
                 var fondeador = await _fondeadorRepositoryAsync.GetByIdAsync(query.Id);
                 if (fondeador == null) throw new ApiException($"Fondeador no encontrado.");
-                fondeador.FormatoUbigeoPais = JsonConvert.DeserializeObject<string>(fondeador.cFormatoUbigeo).Split(",").ToList();
+                //fondeador.FormatoUbigeoPais = JsonConvert.DeserializeObject<string>(fondeador.cFormatoUbigeo).Split(",").ToList();
 
                 return new Response<FondeadorGetByIdDto>(fondeador);
             }

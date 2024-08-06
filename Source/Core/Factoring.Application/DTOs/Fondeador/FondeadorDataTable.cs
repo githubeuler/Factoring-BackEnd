@@ -2,11 +2,11 @@
 {
     public class FondeadorResponseDataTable
     {
-        public int iIdFondeador { get; set; }
+        public int nIdFondeador { get; set; }
         public string cNroDocumento { get; set; }
         public string cNombreFondeador { get; set; }
         public string dFecRegistro { get; set; }
-        public string iEstado { get; set; }
+        public string nEstado { get; set; }
         public string NombreEstado { get; set; }
         public int TotalRecords { get; set; }
 

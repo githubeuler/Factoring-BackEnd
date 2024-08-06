@@ -25,5 +25,10 @@
         public int IdTipoNegocio { get; set; }
         public string UsuarioActualizacion { get; set; }
 
+        public int IdProducto { get; set; }
+        public int IdInteresCalculado { get; set; }
+        public int IdTipoFondeo { get; set; }
+        public string DistribucionFondeador { get; set; }
+
     }
 }

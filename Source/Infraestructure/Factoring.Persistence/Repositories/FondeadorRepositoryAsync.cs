@@ -80,11 +80,16 @@ namespace Factoring.Persistence.Repositories
 
                 parameters.Add("@p_iIdFondeador", entity.IdFondeador);
                 parameters.Add("@p_iIdPais", entity.IdPais);
-                parameters.Add("@p_iTipoDocumento", entity.IdTipoNegocio);
+                parameters.Add("@p_iTipoDocumento", entity.TipoDocumento);
                 parameters.Add("@p_cNroDocumento", entity.NroDocumento);
                 parameters.Add("@p_cNombreFondeador", entity.NombreFondeador);
                 parameters.Add("@p_iIdTipoNegocio", entity.IdTipoNegocio);
                 parameters.Add("@p_cUsuarioActualizacion", entity.UsuarioActualizacion);
+
+                parameters.Add("@p_iIdProducto", entity.IdProducto);
+                parameters.Add("@p_iIdInteresCalculado", entity.IdInteresCalculado);
+                parameters.Add("@p_iIdTipoFondeo", entity.IdTipoFondeo);
+                parameters.Add("@p_cDistribucionFondeador", entity.DistribucionFondeador);
 
                 await connection.ExecuteAsync(query, param: parameters, commandType: CommandType.StoredProcedure);
                 return true;

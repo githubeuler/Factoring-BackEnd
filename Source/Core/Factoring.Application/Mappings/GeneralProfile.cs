@@ -32,6 +32,14 @@ using Factoring.Application.Features.GiradorDetails.Documentos.Commands.GiradorD
 using Factoring.Application.DTOs.Fondeador;
 using Factoring.Application.Features.Fondeador.Queries.FondeadorSearch;
 using Factoring.Application.Features.Fondeador.Commands;
+using Factoring.Application.Features.Fondeador.Commands.UpdateFondeador;
+using Factoring.Application.DTOs.Fondeador.CavaliFondeador;
+using Factoring.Application.Features.FondeadorDetails.Cavali.Commands.CreateCavaliFondeador;
+using Factoring.Application.Features.FondeadorDetails.Cavali.Commands.DeleteCavaliFondeador;
+using Factoring.Application.Features.FondeadorDetails.Documentos.Commands.CreateDocumentoFondeador;
+using Factoring.Application.Features.FondeadorDetails.Documentos.Commands.DeleteDocumentoFondeador;
+using Factoring.Application.Features.FondeadorDetails.Documentos.Querys.GetAllFondeadorByIdFondeador;
+using Factoring.Application.DTOs.Fondeador.DocumentoFondeador;
 
 namespace Factoring.Application.Mappings
 {
@@ -69,6 +77,13 @@ namespace Factoring.Application.Mappings
             CreateMap<UpdateGiradorCommand, GiradorUpdateDto>();
             CreateMap<GetFondeadorListAll, FondeadorRequestDataTable>();
             CreateMap<CreateFondeadorCommand, FondeadorInsertDto>();
+            CreateMap<UpdateFondeadorCommand, FondeadorUpdateDto>();
+            CreateMap<CreateFondeadorCavaliCommand, CavaliFondeadorCreateDto>();
+            CreateMap<DeleteCavaliFondeadorCommand, CavaliFondeadorDeleteDto>();
+            CreateMap<CreateFondeadorDocumentoCommand, DocumentosFondeadorCreateDto>();
+            CreateMap<DeleteDocumentoFondeadorCommand, DocumentosFondeadorDeleteDto>();
+            CreateMap<GetAllDocumentoByIdFondeadorQuery, DocumentosFondeadorResponseListDto>();
+
 
         }
     }
