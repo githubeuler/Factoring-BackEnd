@@ -23,6 +23,8 @@ using Factoring.Application.Features.Usuario.Commands;
 using Factoring.Application.Features.Operaciones.Commands.UpdateOperacion;
 using Factoring.Application.Features.Operaciones.Commands.DeleteOperacion;
 using Factoring.Application.Features.Operaciones.Queries.OperacionesReport;
+using Factoring.Application.Features.OperacionesFacturas.Queries;
+using Factoring.Application.Features.Aceptante.Commands;
 
 namespace Factoring.Application.Mappings
 {
@@ -51,7 +53,8 @@ namespace Factoring.Application.Mappings
             CreateMap<EditOperacionFacturaCommand, OperacionesFacturaEditDto>();
             CreateMap<UpdateEvaluacionOperacionCalculoCommand, EvaluacionOperacionesCalculoInsertDto>();
             CreateMap<EditOperacionFacturaMontoCommand, OperacionesFacturaEditMontoDto>();
-            
+            CreateMap<GetFacturasDataTableQuery, OperacionesFacturaRequestDataTableDto>();
+            CreateMap<DeleteAceptanteByIdCommand, AdquirienteDeleteDto>();
         }
     }
 }

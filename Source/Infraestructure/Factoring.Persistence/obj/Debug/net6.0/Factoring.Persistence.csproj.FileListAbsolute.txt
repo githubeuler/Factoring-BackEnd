@@ -15,3 +15,20 @@ C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\I
 C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Infraestructure\Factoring.Persistence\bin\Debug\net6.0\Factoring.Application.pdb
 C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Infraestructure\Factoring.Persistence\bin\Debug\net6.0\Factoring.Domain.pdb
 C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Infraestructure\Factoring.Persistence\obj\Debug\net6.0\Factorin.95C9D178.Up2Date
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Persistence\bin\Debug\net6.0\Factoring.Persistence.deps.json
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Persistence\bin\Debug\net6.0\Factoring.Persistence.dll
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Persistence\bin\Debug\net6.0\Factoring.Persistence.pdb
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Persistence\bin\Debug\net6.0\Factoring.Application.dll
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Persistence\bin\Debug\net6.0\Factoring.Domain.dll
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Persistence\bin\Debug\net6.0\Factoring.Application.pdb
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Persistence\bin\Debug\net6.0\Factoring.Domain.pdb
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Persistence\obj\Debug\net6.0\Factoring.Persistence.csproj.AssemblyReference.cache
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Persistence\obj\Debug\net6.0\Factoring.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Persistence\obj\Debug\net6.0\Factoring.Persistence.AssemblyInfoInputs.cache
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Persistence\obj\Debug\net6.0\Factoring.Persistence.AssemblyInfo.cs
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Persistence\obj\Debug\net6.0\Factoring.Persistence.csproj.CoreCompileInputs.cache
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Persistence\obj\Debug\net6.0\Factoring.Persistence.csproj.CopyComplete
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Persistence\obj\Debug\net6.0\Factoring.Persistence.dll
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Persistence\obj\Debug\net6.0\refint\Factoring.Persistence.dll
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Persistence\obj\Debug\net6.0\Factoring.Persistence.pdb
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Persistence\obj\Debug\net6.0\ref\Factoring.Persistence.dll

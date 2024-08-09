@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Authorization;
 using Factoring.Application.Features.OperacionesFacturas.Queries;
 using Factoring.Application.Features.OperacionesFacturas.Commands;
 using Factoring.Application.Features.OperacionesFacturas.Queries.GetAllFacturasByOperacionQuery;
+using Factoring.Application.Features.OperacionesFacturas.Queries.ValidateEstadoOperacionesFacturasQuery;
+using Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCavaliSendQuery;
 
 namespace Factoring.WebApi.Controllers.v1
 {
@@ -51,5 +53,44 @@ namespace Factoring.WebApi.Controllers.v1
         {
             return Ok(await Mediator.Send(command));
         }
+        [HttpGet("bandeja-factura")]
+        public async Task<IActionResult> Get([FromQuery] GetFacturasDataTableQuery filter)
+        {
+            return Ok(await Mediator.Send(filter));
+        }
+
+        [HttpPost("ValidateEstadoOperacionFactura")]
+        public async Task<IActionResult> ValidateEstadoOperacionFactura(OperacionesFacturaListDto OperacionFactura)
+        {
+            return Ok(await Mediator.Send(new ValidateEstadoOperacionesFacturasQuery()
+            {
+                IdOperacionFactura = OperacionFactura.nIdOperacionesFacturas,
+                tipoOperacion = OperacionFactura.nEstado
+            }));
+        }
+
+        [HttpPost("validate-asignacion-inversionista")]
+        public async Task<IActionResult> GetFondeador(OperacionFacturaValidateGetFondeadorQuery model)
+        {
+            return Ok(await Mediator.Send(model));
+        }
+
+        [HttpPost("invoices-cavaly-send")]
+        public async Task<IActionResult> SendInvoicesCavali(InvoicesCavaliSendQuery model)
+        {
+            return Ok(await Mediator.Send(model));
+        }
+        [HttpPost("remove-cavaly-send")]
+        public async Task<IActionResult> SendRemoveCavali(RemoveCavaliSendQuery model)
+        {
+            return Ok(await Mediator.Send(model));
+        }
+
+        [HttpPost("redeem-cavaly-send")]
+        public async Task<IActionResult> SendRedeemCavali(RedeemCavaliSendQuery model)
+        {
+            return Ok(await Mediator.Send(model));
+        }
+
     }
 }

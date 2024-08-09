@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Factoring.Application.DTOs.Aceptante;
 using Factoring.Application.DTOs.Adquiriente;
 using Factoring.Application.Interfaces.Repositories;
 using Factoring.Application.Wrappers;
@@ -72,5 +73,6 @@ namespace Factoring.Persistence.Repositories
                 return adList.AsList();
             }
         }
+      
     }
 }

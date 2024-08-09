@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Factoring.Application.DTOs.Externo;
 using Factoring.Application.DTOs.Operaciones;
 using Factoring.Application.Interfaces.Repositories;
 using Factoring.Application.Wrappers;
@@ -168,6 +169,65 @@ namespace Factoring.Persistence.Repositories
                 await connection.ExecuteAsync(query, param: parameters, commandType: CommandType.StoredProcedure);
             }
 
+        }
+
+        public async Task<DivisoGetFondeador> GetObtenerIversionista(int IdFactura)
+        {
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_Obtener_Iversionista";
+                var parameters = new DynamicParameters();
+                parameters.Add("@IdFactura", IdFactura);
+                var inversionista = await connection.QueryFirstOrDefaultAsync<DivisoGetFondeador>(query, param: parameters, commandType: CommandType.StoredProcedure);
+                return inversionista;
+            }
+        }
+        public async Task<int> GetprocessNumberFacturas()
+        {
+            try
+            {
+                using var connection = _connectionFactory.GetConnection;
+                var query = "pe_Consulta_Operaciones_factura_Correlativo";
+                var parameters = new DynamicParameters();
+                parameters.Add("@p_nNumeroFactura", null, DbType.Int32, direction: ParameterDirection.Output);
+                await connection.ExecuteAsync(query, param: parameters, commandType: CommandType.StoredProcedure);
+                return Convert.ToInt32(parameters.Get<int>("p_nNumeroFactura"));
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+        public async Task<DivisoGetFondeador> GetObtenerIversionistaFSeleccionado(int iIdFondeador)
+        {
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_ObtenerFondeadorCavali";
+                var parameters = new DynamicParameters();
+                parameters.Add("@p_nIdFondeador", iIdFondeador);
+                var inversionista = await connection.QueryFirstOrDefaultAsync<DivisoGetFondeador>(query, param: parameters, commandType: CommandType.StoredProcedure);
+                return inversionista;
+            }
+
+        }
+
+        public async Task<string> GetFileBase64(string filename)
+        {
+            using (var client = new HttpClient())
+            {
+                try
+                {
+                    client.BaseAddress = new Uri(_configuration["UrlBaseApiFiles"].ToString());
+                    client.MaxResponseContentBufferSize = 9999999;
+                    var result = await client.PostAsync($"Upload/download-file?fileName={System.Net.WebUtility.UrlEncode(filename)}", null);
+                    byte[] fileBytes = await result.Content.ReadAsByteArrayAsync();
+                    return Convert.ToBase64String(fileBytes);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
         }
     }
 }

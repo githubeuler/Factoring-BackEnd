@@ -15,3 +15,20 @@ C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\I
 C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Infraestructure\Factoring.Shared\bin\Debug\net6.0\Factoring.Domain.pdb
 C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Infraestructure\Factoring.Shared\obj\Debug\net6.0\Factoring.Shared.csproj.AssemblyReference.cache
 C:\Euler\Proyectos\Factoring Plus\Fuentes\BackEnd\FactoringSolutionBack\Source\Infraestructure\Factoring.Shared\obj\Debug\net6.0\Factorin.22211E51.Up2Date
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Shared\bin\Debug\net6.0\Factoring.Shared.deps.json
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Shared\bin\Debug\net6.0\Factoring.Shared.dll
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Shared\bin\Debug\net6.0\Factoring.Shared.pdb
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Shared\bin\Debug\net6.0\Factoring.Application.dll
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Shared\bin\Debug\net6.0\Factoring.Domain.dll
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Shared\bin\Debug\net6.0\Factoring.Application.pdb
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Shared\bin\Debug\net6.0\Factoring.Domain.pdb
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Shared\obj\Debug\net6.0\Factoring.Shared.csproj.AssemblyReference.cache
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Shared\obj\Debug\net6.0\Factoring.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Shared\obj\Debug\net6.0\Factoring.Shared.AssemblyInfoInputs.cache
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Shared\obj\Debug\net6.0\Factoring.Shared.AssemblyInfo.cs
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Shared\obj\Debug\net6.0\Factoring.Shared.csproj.CoreCompileInputs.cache
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Shared\obj\Debug\net6.0\Factoring.Shared.csproj.CopyComplete
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Shared\obj\Debug\net6.0\Factoring.Shared.dll
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Shared\obj\Debug\net6.0\refint\Factoring.Shared.dll
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Shared\obj\Debug\net6.0\Factoring.Shared.pdb
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Shared\obj\Debug\net6.0\ref\Factoring.Shared.dll

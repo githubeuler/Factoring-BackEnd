@@ -1,5 +1,7 @@
-﻿using Factoring.Application.DTOs.Operaciones;
+﻿using Factoring.Application.DTOs.Fondeador;
+using Factoring.Application.DTOs.Operaciones;
 using Factoring.Application.DTOs.Operaciones.OperacionFactura;
+using Factoring.Application.Wrappers;
 
 namespace Factoring.Application.Interfaces.Repositories
 {
@@ -12,6 +14,11 @@ namespace Factoring.Application.Interfaces.Repositories
         Task<IReadOnlyList<OperacionesFacturaListDto>> GetAllFacturasByOperaciones(int id);
         Task<IReadOnlyList<OperacionesFacturaListDto>> GetAllFacturasByOperacionesFacturas(int id);
         Task EditMontoAsync(OperacionesFacturaEditMontoDto entity);
-
+        Task<IReadOnlyList<OperacionesFacturaResponseDataTable>> GetListFacturasBandeja(OperacionesFacturaRequestDataTableDto model);
+        Task<Response<int>> ValidateEstadoOperacionesFacturasAsync(int IdOperacionFactura, int tipoOperacion);
+        Task<IReadOnlyList<FondeadorGetPermisos>> GetValidateFondeadoresAsync(string facturas);
+        Task<IReadOnlyList<FondeadorGetPermisos>> GetListadoFondeadoresAsync(string facturas);
+        Task<OperacionesFacturaListDto> GetFacturaById(int id);
+        Task<int> AddInvoicesLogCavaliAsync(OperacionesFacturaInsertCavaliDto entity);
     }
 }

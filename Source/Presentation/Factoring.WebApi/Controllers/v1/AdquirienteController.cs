@@ -1,4 +1,5 @@
-﻿using Factoring.Application.Features.Adquiriente.Commands;
+﻿using Factoring.Application.Features.Aceptante.Commands;
+using Factoring.Application.Features.Adquiriente.Commands;
 using Factoring.Application.Features.Adquiriente.Queries;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +12,11 @@ namespace Factoring.WebApi.Controllers.v1
     {
         [HttpPost]
         public async Task<IActionResult> Post(CreateAdquirienteCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+        [HttpPost("update")]
+        public async Task<IActionResult> Update(UpdateAceptanteCommand command)
         {
             return Ok(await Mediator.Send(command));
         }

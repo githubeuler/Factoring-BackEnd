@@ -1,7 +1,9 @@
 ﻿using Dapper;
+using Factoring.Application.DTOs.Fondeador;
 using Factoring.Application.DTOs.Operaciones;
 using Factoring.Application.DTOs.Operaciones.OperacionFactura;
 using Factoring.Application.Interfaces.Repositories;
+using Factoring.Application.Wrappers;
 using Factoring.Persistence.Data;
 using Microsoft.Extensions.Configuration;
 using System.Data;
@@ -128,5 +130,107 @@ namespace Factoring.Persistence.Repositories
                 return products.AsList();
             }
         }
+
+        public async Task<IReadOnlyList<OperacionesFacturaResponseDataTable>> GetListFacturasBandeja(OperacionesFacturaRequestDataTableDto model)
+        {
+
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_Consulta_OperacionesFactura_Reestructurado";
+                var parameters = new DynamicParameters();
+                parameters.Add("@Pageno", model.Pageno);
+                parameters.Add("@nEstado", model.nEstado);
+                parameters.Add("@filter_nNroOperacion", model.FilterNroOperacion);
+                parameters.Add("@pagesize", model.PageSize);
+                parameters.Add("@Sorting", model.Sorting);
+                parameters.Add("@SortOrder", model.SortOrder);
+                parameters.Add("@FechaCreacion", model.FechaCreacion);
+                var operacionesList = await connection.QueryAsync<OperacionesFacturaResponseDataTable>(query, parameters, commandType: CommandType.StoredProcedure);
+                return operacionesList.AsList();
+            }
+
+        }
+        public async Task<Response<int>> ValidateEstadoOperacionesFacturasAsync(int IdOperacionFactura, int tipoOperacion)
+        {
+            try
+            {
+                using (var connection = _connectionFactory.GetConnection)
+                {
+                    var query = "pe_Validate_EstadoOperacionesFacturas";
+                    var parameters = new DynamicParameters();
+                    parameters.Add("@p_nIdOperacionFactura", IdOperacionFactura);
+                    parameters.Add("@p_nTipoOperacion", tipoOperacion);
+                    parameters.Add("@p_nDescMensaje", null, DbType.String, direction: ParameterDirection.Output, size: 250);
+                    parameters.Add("@p_nIdEstado", DbType.Int32, direction: ParameterDirection.ReturnValue);
+                    await connection.ExecuteAsync(query, param: parameters, commandType: CommandType.StoredProcedure);
+                    int IdOperaciones = parameters.Get<int>("@p_nIdEstado");
+                    if (parameters.Get<int>("p_nIdEstado") == 0) return new Response<int>(parameters.Get<string>("p_nDescMensaje"));
+                    else return new Response<int>(parameters.Get<int>("p_nIdEstado"), parameters.Get<string>("p_nDescMensaje"));
+                }
+            }
+            catch (Exception ex)
+            {
+                var message = ex.Message;
+                return new Response<int>(message);
+            }
+        }
+
+        public async Task<IReadOnlyList<FondeadorGetPermisos>> GetValidateFondeadoresAsync(string facturas)
+        {
+
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_Consulta_Iversionistas";
+                var parameters = new DynamicParameters();
+                parameters.Add("@filter_nNrofactura", facturas);
+                var operacionesList = await connection.QueryAsync<FondeadorGetPermisos>(query, parameters, commandType: CommandType.StoredProcedure);
+                return operacionesList.AsList();
+            }
+
+        }
+
+        public async Task<IReadOnlyList<FondeadorGetPermisos>> GetListadoFondeadoresAsync(string facturas)
+        {
+
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_Validar_Reglas_Iversionistas";
+                var parameters = new DynamicParameters();
+                parameters.Add("@filter_nNrofactura", facturas);
+                var operacionesList = await connection.QueryAsync<FondeadorGetPermisos>(query, parameters, commandType: CommandType.StoredProcedure);
+                return operacionesList.AsList();
+            }
+        }
+        public async Task<OperacionesFacturaListDto> GetFacturaById(int id)
+        {
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_Consulta_FacturasById";
+                var parameters = new DynamicParameters();
+                parameters.Add("@p_nIdOperacionesFactura", id);
+                var invoice = await connection.QueryFirstOrDefaultAsync<OperacionesFacturaListDto>(query, param: parameters, commandType: CommandType.StoredProcedure);
+                return invoice;
+            }
+        }
+        public async Task<int> AddInvoicesLogCavaliAsync(OperacionesFacturaInsertCavaliDto entity)
+        {
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_Inserta_CavaliOperacionesPorFactura";
+                var parameters = new DynamicParameters();
+                parameters.Add("@p_ConjuntoFacturasJson", entity.ConjuntoFacturasJson);
+                parameters.Add("@p_cUsuarioCreador", entity.UsuarioCreador);
+                parameters.Add("@p_TramaEnvio4012", entity.TramaEnvio4012);
+                parameters.Add("@p_TramaRespuesta4012", entity.TramaRespuesta4012);
+                parameters.Add("@p_nIdOperaciones", entity.IdOperaciones);
+                parameters.Add("@p_nIdOperacionesFactura", entity.IdOperacionesFactura);
+                parameters.Add("@p_nParticipantCode", entity.cParticipantCode);
+                parameters.Add("@p_nIdCavaliOperacionesFactura", DbType.String, direction: ParameterDirection.Output);
+                await connection.QueryAsync<int>(query, param: parameters, commandType: CommandType.StoredProcedure);
+
+                return parameters.Get<int>("p_nIdCavaliOperacionesFactura");
+            }
+        }
+
     }
 }

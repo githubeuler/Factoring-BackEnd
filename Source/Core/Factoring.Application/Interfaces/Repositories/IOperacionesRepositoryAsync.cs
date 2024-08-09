@@ -1,4 +1,5 @@
-﻿using Factoring.Application.DTOs.Operaciones;
+﻿using Factoring.Application.DTOs.Externo;
+using Factoring.Application.DTOs.Operaciones;
 using Factoring.Application.Wrappers;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,9 @@ namespace Factoring.Application.Interfaces.Repositories
         Task<Response<int>> UpdateAsync(OperacionesUpdateDto entity);
         Task DeleteAsync(OperacionesDeleteDto entity);
          Task<IReadOnlyList<ReportesGiradorOperacionesDTO>> GetListOperacionesDonwload(OperacionesRequestDataTableDto model);
-
+        Task<DivisoGetFondeador> GetObtenerIversionista(int IdFactura);
+        Task<int> GetprocessNumberFacturas();
+        Task<string> GetFileBase64(string filename);
+        Task<DivisoGetFondeador> GetObtenerIversionistaFSeleccionado(int iIdFondeador);
     }
 }

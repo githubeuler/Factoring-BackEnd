@@ -11,15 +11,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infraestructure", "Infraest
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{C478B544-BF33-4CC6-8DF1-8B4C41DD612F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factoring.WebApi", "Source\Presentation\Factoring.WebApi\Factoring.WebApi.csproj", "{64F237D8-78FB-46A9-9E64-4B02F2EA00BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Factoring.WebApi", "Source\Presentation\Factoring.WebApi\Factoring.WebApi.csproj", "{64F237D8-78FB-46A9-9E64-4B02F2EA00BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factoring.Domain", "Source\Core\Factoring.Domain\Factoring.Domain.csproj", "{FEAC77A6-DD8F-482C-AEE1-F449D1F21DFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Factoring.Domain", "Source\Core\Factoring.Domain\Factoring.Domain.csproj", "{FEAC77A6-DD8F-482C-AEE1-F449D1F21DFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factoring.Application", "Source\Core\Factoring.Application\Factoring.Application.csproj", "{FF274520-23ED-438C-9820-01B1B4824EFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Factoring.Application", "Source\Core\Factoring.Application\Factoring.Application.csproj", "{FF274520-23ED-438C-9820-01B1B4824EFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factoring.Persistence", "Source\Infraestructure\Factoring.Persistence\Factoring.Persistence.csproj", "{F3E1E1D3-63A5-4CD7-816F-84C19FC06F7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Factoring.Persistence", "Source\Infraestructure\Factoring.Persistence\Factoring.Persistence.csproj", "{F3E1E1D3-63A5-4CD7-816F-84C19FC06F7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Factoring.Shared", "Source\Infraestructure\Factoring.Shared\Factoring.Shared.csproj", "{27AA357D-5A05-49B4-A055-C28CAFDFE8E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Factoring.Shared", "Source\Infraestructure\Factoring.Shared\Factoring.Shared.csproj", "{27AA357D-5A05-49B4-A055-C28CAFDFE8E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
