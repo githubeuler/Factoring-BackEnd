@@ -23,8 +23,6 @@ using Factoring.Application.Features.Usuario.Commands;
 using Factoring.Application.Features.Operaciones.Commands.UpdateOperacion;
 using Factoring.Application.Features.Operaciones.Commands.DeleteOperacion;
 using Factoring.Application.Features.Operaciones.Queries.OperacionesReport;
-using Factoring.Application.Features.OperacionesFacturas.Queries;
-using Factoring.Application.Features.Aceptante.Commands;
 
 namespace Factoring.Application.Mappings
 {
@@ -42,6 +40,7 @@ namespace Factoring.Application.Mappings
             CreateMap<CreateOperacionFacturaCommand, OperacionesFacturaInsertDto>();
             CreateMap<CreateGiradorUbicacionCommand, UbicacionGiradorInsertDto>();
             CreateMap<CreateAdquirienteUbicacionCommand, UbicacionAdquirienteInsertDto>();
+            CreateMap<DeleteGiradorUbicacionCommand, UbicacionGiradorDeleteDto>();
             CreateMap<GetOperacionesGetDataTableQuery, OperacionesRequestDataTableDto>();
             CreateMap<CatalogoListCategoriaQuery, CatalogoListDto>();
             CreateMap<CreateEvaluacionOperacionCommand, EvaluacionOperacionesInsertDto>();
@@ -53,8 +52,22 @@ namespace Factoring.Application.Mappings
             CreateMap<EditOperacionFacturaCommand, OperacionesFacturaEditDto>();
             CreateMap<UpdateEvaluacionOperacionCalculoCommand, EvaluacionOperacionesCalculoInsertDto>();
             CreateMap<EditOperacionFacturaMontoCommand, OperacionesFacturaEditMontoDto>();
-            CreateMap<GetFacturasDataTableQuery, OperacionesFacturaRequestDataTableDto>();
-            CreateMap<DeleteAceptanteByIdCommand, AdquirienteDeleteDto>();
+
+            CreateMap<CreateGiradorContactoCommand, ContactoGiradorCreateDto>();
+            CreateMap<DeleteContactoGiradorCommand, ContactoGiradorDeleteDto>();
+            CreateMap<GiradorDocumentoInsertCommand, DocumentosGiradorInsertDto>();
+            CreateMap<GiradorDocumentoDeleteCommand, DocumentosGiradorDeleteDto>();
+            CreateMap<UpdateGiradorCommand, GiradorUpdateDto>();
+            CreateMap<GetFondeadorListAll, FondeadorRequestDataTable>();
+            CreateMap<CreateFondeadorCommand, FondeadorInsertDto>();
+            CreateMap<UpdateFondeadorCommand, FondeadorUpdateDto>();
+            CreateMap<CreateFondeadorCavaliCommand, CavaliFondeadorCreateDto>();
+            CreateMap<DeleteCavaliFondeadorCommand, CavaliFondeadorDeleteDto>();
+            CreateMap<CreateFondeadorDocumentoCommand, DocumentosFondeadorCreateDto>();
+            CreateMap<DeleteDocumentoFondeadorCommand, DocumentosFondeadorDeleteDto>();
+            CreateMap<GetAllDocumentoByIdFondeadorQuery, DocumentosFondeadorResponseListDto>();
+
+
         }
     }
 }

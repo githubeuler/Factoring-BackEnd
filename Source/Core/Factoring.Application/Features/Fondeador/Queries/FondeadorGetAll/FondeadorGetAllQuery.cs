@@ -3,11 +3,6 @@ using Factoring.Application.DTOs.Fondeador;
 using Factoring.Application.Interfaces.Repositories;
 using Factoring.Application.Wrappers;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Factoring.Application.Features.Fondeador.Queries.FondeadorGetAll
 {

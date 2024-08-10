@@ -1,4 +1,5 @@
 ﻿using Factoring.Application.Features.GiradorDetails.GiradorUbicacion.Commands;
+using Factoring.Application.Features.GiradorDetails.GiradorUbicacion.Queries.GetAllUbicacionByGiradorQuery;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,13 +21,13 @@ namespace Factoring.WebApi.Controllers.v1
             return Ok(await Mediator.Send(command));
         }
 
-        //[HttpGet("{id}")]
-        //public async Task<IActionResult> GetAllAdquirienteUbicacion(int id)
-        //{
-        //    return Ok(await Mediator.Send(new GetAllUbicacionByGiradorQuery()
-        //    {
-        //        Id = id
-        //    }));
-        //}
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetAllAdquirienteUbicacion(int id)
+        {
+            return Ok(await Mediator.Send(new GetAllUbicacionByGiradorQuery()
+            {
+                Id = id
+            }));
+        }
     }
 }

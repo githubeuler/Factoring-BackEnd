@@ -23,8 +23,13 @@ namespace Factoring.Persistence
             services.AddTransient<IAdquirienteDireccionRepositoryAsync, AdquirienteDireccionRepositoryAsync>();
             services.AddTransient<IGiradorDireccionRepositoryAsync, GiradorDireccionRepositoryAsync>();
             services.AddTransient<IEvaluacionOperacionesRepositoryAsync, EvaluacionOperacionesRepositoryAsync>();
+            services.AddTransient<IGiradorContactoRepositoryAsync, GiradorContactoRepositoryAsync>();
+            services.AddTransient<IGiradorDocumentoRepositoryAsync, GiradorDocumentoRepositoryAsync>();
+            services.AddTransient<IUbigeoRepositoryAsync, UbigeoRepositoryAsync>();
             services.AddTransient<IFondeadorRepositoryAsync, FondeadorRepositoryAsync>();
-            services.AddTransient<IPaisRepositoryAsync, PaisRepositoryAsync>();
+            services.AddTransient<IFondeadorDatosRepositoryAsync, FondeadorDatosRepositoryAsync>();
+            services.AddTransient<IFondeadorCavaliRepositoryAsync, FondeadorCavaliRepositoryAsync>();
+            services.AddTransient<IFondeadorDocumentoRepositoryAsync, FondeadorDocumentoRepositoryAsync>();
             #endregion Repositories
         }
     }
