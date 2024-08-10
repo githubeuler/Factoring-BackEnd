@@ -1,5 +1,7 @@
 ﻿using Factoring.Application.Interfaces.Repositories;
+using Factoring.Application.Interfaces.Service;
 using Factoring.Persistence.Data;
+using Factoring.Persistence.Externo;
 using Factoring.Persistence.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,6 +32,9 @@ namespace Factoring.Persistence
             services.AddTransient<IFondeadorDatosRepositoryAsync, FondeadorDatosRepositoryAsync>();
             services.AddTransient<IFondeadorCavaliRepositoryAsync, FondeadorCavaliRepositoryAsync>();
             services.AddTransient<IFondeadorDocumentoRepositoryAsync, FondeadorDocumentoRepositoryAsync>();
+            services.AddTransient<ICavaliServiceAsync, CavaliServiceAsync>();
+            services.AddTransient<IAceptanteRepositoryAsync, AceptanteRepositoryAsync>();
+            services.AddTransient<IAceptanteContactoRepositoryAsync, AceptanteContactoRepositoryAsync>();          
             #endregion Repositories
         }
     }

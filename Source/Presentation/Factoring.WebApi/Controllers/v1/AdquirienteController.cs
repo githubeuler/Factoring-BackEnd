@@ -14,12 +14,7 @@ namespace Factoring.WebApi.Controllers.v1
         public async Task<IActionResult> Post(CreateAdquirienteCommand command)
         {
             return Ok(await Mediator.Send(command));
-        }
-        [HttpPost("update")]
-        public async Task<IActionResult> Update(UpdateAceptanteCommand command)
-        {
-            return Ok(await Mediator.Send(command));
-        }
+        }       
         [HttpGet("lista")]
         public async Task<IActionResult> Get()
         {
