@@ -10,7 +10,8 @@ namespace Factoring.Application.DTOs.Aceptante
     {
         public int nIdAdquiriente { get; set; }
         public int nIdPais { get; set; }
-        public string cFormatoUbigeo { get; set; }
+        public int nIdActividadEconomica { get; set; }
+        public string cFormatoUbigeo { get; set; }        
         public string cNombrePais { get; set; }
         public string cRegUnicoEmpresa { get; set; }
         public string cRazonSocial { get; set; }
@@ -20,6 +21,9 @@ namespace Factoring.Application.DTOs.Aceptante
         public string cNombreGrupoEconomico { get; set; }
         public int nEstado { get; set; }
         public string NombreEstado { get; set; }
+        public string dFechaInicioActividad { get; set; }
+        public string dFechaFirmaContrato { get; set; }
+        public string cAntecedente { get; set; }
         public List<string> FormatoUbigeoPais { get; set; }
     }
 }

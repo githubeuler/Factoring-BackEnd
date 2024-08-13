@@ -15,20 +15,24 @@
         public int IdPais { get; set; }
         public string? RegUnicoEmpresa { get; set; }
         public string? RazonSocial { get; set; }
-        public int IdSector { get; set; }
-        public int IdGrupoEconomico { get; set; }
+        public int? IdSector { get; set; }
+        public int? IdGrupoEconomico { get; set; }
         public string? UsuarioCreador { get; set; }
     }
 
     public class AdquirienteUpdateDto
     {
         public int IdAdquiriente { get; set; }
-        public int IdPais { get; set; }
+        //public int IdPais { get; set; }
         public string? RegUnicoEmpresa { get; set; }
         public string? RazonSocial { get; set; }
-        public int IdSector { get; set; }
-        public int IdGrupoEconomico { get; set; }
+        //public int IdSector { get; set; }
+        //public int IdGrupoEconomico { get; set; }
         public string? UsuarioActualizacion { get; set; }
+        public string? FechaInicioActividad { get; set; }
+        public int IdActividadEconomica { get; set; }
+        public string? FechaFirmaContrato { get; set; }
+        public string? Antecedente { get; set; }
 
     }
 }

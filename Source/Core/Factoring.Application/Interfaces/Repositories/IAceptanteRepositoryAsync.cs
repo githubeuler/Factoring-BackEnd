@@ -14,5 +14,6 @@ namespace Factoring.Application.Interfaces.Repositories
         Task<AceptanteGetByIdDto> GetByIdAsync(int id);
         Task DeleteAsync(AdquirienteDeleteDto entity);
         Task<Response<int>> UpdateAsync(AdquirienteUpdateDto entity);
+        Task<Response<int>> AddAsync(AdquirienteInsertDto entity);
     }
 }

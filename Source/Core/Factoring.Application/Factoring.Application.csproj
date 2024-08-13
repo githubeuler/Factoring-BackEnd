@@ -23,6 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Features\AceptanteDireccion\Commands\" />
+    <Folder Include="Features\AceptanteDireccion\Queries\" />
     <Folder Include="Features\Fondeador\Commands\" />
   </ItemGroup>
 
