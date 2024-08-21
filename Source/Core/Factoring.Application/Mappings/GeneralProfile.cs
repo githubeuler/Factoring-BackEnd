@@ -101,6 +101,9 @@ namespace Factoring.Application.Mappings
             CreateMap<DeleteContactoAceptanteCommand, ContactoAdquirienteDeleteDto>();
 
             CreateMap<GetFacturasDataTableQuery, OperacionesFacturaRequestDataTableDto>();
+            CreateMap<GetFondeoListAll, FondeoRequestDataTable>();
+            //FondeoRequestDataTable
+            
 
         }
     }
