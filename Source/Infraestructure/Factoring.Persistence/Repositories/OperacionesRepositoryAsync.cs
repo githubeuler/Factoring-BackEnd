@@ -182,6 +182,22 @@ namespace Factoring.Persistence.Repositories
                 return inversionista;
             }
         }
+
+
+        public async Task<DivisoGetFondeador> GetObtenerIversionistaEnvio(int nCategoria,int nFondeador,int nNroEnvio)
+        {
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_Obtener_Iversionista_Envio";
+                var parameters = new DynamicParameters();
+                parameters.Add("@p_nCategoria", nCategoria);
+                parameters.Add("@p_nFondeador", nFondeador);
+                parameters.Add("@p_nNroEnvio", nNroEnvio);
+                var inversionista = await connection.QueryFirstOrDefaultAsync<DivisoGetFondeador>(query, param: parameters, commandType: CommandType.StoredProcedure);
+                return inversionista;
+            }
+        }
+
         public async Task<int> GetprocessNumberFacturas()
         {
             try

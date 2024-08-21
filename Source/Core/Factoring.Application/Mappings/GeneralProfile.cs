@@ -48,6 +48,7 @@ using Factoring.Application.DTOs.ContactoAceptante;
 using Factoring.Application.Features.Fondeo.Queries.FondeoSearch;
 using Factoring.Application.DTOs.Fondeo;
 using Factoring.Application.Features.Fondeo.Commands;
+using Factoring.Application.Features.OperacionesFacturas.Queries;
 
 namespace Factoring.Application.Mappings
 {

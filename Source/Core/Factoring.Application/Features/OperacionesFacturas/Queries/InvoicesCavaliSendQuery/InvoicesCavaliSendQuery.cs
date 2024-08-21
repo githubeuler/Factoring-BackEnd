@@ -29,6 +29,7 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
         public int InvoicesFactura { get; set; }
         public int nIdModalidad { get; set; }
         public int nSegundoEnvio { get; set; }
+        public int nCategoriaFondeador { get; set; }
 
         public class InvoicesCavaliSendQueryHandler : IRequestHandler<InvoicesCavaliSendQuery, Response<ResponseCavaliInvoice4012>>
         {
@@ -66,7 +67,9 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
                     var fondeador = new DivisoGetFondeador();
                     if (query.FlagTransferProcess == 1)
                     {
-                        fondeador = await _operacionesRepositoryAsync.GetObtenerIversionista(query.InvoicesFactura);
+                        //fondeador = await _operacionesRepositoryAsync.GetObtenerIversionista(query.InvoicesFactura)
+                        //GetObtenerIversionistaEnvio
+                        fondeador = await _operacionesRepositoryAsync.GetObtenerIversionistaEnvio(query.nCategoriaFondeador,query.CodParticipante,1);
                     }
                     else
                     {
@@ -322,7 +325,51 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
 
                             }
                         }
+
+                        //if ((query.nCategoriaFondeador == 1) && (!response.Error && response.Valores != null))
+                        //{
+                        //    //***********Consulta estado operación ************//
+                        //    var resultcodPart = await _operacionesRepositoryAsync.GetObtenerIversionistaEnvio(query.nCategoriaFondeador, query.CodParticipante, 2); ;
+                        //    if (response.Valores.statusCode == 200)
+                        //    {
+                        //        var nTiempoResult = await _mailFunctionsRepositoryAsync.ObtenerTiempo();
+                        //        int nCantidad = Convert.ToInt32(nTiempoResult);
+                        //        var timer = new Stopwatch();
+                        //        timer.Start();
+                        //        int nTiempo = 0;
+                        //        OperacionesFacturaListDto objNew;
+                        //        while (nTiempo <= nCantidad)
+                        //        {
+                        //            TimeSpan timeTaken = timer.Elapsed;
+                        //            nTiempo += timeTaken.Seconds;
+                        //            objNew = new OperacionesFacturaListDto();
+                        //            if (nTiempo >= 20)
+                        //                objNew = await _operacionesFacturaRepositoryAsync.GetEstadoOperacion((int)nIdOperacionFactura);
+                        //            if (objNew.nEstado == 6)
+                        //            {
+                        //                invoiceHolder.invoiceDetail.invoice.ForEach(z => z.participantDestination = Convert.ToInt32(resultcodPart.iCodParticipante));
+                        //                response = await _cavaliServiceAsync.SendInvoice4012Holder(invoiceHolder, newInvoice2, userAuthCavly.Valores);
+                        //                await _operacionesFacturaRepositoryAsync.AddInvoicesLogCavaliAsync(new OperacionesFacturaInsertCavaliDto
+                        //                {
+                        //                    UsuarioCreador = query.UsuarioCreador,
+                        //                    ConjuntoFacturasJson = JsonConvert.SerializeObject(facturas),
+                        //                    TramaEnvio4012 = invoice.processDetail.processNumber == null ? JsonConvert.SerializeObject(invoiceHolder) : JsonConvert.SerializeObject(invoice),
+                        //                    TramaRespuesta4012 = JsonConvert.SerializeObject(response),
+                        //                    IdOperaciones = (int)nIdOperacion,
+                        //                    IdOperacionesFactura = (int)nIdOperacionFactura,
+                        //                    cParticipantCode = fondeador.iCodParticipante.ToString(),
+                        //                });
+                        //                break;
+                        //            }
+                        //        }
+
+
+                        //    }
+                        //}
                     }
+
+
+
                     return new Response<ResponseCavaliInvoice4012>(response);
                 }
                 catch (Exception ex)
