@@ -45,7 +45,9 @@ using Factoring.Application.Features.DocumentosAceptante.Commands;
 using Factoring.Application.DTOs.DocumentosAceptante;
 using Factoring.Application.Features.AceptanteContacto.Commands;
 using Factoring.Application.DTOs.ContactoAceptante;
-using Factoring.Application.Features.OperacionesFacturas.Queries;
+using Factoring.Application.Features.Fondeo.Queries.FondeoSearch;
+using Factoring.Application.DTOs.Fondeo;
+using Factoring.Application.Features.Fondeo.Commands;
 
 namespace Factoring.Application.Mappings
 {

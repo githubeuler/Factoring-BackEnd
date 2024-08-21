@@ -5,6 +5,7 @@ using Factoring.Application.Features.Fondeador.Commands.DeletePrestamoFondeador;
 using Factoring.Application.Features.Fondeador.Commands.UpdateFondeador;
 using Factoring.Application.Features.Fondeador.Queries.FondeadorGetAll;
 using Factoring.Application.Features.Fondeador.Queries.FondeadorGetById;
+using Factoring.Application.Features.Fondeador.Queries.FondeadorGetByTipoFondeo;
 using Factoring.Application.Features.Fondeador.Queries.FondeadorReportExport;
 using Factoring.Application.Features.Fondeador.Queries.FondeadorSearch;
 using Factoring.Application.Features.FondeadorDetails.Prestamo.Querys;
@@ -26,6 +27,11 @@ namespace Factoring.WebApi.Controllers.v1
         public async Task<IActionResult> Get(int id)
         {
             return Ok(await Mediator.Send(new GetFondeadorByIdQuery { Id = id }));
+        }
+        [HttpGet("lista-fondeadores-byTipoFondeo/{id}")]
+        public async Task<IActionResult> GetByTipoFondeo(int id)
+        {
+            return Ok(await Mediator.Send(new GetFondeadorByTipoFondeoQuery { Id = id }));
         }
         [HttpGet("lista-fondeadores")]
         public async Task<IActionResult> Get()
