@@ -36,6 +36,8 @@ namespace Factoring.Persistence
             services.AddTransient<IAceptanteRepositoryAsync, AceptanteRepositoryAsync>();
             services.AddTransient<IAceptanteContactoRepositoryAsync, AceptanteContactoRepositoryAsync>();
             services.AddTransient<IFondeoRepositoryAsync, FondeoRepositoryAsync>();
+            services.AddTransient<IAceptanteContactoRepositoryAsync, AceptanteContactoRepositoryAsync>();
+            services.AddTransient<IAceptanteDocumentoRepositoryAsync, AceptanteDocumentoRepositoryAsync>();
             #endregion Repositories
         }
     }

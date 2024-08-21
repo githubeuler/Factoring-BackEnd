@@ -47,25 +47,53 @@ namespace Factoring.Persistence.Repositories
                 throw new Exception(ex.Message);
             }
         }
-
+        public async Task<Response<int>> AddAsync(AdquirienteInsertDto entity)
+        {
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_Inserta_Adquiriente";
+                var parameters = new DynamicParameters();
+                parameters.Add("@p_nIdPais", entity.IdPais);
+                parameters.Add("@p_cRegUnicoEmpresa", entity.RegUnicoEmpresa);
+                parameters.Add("@p_cRazonSocial", entity.RazonSocial);
+                parameters.Add("@p_nIdSector", entity.IdSector);
+                parameters.Add("@p_nIdGrupoEconomico", entity.IdGrupoEconomico);
+                parameters.Add("@p_cUsuarioCreador", entity.UsuarioCreador);
+                parameters.Add("@p_nDescMensaje", null, DbType.String, direction: ParameterDirection.Output, size: 250);
+                parameters.Add("@p_nIdAdquiriente", DbType.Int32, direction: ParameterDirection.ReturnValue);
+                await connection.QueryAsync<int>(query, param: parameters, commandType: CommandType.StoredProcedure);
+                int IdGirador = parameters.Get<int>("p_nIdAdquiriente");
+                if (parameters.Get<int>("p_nIdAdquiriente") == 0) return new Response<int>(parameters.Get<string>("p_nDescMensaje"));
+                else return new Response<int>(parameters.Get<int>("p_nIdAdquiriente"), parameters.Get<string>("p_nDescMensaje"));
+            }
+        }
         public async Task<Response<int>> UpdateAsync(AdquirienteUpdateDto entity)
         {
-            using var connection = _connectionFactory.GetConnection;
-            var query = "pe_Actualiza_Aceptante";
-            var parameters = new DynamicParameters();
-            parameters.Add("@p_nIdAdquiriente", entity.IdAdquiriente);
-            parameters.Add("@p_nIdPais", entity.IdPais);
-            parameters.Add("@p_cRegUnicoEmpresa", entity.RegUnicoEmpresa);
-            parameters.Add("@p_cRazonSocial", entity.RazonSocial);
-            parameters.Add("@p_nIdSector", entity.IdSector);
-            parameters.Add("@p_nIdGrupoEconomico", entity.IdGrupoEconomico);
-            parameters.Add("@p_cUsuarioActualizacion", entity.UsuarioActualizacion);
-            parameters.Add("@p_nDescMensaje", null, DbType.String, direction: ParameterDirection.Output, size: 250);
-            parameters.Add("@p_nIdAdquiriente", DbType.Int32, direction: ParameterDirection.ReturnValue);
-            await connection.QueryAsync<int>(query, param: parameters, commandType: CommandType.StoredProcedure);
-            int IdGirador = parameters.Get<int>("p_nIdAdquiriente");
-            if (parameters.Get<int>("p_nIdAdquiriente") == 0) return new Response<int>(parameters.Get<string>("p_nDescMensaje"));
-            else return new Response<int>(parameters.Get<int>("p_nIdAdquiriente"), parameters.Get<string>("p_nDescMensaje"));
+            try
+            {
+                using var connection = _connectionFactory.GetConnection;
+                var query = "pe_Actualiza_Aceptante";
+                var parameters = new DynamicParameters();
+                parameters.Add("@p_nIdAdquiriente", entity.IdAdquiriente);
+                parameters.Add("@p_cRegUnicoEmpresa", entity.RegUnicoEmpresa);
+                parameters.Add("@p_cRazonSocial", entity.RazonSocial);
+                parameters.Add("@p_dFechaInicioActividad", entity.FechaInicioActividad);
+                parameters.Add("@p_nIdActividadEconomica", entity.IdActividadEconomica);
+                parameters.Add("@p_dFechaFirmaContrato", entity.FechaFirmaContrato);
+                parameters.Add("@p_cAntecedente", entity.Antecedente);
+                parameters.Add("@p_cUsuarioActualizacion", entity.UsuarioActualizacion);
+                parameters.Add("@p_nDescMensaje", null, DbType.String, direction: ParameterDirection.Output, size: 250);
+                //parameters.Add("@p_nIdAdquiriente", DbType.Int32, direction: ParameterDirection.ReturnValue);
+                await connection.QueryAsync<int>(query, param: parameters, commandType: CommandType.StoredProcedure);
+                //int IdAceptante = parameters.Get<int>("@p_nIdAdquiriente");
+                if (parameters.Get<int>("p_nIdAdquiriente") == 0) return new Response<int>(parameters.Get<string>("p_nDescMensaje"));
+                else return new Response<int>(parameters.Get<int>("p_nIdAdquiriente"), parameters.Get<string>("p_nDescMensaje"));
+            }
+            catch (Exception ex)
+            { 
+            string  mensaje = ex.Message;
+            }
+            return new Response<int>(0, "");
         }
     }
 }

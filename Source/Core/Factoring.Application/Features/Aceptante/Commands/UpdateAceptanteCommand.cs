@@ -15,12 +15,17 @@ namespace Factoring.Application.Features.Aceptante.Commands
     public class UpdateAceptanteCommand : IRequest<Response<int>>
     {
         public int IdAdquiriente { get; set; }
-        public int IdPais { get; set; }
+        //public int IdPais { get; set; }
         public string? RegUnicoEmpresa { get; set; }
         public string? RazonSocial { get; set; }
-        public int IdSector { get; set; }
-        public int IdGrupoEconomico { get; set; }
+        //public int IdSector { get; set; }
+        //public int IdGrupoEconomico { get; set; }
         public string? UsuarioActualizacion { get; set; }
+
+        public string? FechaInicioActividad { get; set; }
+        public int IdActividadEconomica { get; set; }
+        public string? FechaFirmaContrato { get; set; }
+        public string? Antecedente { get; set; }
 
         public class UpdateAceptanteCommandHandler : IRequestHandler<UpdateAceptanteCommand, Response<int>>
         {
@@ -40,7 +45,6 @@ namespace Factoring.Application.Features.Aceptante.Commands
             public async Task<Response<int>> Handle(UpdateAceptanteCommand command, CancellationToken cancellationToken)
             {
                 var adquiriente = await _aceptanteRepositoryAsyn.GetByIdAsync(command.IdAdquiriente);
-
                 if (adquiriente == null)
                 {
                     throw new ApiException($"Adquiriente no encontrado");

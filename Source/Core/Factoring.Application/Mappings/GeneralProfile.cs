@@ -40,6 +40,11 @@ using Factoring.Application.Features.FondeadorDetails.Documentos.Commands.Create
 using Factoring.Application.Features.FondeadorDetails.Documentos.Commands.DeleteDocumentoFondeador;
 using Factoring.Application.DTOs.Fondeador.DocumentoFondeador;
 using Factoring.Application.Features.FondeadorDetails.Documentos.Querys.GetAllFondeadorByIdFondeador;
+using Factoring.Application.Features.Aceptante.Commands;
+using Factoring.Application.Features.DocumentosAceptante.Commands;
+using Factoring.Application.DTOs.DocumentosAceptante;
+using Factoring.Application.Features.AceptanteContacto.Commands;
+using Factoring.Application.DTOs.ContactoAceptante;
 using Factoring.Application.Features.Fondeo.Queries.FondeoSearch;
 using Factoring.Application.DTOs.Fondeo;
 using Factoring.Application.Features.Fondeo.Commands;
@@ -93,6 +98,14 @@ namespace Factoring.Application.Mappings
 
 
 
+            CreateMap<CreateAceptanteCommand, AdquirienteInsertDto>();
+            CreateMap<AceptanteDocumentoInsertCommand, DocumentosAceptanteInsertDto>();
+            CreateMap<AceptanteDocumentoDeleteCommand, DocumentosAceptanteDeleteDto>();
+            CreateMap<UpdateAceptanteCommand, AdquirienteUpdateDto>();
+            CreateMap <CreateContactoAceptanteCommand, ContactoAdquirienteCreateDto>();
+            CreateMap<DeleteContactoAceptanteCommand, ContactoAdquirienteDeleteDto>();
+            
+                
 
         }
     }
