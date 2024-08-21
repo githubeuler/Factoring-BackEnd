@@ -75,6 +75,13 @@ namespace Factoring.WebApi.Controllers.v1
             return Ok(await Mediator.Send(model));
         }
 
+        [HttpPost("validate-envio-cavali")]
+        public async Task<IActionResult> GetFondearValidacion(OperacionesFacturaEnviRegistroValidateQuery model)
+        {
+            return Ok(await Mediator.Send(model));
+        }
+        
+
         [HttpPost("invoices-cavaly-send")]
         public async Task<IActionResult> SendInvoicesCavali(InvoicesCavaliSendQuery model)
         {

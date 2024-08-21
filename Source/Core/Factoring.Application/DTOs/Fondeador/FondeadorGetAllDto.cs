@@ -30,4 +30,32 @@ namespace Factoring.Application.DTOs.Fondeador
         public int? cantidadInversionistas { get; set; }
 
     }
+    public class FondeadorGetPermisosCabecera
+    {
+        public int? nActivarTransferencia { get; set; }
+        public List<FondeadorGetPermisos> listaFondeador { get; set; }
+
+    }
+
+    public class FacturasGetRegistro
+    {
+        public int nIdOperaciones { get; set; }
+        public int nIdOperacionesFacturas { get; set; }
+        public int nEstadoFactura { get; set; }
+        public int nIdFondeador { get; set; }
+        public string? dFechaDesembolsoFondeador { get; set; }
+        public string? dFechaDesembolso { get; set; }
+        public int nIdCategoria { get; set; }
+        public int nCantOperacion { get; set; }
+        public int nCantFacturasRecepcionada { get; set; }
+        public int nCantFacturasEvaluada { get; set; }
+    }
+
+    public class FacturasGetCabeceraRegistro
+    {
+         public List<FacturasGetRegistro> listaFacturas { get; set; }
+        public int? nActivarTransferencia { get; set; }
+    }
+
+
 }

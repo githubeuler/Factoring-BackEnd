@@ -20,5 +20,6 @@ namespace Factoring.Application.Interfaces.Repositories
         Task<IReadOnlyList<FondeadorGetPermisos>> GetListadoFondeadoresAsync(string facturas);
         Task<OperacionesFacturaListDto> GetFacturaById(int id);
         Task<int> AddInvoicesLogCavaliAsync(OperacionesFacturaInsertCavaliDto entity);
+        Task<IReadOnlyList<FacturasGetRegistro>> GetListaFacturasRegistradasAsync(string facturas, int nTipo);
     }
 }

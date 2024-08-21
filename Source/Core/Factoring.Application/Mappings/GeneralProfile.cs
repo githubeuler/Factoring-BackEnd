@@ -45,6 +45,7 @@ using Factoring.Application.Features.DocumentosAceptante.Commands;
 using Factoring.Application.DTOs.DocumentosAceptante;
 using Factoring.Application.Features.AceptanteContacto.Commands;
 using Factoring.Application.DTOs.ContactoAceptante;
+using Factoring.Application.Features.OperacionesFacturas.Queries;
 
 namespace Factoring.Application.Mappings
 {
@@ -95,8 +96,8 @@ namespace Factoring.Application.Mappings
             CreateMap<UpdateAceptanteCommand, AdquirienteUpdateDto>();
             CreateMap <CreateContactoAceptanteCommand, ContactoAdquirienteCreateDto>();
             CreateMap<DeleteContactoAceptanteCommand, ContactoAdquirienteDeleteDto>();
-            
-                
+
+            CreateMap<GetFacturasDataTableQuery, OperacionesFacturaRequestDataTableDto>();
 
         }
     }

@@ -232,5 +232,21 @@ namespace Factoring.Persistence.Repositories
             }
         }
 
+
+        public async Task<IReadOnlyList<FacturasGetRegistro>> GetListaFacturasRegistradasAsync(string facturas,int nTipo)
+        {
+
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_Lista_Facturas_AnotacionRegistro";
+                var parameters = new DynamicParameters();
+                parameters.Add("@filter_nNrofactura", facturas);
+                parameters.Add("@nTipo", nTipo);
+                var operacionesList = await connection.QueryAsync<FacturasGetRegistro>(query, parameters, commandType: CommandType.StoredProcedure);
+                return operacionesList.AsList();
+            }
+        }
+
+
     }
 }
