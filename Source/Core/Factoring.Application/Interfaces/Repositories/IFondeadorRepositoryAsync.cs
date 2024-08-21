@@ -15,6 +15,7 @@ namespace Factoring.Application.Interfaces.Repositories
         Task DeleteAsync(FondeadorDeleteDto entity);
         Task<bool> UpdateAsync(FondeadorUpdateDto entity);
         Task<FondeadorGetByIdDto> GetByIdAsync(int id);
+        Task<IReadOnlyList<FondeadorGetByIdDto>> GetByTipoFondeoAsync(int id);
         Task<IReadOnlyList<FileExportFondeadorResponseDto>> GetListFileExport(FileExportFondeadorRequestDto request);
         Task<IReadOnlyList<FondeadorGetAllDto>> GetAllAsync();
     }

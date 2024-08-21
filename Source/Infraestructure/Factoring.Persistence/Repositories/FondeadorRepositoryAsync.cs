@@ -137,5 +137,16 @@ namespace Factoring.Persistence.Repositories
             }
         }
 
+        public async Task<IReadOnlyList<FondeadorGetByIdDto>> GetByTipoFondeoAsync(int id)
+        {
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_Consulta_FondeadorByTipoFondeo";
+                var parameters = new DynamicParameters();
+                parameters.Add("@p_TipoFondeo", id);
+                var girador = await connection.QueryAsync<FondeadorGetByIdDto>(query, param: parameters, commandType: CommandType.StoredProcedure);
+                return girador.AsList();
+            }
+        }
     }
 }

@@ -40,6 +40,9 @@ using Factoring.Application.Features.FondeadorDetails.Documentos.Commands.Create
 using Factoring.Application.Features.FondeadorDetails.Documentos.Commands.DeleteDocumentoFondeador;
 using Factoring.Application.DTOs.Fondeador.DocumentoFondeador;
 using Factoring.Application.Features.FondeadorDetails.Documentos.Querys.GetAllFondeadorByIdFondeador;
+using Factoring.Application.Features.Fondeo.Queries.FondeoSearch;
+using Factoring.Application.DTOs.Fondeo;
+using Factoring.Application.Features.Fondeo.Commands;
 
 namespace Factoring.Application.Mappings
 {
@@ -83,6 +86,12 @@ namespace Factoring.Application.Mappings
             CreateMap<CreateFondeadorDocumentoCommand, DocumentosFondeadorCreateDto>();
             CreateMap<DeleteDocumentoFondeadorCommand, DocumentosFondeadorDeleteDto>();
             CreateMap<GetAllDocumentoByIdFondeadorQuery, DocumentosFondeadorResponseListDto>();
+            CreateMap<GetFondeoListAll, FondeoRequestDataTable>();
+            CreateMap<UpdateFondeoCommand, FondeoUpdateDto>();
+            CreateMap<UpdateEstadoFondeoCommand, FondeoUpdateStateDto>();
+            CreateMap<InsertFondeoCommand, FondeoInsertDto>();
+
+
 
 
         }
