@@ -37,7 +37,7 @@ namespace Factoring.Persistence.Repositories
                 parameters.Add("@filter_cFondeadorAsignado", model.FilterFondeadorAsignado);
                 parameters.Add("@filter_cGirador", model.FilterGirador);
                 parameters.Add("@filter_dFechaRegistro", model.FilterFechaRegistro);
-                parameters.Add("@filter_cEstadoFondeo", model.FilterEstadoFondeo);
+                parameters.Add("@filter_cEstadoFondeo", model.FilterEstadoFondeo == "0" ? null : model.FilterEstadoFondeo);
 
                 parameters.Add("@pagesize", model.PageSize);
                 parameters.Add("@Sorting", model.Sorting);

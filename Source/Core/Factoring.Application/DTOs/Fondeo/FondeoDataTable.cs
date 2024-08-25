@@ -27,6 +27,7 @@
         public decimal nPorcentajeTasaMoraFondeo { get; set; }
         public string? dFechaDesembolsoFondeador { get; set; }
         public string? dFechaCobranzaFondeador { get; set; }
+        public string? nMontoADesembolsarFondeador { get; set; }
 
     }
     public class FondeoRequestDataTable
