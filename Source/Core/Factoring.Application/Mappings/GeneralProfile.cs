@@ -48,6 +48,7 @@ using Factoring.Application.Features.Fondeo.Queries.FondeoSearch;
 using Factoring.Application.DTOs.Fondeo;
 using Factoring.Application.Features.Fondeo.Commands;
 using Factoring.Application.Features.OperacionesFacturas.Queries;
+using Factoring.Application.Features.Fondeo.Queries.FondeoReport;
 
 namespace Factoring.Application.Mappings
 {
@@ -96,7 +97,7 @@ namespace Factoring.Application.Mappings
             CreateMap<AceptanteDocumentoInsertCommand, DocumentosAceptanteInsertDto>();
             CreateMap<AceptanteDocumentoDeleteCommand, DocumentosAceptanteDeleteDto>();
             CreateMap<UpdateAceptanteCommand, AdquirienteUpdateDto>();
-            CreateMap <CreateContactoAceptanteCommand, ContactoAdquirienteCreateDto>();
+            CreateMap<CreateContactoAceptanteCommand, ContactoAdquirienteCreateDto>();
             CreateMap<DeleteContactoAceptanteCommand, ContactoAdquirienteDeleteDto>();
 
             CreateMap<GetFacturasDataTableQuery, OperacionesFacturaRequestDataTableDto>();
@@ -104,6 +105,7 @@ namespace Factoring.Application.Mappings
             CreateMap<InsertFondeoCommand, FondeoInsertDto>();
             CreateMap<UpdateFondeoCommand, FondeoUpdateDto>();
             CreateMap<UpdateEstadoFondeoCommand, FondeoUpdateStateDto>();
+            CreateMap<GetFondeoGetDataTableDonwloadQuery, FondeoRequestDataTable>();
 
         }
     }

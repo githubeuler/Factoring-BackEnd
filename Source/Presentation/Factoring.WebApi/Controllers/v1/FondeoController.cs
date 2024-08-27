@@ -1,5 +1,6 @@
 ﻿using Factoring.Application.Features.Fondeo.Commands;
 using Factoring.Application.Features.Fondeo.Queries.FondeoGetAll;
+using Factoring.Application.Features.Fondeo.Queries.FondeoReport;
 using Factoring.Application.Features.Fondeo.Queries.FondeoSearch;
 using Microsoft.AspNetCore.Mvc;
 
@@ -35,6 +36,11 @@ namespace Factoring.WebApi.Controllers.v1
         public async Task<IActionResult> Get([FromQuery] GetFondeoListAll filter)
         {
             return Ok(await Mediator.Send(filter));
+        }
+        [HttpGet("get-registro-fondeo-base64")]
+        public async Task<IActionResult> GetDowloadRegistroFondeo([FromQuery] GetFondeoGetDataTableDonwloadQuery query)
+        {
+            return Ok(await Mediator.Send(query));
         }
     }
 }

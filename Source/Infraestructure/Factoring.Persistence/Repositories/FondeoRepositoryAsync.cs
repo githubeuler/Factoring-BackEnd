@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Factoring.Application.DTOs.Fondeo;
+using Factoring.Application.DTOs.Operaciones;
 using Factoring.Application.Interfaces.Repositories;
 using Factoring.Persistence.Data;
 using System.Data;
@@ -101,6 +102,23 @@ namespace Factoring.Persistence.Repositories
 
                 await connection.ExecuteAsync(query, param: parameters, commandType: CommandType.StoredProcedure);
                 return true;
+            }
+        }
+        public async Task<IReadOnlyList<ReporteFondeoDTO>> GetListFondeoDonwload(FondeoRequestDataTable model)
+        {
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_Consulta_Fondeo_Exportar";
+                var parameters = new DynamicParameters();
+
+                parameters.Add("@filter_cNroOperacion", model.FilterNroOperacion);
+                parameters.Add("@filter_cFondeadorAsignado", model.FilterFondeadorAsignado);
+                parameters.Add("@filter_cGirador", model.FilterGirador);
+                parameters.Add("@filter_dFechaRegistro", model.FilterFechaRegistro);
+                parameters.Add("@filter_cEstadoFondeo", model.FilterEstadoFondeo);
+
+                var fondeoList = await connection.QueryAsync<ReporteFondeoDTO>(query, parameters, commandType: CommandType.StoredProcedure);
+                return fondeoList.AsList();
             }
         }
     }

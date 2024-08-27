@@ -1,42 +1,29 @@
 ﻿using AutoMapper;
-using MediatR;
-using OfficeOpenXml;
-using Factoring.Application.DTOs.Operaciones;
+using Factoring.Application.DTOs.Fondeo;
 using Factoring.Application.Interfaces.Repositories;
 using Factoring.Application.Wrappers;
-using System;
-using System.Collections.Generic;
+using MediatR;
+using OfficeOpenXml;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace Factoring.Application.Features.Operaciones.Queries.OperacionesReport
+namespace Factoring.Application.Features.Fondeo.Queries.FondeoReport
 {
-    public class GetOperacionesGetDataTableDonwloadQuery : IRequest<Response<string>>
+    public  class GetFondeoGetDataTableDonwloadQuery : IRequest<Response<string>>
     {
-        public string? FilterNroOperacion { get; set; }
-        public string? FilterRazonFondeador { get; set; }
-        public string? FilterRazonGirador { get; set; }
-        public string? FilterFecCrea { get; set; }
-        public string? Estado { get; set; }
-
-        public class GetOperacionesGetDataTableDonwloadQueryHandler : IRequestHandler<GetOperacionesGetDataTableDonwloadQuery, Response<string>>
+        public class GetFondeoGetDataTableDonwloadQueryHandler : IRequestHandler<GetFondeoGetDataTableDonwloadQuery, Response<string>>
         {
-            private readonly IOperacionesRepositoryAsync _operacionesRepositoryAsync;
+            private readonly IFondeoRepositoryAsync _fondeoRepositoryAsync;
             private readonly IMapper _mapper;
-            public GetOperacionesGetDataTableDonwloadQueryHandler(IOperacionesRepositoryAsync operacionesRepositoryAsync, IMapper mapper)
+            public GetFondeoGetDataTableDonwloadQueryHandler(IFondeoRepositoryAsync fondeoRepositoryAsync, IMapper mapper)
             {
-                _operacionesRepositoryAsync = operacionesRepositoryAsync;
+                _fondeoRepositoryAsync = fondeoRepositoryAsync;
                 _mapper = mapper;
             }
 
-            public async Task<Response<string>> Handle(GetOperacionesGetDataTableDonwloadQuery request, CancellationToken cancellationToken)
+            public async Task<Response<string>> Handle(GetFondeoGetDataTableDonwloadQuery request, CancellationToken cancellationToken)
             {
-                var _request = _mapper.Map<OperacionesRequestDataTableDto>(request);
-                var response = await _operacionesRepositoryAsync.GetListOperacionesDonwload(_request);
+                var _request = _mapper.Map<FondeoRequestDataTable>(request);
+                var response = await _fondeoRepositoryAsync.GetListFondeoDonwload(_request);
 
                 var stream = new MemoryStream();
                 using (var xlPackage = new ExcelPackage(stream))
