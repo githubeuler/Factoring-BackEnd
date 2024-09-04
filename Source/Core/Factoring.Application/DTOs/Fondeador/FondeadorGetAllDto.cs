@@ -41,6 +41,7 @@ namespace Factoring.Application.DTOs.Fondeador
     {
         public int nIdOperaciones { get; set; }
         public int nIdOperacionesFacturas { get; set; }
+        public int nIdFondeadorFactura { get; set; }
         public int nEstadoFactura { get; set; }
         public int nIdFondeador { get; set; }
         public string? dFechaDesembolsoFondeador { get; set; }

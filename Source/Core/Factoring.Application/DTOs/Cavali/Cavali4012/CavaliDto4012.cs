@@ -42,7 +42,7 @@ namespace Factoring.Application.DTOs.Cavali.Cavali4012
         }
 
         [JsonProperty("processDetail", Required = Required.DisallowNull, NullValueHandling = NullValueHandling.Ignore)]
-        public ProcessDetail4012 ProcessDetail { get; set; }
+        public ProcessDetail4012? ProcessDetail { get; set; }
 
         [JsonProperty("invoiceDetail")]
         public InvoiceDetail4012 InvoiceDetail { get; set; }
@@ -50,6 +50,10 @@ namespace Factoring.Application.DTOs.Cavali.Cavali4012
     public partial class Request4008
     {
         public List<Invoice4008> invoice { get; set; }
+    }
+    public partial class Request4008Cab
+    {
+        public Request4008 request4008 { get; set; }
     }
     public partial class Invoice4008
     {

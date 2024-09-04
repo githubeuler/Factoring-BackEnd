@@ -11,41 +11,41 @@ using System.Threading.Tasks;
 
 namespace Factoring.Persistence.Repositories
 {
-  public class EvaluacionOperacionesRepositoryAsync : IEvaluacionOperacionesRepositoryAsync
+    public class EvaluacionOperacionesRepositoryAsync : IEvaluacionOperacionesRepositoryAsync
 
     {
         private readonly IConnectionFactory _connectionFactory;
 
-    public EvaluacionOperacionesRepositoryAsync(IConnectionFactory connectionFactory)
-    {
-        _connectionFactory = connectionFactory;
-    }
-
-    public async Task<Response<int>> AddAsync(EvaluacionOperacionesInsertDto entity)
-    {
-        try
+        public EvaluacionOperacionesRepositoryAsync(IConnectionFactory connectionFactory)
         {
-            using (var connection = _connectionFactory.GetConnection)
+            _connectionFactory = connectionFactory;
+        }
+
+        public async Task<Response<int>> AddAsync(EvaluacionOperacionesInsertDto entity)
+        {
+            try
             {
-                var query = "pe_Inserta_EstadosOperacion";
-                var parameters = new DynamicParameters();
-                parameters.Add("@p_nIdOperaciones", entity.IdOperaciones);
-                parameters.Add("@p_nIdCatalogoEstado", entity.IdCatalogoEstado);
-                parameters.Add("@p_cUsuarioCreador", entity.UsuarioCreador);
-                parameters.Add("@p_Comentario", entity.Comentario);
-                parameters.Add("@p_nIdEstadosOperaciones", DbType.String, direction: ParameterDirection.Output);
-                await connection.QueryAsync<int>(query, param: parameters, commandType: CommandType.StoredProcedure);
-                int respuesta = parameters.Get<int>("p_nIdEstadosOperaciones");
-                if (respuesta == 0) return new Response<int>("Existen facturas que no estan anotadas en cavally.");
-                else return new Response<int>(respuesta, "Actualizado Correctamente");
+                using (var connection = _connectionFactory.GetConnection)
+                {
+                    var query = "pe_Inserta_EstadosOperacion";
+                    var parameters = new DynamicParameters();
+                    parameters.Add("@p_nIdOperaciones", entity.IdOperaciones);
+                    parameters.Add("@p_nIdCatalogoEstado", entity.IdCatalogoEstado);
+                    parameters.Add("@p_cUsuarioCreador", entity.UsuarioCreador);
+                    parameters.Add("@p_Comentario", entity.Comentario);
+                    parameters.Add("@p_nIdEstadosOperaciones", DbType.String, direction: ParameterDirection.Output);
+                    await connection.QueryAsync<int>(query, param: parameters, commandType: CommandType.StoredProcedure);
+                    int respuesta = parameters.Get<int>("p_nIdEstadosOperaciones");
+                    if (respuesta == 0) return new Response<int>("Existen facturas que no estan anotadas en cavally.");
+                    else return new Response<int>(respuesta, "Actualizado Correctamente");
+                }
+            }
+            catch (Exception ex)
+            {
+                var message = ex.Message;
+                return new Response<int>(message);
             }
         }
-        catch (Exception ex)
-        {
-            var message = ex.Message;
-            return new Response<int>(message);
-        }
-    }
         public async Task<Response<int>> AddFacturaAsync(EvaluacionOperacionesInsertDto entity)
         {
             try
@@ -74,7 +74,26 @@ namespace Factoring.Persistence.Repositories
                 var message = ex.Message;
                 return new Response<int>(message);
             }
-           
+
+        }
+
+        public async Task<int> AddFacturaEvaluacionAsync(EvaluacionOperacionesInsertDto entity)
+        {
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_Inserta_EvaluacionOperacionesFacturas";
+                var parameters = new DynamicParameters();
+                parameters.Add("@p_nIdOperaciones", entity.IdOperaciones);
+                parameters.Add("@p_nIdOperacionesFactura", entity.IdOperacionesFactura);
+                parameters.Add("@p_nIdCatalogoEstado", entity.IdCatalogoEstado);
+                parameters.Add("@p_cUsuarioCreador", entity.UsuarioCreador);
+                parameters.Add("@p_cComentario", entity.Comentario);
+                parameters.Add("@p_TipoProceso", 0); //TIPO DE PROCESO DESDE PATFACTORING               
+                parameters.Add("@p_nIdEvaluacionOperaciones", DbType.String, direction: ParameterDirection.Output);
+                await connection.QueryAsync<int>(query, param: parameters, commandType: CommandType.StoredProcedure);
+
+                return parameters.Get<int>("p_nIdEvaluacionOperaciones");
+            }
         }
 
         public async Task<Response<int>> UpdateFacturaAsync(EvaluacionOperacionesCalculoInsertDto entity)

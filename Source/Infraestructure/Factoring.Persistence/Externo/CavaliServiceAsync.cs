@@ -29,7 +29,7 @@ namespace Factoring.Persistence.Externo
             _configuration = configuration;
             _connectionFactory = connectionFactory;
         }
-        public async Task<CavaliAuthResponseDto> AuthenticationApi()
+        public async Task<Response<AuthenticationResponseDto>> AuthenticationApi()
         {
             try
             {
@@ -48,9 +48,10 @@ namespace Factoring.Persistence.Externo
                 };
                 var us = JsonConvert.SerializeObject(user);
                 var requestContent = new StringContent(us, Encoding.UTF8, _configuration["ContentTypeRequest"].ToString());
-                var response = await client.PostAsync("login/authenticate", requestContent);
+                var response = await client.PostAsync("login", requestContent);
                 var json = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<CavaliAuthResponseDto>(json);
+                
+                return JsonConvert.DeserializeObject<Response<AuthenticationResponseDto>>(json);
             }
             catch (Exception ex)
             {
@@ -144,7 +145,7 @@ namespace Factoring.Persistence.Externo
             return resultGeneral;
 
         }
-        public async Task<ResponseCavaliInvoice4012> SendInvoice4012(InvoiceRoot invoiceRoot, InvoiceRoot2 invoiceRoot2, string token)
+        public async Task<Response<ResponseCavaliInvoice4012>> SendInvoice4012(InvoiceRoot invoiceRoot, InvoiceRoot2 invoiceRoot2, string token)
         {
             var client = new HttpClient();
             try
@@ -160,18 +161,26 @@ namespace Factoring.Persistence.Externo
 
                 if (invoiceRoot == null)
                 {
-                    us = JsonConvert.SerializeObject(invoiceRoot2);
+                    Request4012new2 request = new()
+                    {
+                        request4012 = invoiceRoot2
+                    };
+                     us = JsonConvert.SerializeObject(request);
                 }
                 else
                 {
-                    us = JsonConvert.SerializeObject(invoiceRoot);
+                    Request4012new request = new()
+                    {
+                        request4012 = invoiceRoot
+                    };
+                    us = JsonConvert.SerializeObject(request);
                 }
 
 
                 var requestContent = new StringContent(us, Encoding.UTF8, _configuration["ContentTypeRequest"].ToString());
-                var response = await client.PostAsync("invoice-to-whole-process", requestContent);
+                var response = await client.PostAsync("Cavali/invoice-to-whole-process", requestContent);
                 var json = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<ResponseCavaliInvoice4012>(json);
+                return JsonConvert.DeserializeObject<Response<ResponseCavaliInvoice4012>>(json);
             }
             catch (Exception ex)
             {
@@ -179,7 +188,7 @@ namespace Factoring.Persistence.Externo
 
             }
         }
-        public async Task<ResponseCavaliInvoice4012> SendInvoice4012Holder(InvoiceRootHolder invoiceRoot, InvoiceRoot2 invoiceRoot2, string token)
+        public async Task<Response<ResponseCavaliInvoice4012>> SendInvoice4012Holder(InvoiceRootHolder invoiceRoot, InvoiceRoot2 invoiceRoot2, string token)
         {
             var client = new HttpClient();
 
@@ -194,20 +203,28 @@ namespace Factoring.Persistence.Externo
 
             if (invoiceRoot == null)
             {
-                us = JsonConvert.SerializeObject(invoiceRoot2);
+                Request4012new2 request = new()
+                {
+                    request4012 = invoiceRoot2
+                };
+                us = JsonConvert.SerializeObject(request);
             }
             else
             {
-                us = JsonConvert.SerializeObject(invoiceRoot);
+                Request4012Holder request = new()
+                {
+                    request4012 = invoiceRoot
+                };
+                us = JsonConvert.SerializeObject(request);
             }
 
-
+//
             var requestContent = new StringContent(us, Encoding.UTF8, _configuration["ContentTypeRequest"].ToString());
-            var response = await client.PostAsync("invoice-to-whole-process", requestContent);
+            var response = await client.PostAsync("Cavali/invoice-to-whole-process", requestContent);
             var json = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<ResponseCavaliInvoice4012>(json);
+            return JsonConvert.DeserializeObject<Response<ResponseCavaliInvoice4012>>(json);
         }
-        public async Task<Response4008> SendRemove4008(Request4008 removeCavali, string token)
+        public async Task<Response<Response4008>> SendRemove4008(Request4008 removeCavali, string token)
         {
             var client = new HttpClient();
 
@@ -219,13 +236,19 @@ namespace Factoring.Persistence.Externo
             client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
 
             string us = string.Empty;
-            us = JsonConvert.SerializeObject(removeCavali);
+            Request4008Cab requestDto = new()
+            {
+                request4008 = removeCavali
+            };
+            us = JsonConvert.SerializeObject(requestDto);
 
             var requestContent = new StringContent(us, Encoding.UTF8, _configuration["ContentTypeRequest"].ToString());
-            var response = await client.PostAsync("remove", requestContent);
+            var response = await client.PostAsync("Cavali/remove", requestContent);
             var json = await response.Content.ReadAsStringAsync();
-            var response4008 = JsonConvert.DeserializeObject<Response4008>(json);
-            return response4008;
+            //ar json = await response.Content.ReadAsStringAsync();
+            //return JsonConvert.DeserializeObject<Response<ResponseCavaliInvoice4012>>(json);
+            return JsonConvert.DeserializeObject<Response<Response4008>>(json);
+            //return response4008;
         }
         public async Task<Response4007> SendRedeem4007(Request4007 removeCavali, string token)
         {
@@ -241,7 +264,7 @@ namespace Factoring.Persistence.Externo
             string us = string.Empty;
             us = JsonConvert.SerializeObject(removeCavali);
             var requestContent = new StringContent(us, Encoding.UTF8, _configuration["ContentTypeRequest"].ToString());
-            var response = await client.PostAsync("redeem", requestContent);
+            var response = await client.PostAsync("Cavali/redeem", requestContent);
             var json = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<Response4007>(json);
         }
@@ -299,7 +322,7 @@ namespace Factoring.Persistence.Externo
             client.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
             var param = JsonConvert.SerializeObject(parametro);
             var requestContent = new StringContent(param, Encoding.UTF8, _configuration["ContentTypeRequest"].ToString());
-            var response = await client.PostAsync("invoice", requestContent);
+            var response = await client.PostAsync("Cavali/invoice", requestContent);
             var json = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<Response4016>(json);
         }

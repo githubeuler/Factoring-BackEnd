@@ -274,10 +274,10 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
                         }
                     }
 
-                    var response = new ResponseCavaliInvoice4012();
-
+                    //var response = new ResponseCavaliInvoice4012();
+                    var response = new Response<ResponseCavaliInvoice4012>();
                     var userAuthCavly = await _cavaliServiceAsync.AuthenticationApi();
-                    if (!userAuthCavly.Error)
+                    if (userAuthCavly.Succeeded)
                     {
                         if (query.nSegundoEnvio == 1)
                         {
@@ -286,11 +286,11 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
                         }
                         if (fondeador.iCodRUT != null && fondeador.iCodRUT != "0")
                         {
-                            response = await _cavaliServiceAsync.SendInvoice4012(invoice, newInvoice2, userAuthCavly.Valores);
+                            response = await _cavaliServiceAsync.SendInvoice4012(invoice, newInvoice2, userAuthCavly.Data.JWToken);
                         }
                         else
                         {
-                            response = await _cavaliServiceAsync.SendInvoice4012Holder(invoiceHolder, newInvoice2, userAuthCavly.Valores);
+                            response = await _cavaliServiceAsync.SendInvoice4012Holder(invoiceHolder, newInvoice2, userAuthCavly.Data.JWToken);
                         }
 
                         await _operacionesFacturaRepositoryAsync.AddInvoicesLogCavaliAsync(new OperacionesFacturaInsertCavaliDto
@@ -299,7 +299,7 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
                             UsuarioCreador = query.UsuarioCreador,
                             ConjuntoFacturasJson = JsonConvert.SerializeObject(facturas),
                             TramaEnvio4012 = invoice.processDetail.processNumber == null ? JsonConvert.SerializeObject(invoiceHolder) : JsonConvert.SerializeObject(invoice),
-                            TramaRespuesta4012 = JsonConvert.SerializeObject(response),
+                            TramaRespuesta4012 = JsonConvert.SerializeObject(response.Data.Valores),
                             IdOperaciones = (int)nIdOperacion,
                             IdOperacionesFactura = (int)nIdOperacionFactura,
                             cParticipantCode = fondeador.iCodParticipante.ToString(),
@@ -307,13 +307,13 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
 
 
 
-                        if (!response.Error && response.Valores != null)
-                        {
-                            if (response.Valores.statusCode == 200)
-                            {
-                                if (query.nSegundoEnvio != 1)
-                                {
-                                    var res = await _evaluacionOperacionesRepositoryAsync.AddFacturaAsync(new EvaluacionOperacionesInsertDto
+                        //if (response.Succeeded && response.Data.Valores != null)
+                        //{
+                        //    if (response.Data.Valores.statusCode == 200)
+                        //    {
+                        //        if (query.nSegundoEnvio != 1)
+                        //        {
+                                    var res = await _evaluacionOperacionesRepositoryAsync.AddFacturaEvaluacionAsync(new EvaluacionOperacionesInsertDto
                                     {
                                         IdOperaciones = (int)nIdOperacion,
                                         IdOperacionesFactura = (int)nIdOperacionFactura,
@@ -321,10 +321,13 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
                                         UsuarioCreador = Constantes.UADMIN,
                                         Comentario = string.Empty
                                     });
-                                }
+                        //        }
 
-                            }
-                        }
+                        //    }
+                        //}
+
+
+
 
                         //if ((query.nCategoriaFondeador == 1) && (!response.Error && response.Valores != null))
                         //{
@@ -367,10 +370,7 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
                         //    }
                         //}
                     }
-
-
-
-                    return new Response<ResponseCavaliInvoice4012>(response);
+                    return new Response<ResponseCavaliInvoice4012>(response.Data);
                 }
                 catch (Exception ex)
                 {

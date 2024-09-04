@@ -108,9 +108,9 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
                         request4007.invoice = lstinvoice4007;
 
                         var userAuth = await _cavaliServiceAsync.AuthenticationApi();
-                        if (!userAuth.Error)
+                        if (userAuth.Succeeded)
                         {
-                            response = await _cavaliServiceAsync.SendRedeem4007(request4007, userAuth.Valores);
+                            response = await _cavaliServiceAsync.SendRedeem4007(request4007, userAuth.Data.JWToken);
 
                             await _operacionesFacturaRepositoryAsync.AddInvoicesLogCavaliAsync(new OperacionesFacturaInsertCavaliDto
                             {

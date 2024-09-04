@@ -65,13 +65,14 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
 
                 var nIdOperacion = 0;
                 var nIdOperacionFactura = 0;
-                var nEstadoOperacion = 28;
-                var response = new Response4008();
+                var nEstadoOperacion = 18;
+                //var response = new Response4008();
+                var response = new Response<Response4008>();
                 var request4008 = new Request4008();
                 var lstinvoice4008 = new List<Invoice4008>();
                 var invoice4008 = new Invoice4008();
                 var serieNumero = new SerieNumero();
-
+                //new List<OperacionesFacturaListDto>();
                 var facturas = new List<OperacionesFacturaListDto>();
                 facturas.Add((await _operacionesFacturaRepositoryAsync.GetFacturaById(query.InvoicesFactura)));
 
@@ -87,30 +88,41 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
                     invoice4008.authorizationNumber = "12345678";
                     invoice4008.invoiceType = "01";
                     invoice4008.additionalFieldOne = query.IdMotivo.ToString();
+                    //invoice4008.additionalFieldTwo = query.IdMotivo.ToString();
                     lstinvoice4008.Add(invoice4008);
                 }
 
                 request4008.invoice = lstinvoice4008;
 
                 var userAuth = await _cavaliServiceAsync.AuthenticationApi();
-                if (!userAuth.Error)
+                if (userAuth.Succeeded)
                 {
-                    response = await _cavaliServiceAsync.SendRemove4008(request4008, userAuth.Valores);
+                    var responsenew = await _cavaliServiceAsync.SendRemove4008(request4008, userAuth.Data.JWToken);
+                    response = responsenew;
                     await _operacionesFacturaRepositoryAsync.AddInvoicesLogCavaliAsync(new OperacionesFacturaInsertCavaliDto
                     {
                         UsuarioCreador = query.UsuarioCreador,
                         ConjuntoFacturasJson = JsonConvert.SerializeObject(facturas),
                         TramaEnvio4012 = JsonConvert.SerializeObject(request4008),
-                        TramaRespuesta4012 = JsonConvert.SerializeObject(response),
+                        TramaRespuesta4012 = JsonConvert.SerializeObject(response.Data.Valores),
                         IdOperaciones = (int)nIdOperacion,
                         IdOperacionesFactura = (int)nIdOperacionFactura,
                         cParticipantCode = "0"
                     });
-                    if (!response.Error && response.Valores != null)
+                    if (!response.Data.Error && response.Data.Valores != null)
                     {
-                        if (response.Valores.statusCode == 200)
+                        //response.Succeeded= true;
+                        if (response.Data.Valores.statusCode == 200)
                         {
-                            var res = await _evaluacionOperacionesRepositoryAsync.AddFacturaAsync(new EvaluacionOperacionesInsertDto
+                            //var res = await _evaluacionOperacionesRepositoryAsync.AddFacturaAsync(new EvaluacionOperacionesInsertDto
+                            //{
+                            //    IdOperaciones = (int)nIdOperacion,
+                            //    IdOperacionesFactura = (int)nIdOperacionFactura,
+                            //    IdCatalogoEstado = (int)nEstadoOperacion,
+                            //    UsuarioCreador = Constantes.UADMIN,
+                            //    Comentario = string.Empty
+                            //});
+                            var res = await _evaluacionOperacionesRepositoryAsync.AddFacturaEvaluacionAsync(new EvaluacionOperacionesInsertDto
                             {
                                 IdOperaciones = (int)nIdOperacion,
                                 IdOperacionesFactura = (int)nIdOperacionFactura,
@@ -121,7 +133,7 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
                         }
                     }
                 }
-                return new Response<Response4008>(response);
+                return new Response<Response4008>(response.Data);
             }
         }
 

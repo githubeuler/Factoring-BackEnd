@@ -11,9 +11,9 @@
 
     public class Payment
     {
-        public int number { get; set; }
-        public double netAmount { get; set; }
-        public string paymentDate { get; set; }
+        public int? number { get; set; }
+        public double? netAmount { get; set; }
+        public string? paymentDate { get; set; }
     }
 
     public class PaymentDetail
@@ -45,17 +45,17 @@
         public string acqDistrict { get; set; }
         public string addressAcquirer { get; set; }
         public int typePayment { get; set; }
-
+        public long? NumberQuota { get; set; }
         public string deliverDateAcq { get; set; }
-        public string acceptedDate { get; set; }
+        public string? acceptedDate { get; set; }
         public string paymentDate { get; set; }
         public decimal netAmount { get; set; }
-        public string otherOne { get; set; }
-        public string otherTwo { get; set; }
+        public string? otherOne { get; set; }
+        public string? otherTwo { get; set; }
         public PaymentDetail paymentDetail { get; set; }
         public int constancyEmission { get; set; }
-        public string additionalFieldOne { get; set; }
-        public string additionalFieldTwo { get; set; }
+        public string? additionalFieldOne { get; set; }
+        public string? additionalFieldTwo { get; set; }
         public int holderCode { get; set; }
     }
     public class InvoiceUnHolder
@@ -108,6 +108,19 @@
         public List<InvoiceUnHolder> invoice { get; set; }
     }
 
+
+    public class Request4012new
+    {
+       public InvoiceRoot request4012 { get; set; }
+    }
+    public class Request4012new2
+    {
+        public InvoiceRoot2 request4012 { get; set; }
+    }
+    public class Request4012Holder
+    {
+        public InvoiceRootHolder request4012 { get; set; }
+    }
     public class InvoiceRoot
     {
 
@@ -118,8 +131,8 @@
         }
 
 
-        public ProcessDetail processDetail { get; set; }
-        public InvoiceDetail invoiceDetail { get; set; }
+        public ProcessDetail? processDetail { get; set; }
+        public InvoiceDetail? invoiceDetail { get; set; }
     }
     public class InvoiceRootHolder
     {

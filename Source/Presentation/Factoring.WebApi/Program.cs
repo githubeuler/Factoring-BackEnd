@@ -38,9 +38,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddApplicationLayer();
 builder.Services.AddSwaggerGen(options =>
 {
-    options.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApplication1", Version = "v1" });
-    options.SwaggerDoc(name: "WebApplication1",
-       new OpenApiInfo { Title = "WebApplication1", Version = "v1" });
+    options.SwaggerDoc("v1", new OpenApiInfo { Title = "Factoring.WebApi", Version = "v1" });
+    options.SwaggerDoc(name: "Factoring.WebApi",
+       new OpenApiInfo { Title = "Factoring.WebApi", Version = "v1" });
     options.AddSecurityDefinition(name: "Bearer", securityScheme: new OpenApiSecurityScheme
     {
         Name = "Authorization",
