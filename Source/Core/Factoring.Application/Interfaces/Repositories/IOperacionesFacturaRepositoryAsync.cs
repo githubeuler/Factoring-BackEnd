@@ -21,5 +21,9 @@ namespace Factoring.Application.Interfaces.Repositories
         Task<OperacionesFacturaListDto> GetFacturaById(int id);
         Task<int> AddInvoicesLogCavaliAsync(OperacionesFacturaInsertCavaliDto entity);
         Task<IReadOnlyList<FacturasGetRegistro>> GetListaFacturasRegistradasAsync(string facturas, int nTipo);
+        Task<int> AddDocumentoSolicitudOperacionesAsync(DocumentosSolicitudperacionesInsertDto entity);
+        Task<IReadOnlyList<DocumentoSolicitudOperacionListDto>> GetDocumentoBySolicitud(int id);
+        Task<IReadOnlyList<DocumentoSolicitudOperacionListIdDto>> GetAllDocumentoSolicitudByOperaciones(int id);
+        Task DeleteDocumentoAsync(OperacionesSolicitudDeleteDto entity);
     }
 }

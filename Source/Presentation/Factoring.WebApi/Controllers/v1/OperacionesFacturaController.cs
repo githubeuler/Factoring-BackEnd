@@ -98,6 +98,32 @@ namespace Factoring.WebApi.Controllers.v1
         {
             return Ok(await Mediator.Send(model));
         }
+        [HttpPost("add-documento-solicitud")]
+        public async Task<IActionResult> Post(CreateDocumentoSolicitudOperacionesCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+        [HttpGet("get-documentosolicitud/{id}")]
+        public async Task<IActionResult> GetAllDocumentoSolicitud(int id)
+        {
+            return Ok(await Mediator.Send(new GetDocumentoSolicitudByAllQuery()
+            {
+                Id = id
+            }));
+        }
+
+        [HttpPost("consulta-documento-solicitud")]
+        public async Task<IActionResult> GetConsultaDocumento(GetDocumentoSolicitudByIdQuery model)
+        {
+            return Ok(await Mediator.Send(model));
+        }
+
+        [HttpPost("delete-documento")]
+        public async Task<IActionResult> DeleteDocumento(DeleteSolicitudOperacionCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+
 
     }
 }

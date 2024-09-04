@@ -107,6 +107,9 @@ namespace Factoring.Application.Mappings
             CreateMap<UpdateEstadoFondeoCommand, FondeoUpdateStateDto>();
             CreateMap<GetFondeoGetDataTableDonwloadQuery, FondeoRequestDataTable>();
 
+            CreateMap<DeleteSolicitudOperacionCommand, OperacionesSolicitudDeleteDto>();
+            CreateMap<CreateDocumentoSolicitudOperacionesCommand, DocumentosSolicitudperacionesInsertDto>();
+
         }
     }
 }

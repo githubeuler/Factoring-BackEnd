@@ -247,6 +247,64 @@ namespace Factoring.Persistence.Repositories
             }
         }
 
+        public async Task<int> AddDocumentoSolicitudOperacionesAsync(DocumentosSolicitudperacionesInsertDto entity)
+        {
+            try
+            {
+                using (var connection = _connectionFactory.GetConnection)
+                {
+                    var query = "pe_Inserta_DocumentosSolicitudEvaluacionOperaciones";
+                    var parameters = new DynamicParameters();
+                    parameters.Add("@p_nIdSolEvalOperaciones", entity.nIdSolEvalOperaciones);
+                    parameters.Add("@p_nTipoDocumento", entity.nTipoDocumento);
+                    parameters.Add("@p_cNombreDocumento", entity.cNombreDocumento);
+                    parameters.Add("@_cRutaDocumento", entity.cRutaDocumento);
+                    parameters.Add("@_cUsuarioCreador", entity.cUsuarioCreador);
+                    parameters.Add("@p_nIdDocumentoSolEvalOperaciones", DbType.String, direction: ParameterDirection.Output);
+                    await connection.QueryAsync<int>(query, param: parameters, commandType: CommandType.StoredProcedure);
+                    return parameters.Get<int>("p_nIdDocumentoSolEvalOperaciones");
+                }
+            }
+            catch (Exception ex)
+            {
+                var message = ex.Message;
+                return 0;
+            }
+        }
 
+        public async Task<IReadOnlyList<DocumentoSolicitudOperacionListDto>> GetDocumentoBySolicitud(int id)
+        {
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_Consultar_DocumentosSolicitudEvaluacionOperaciones";
+                var parameters = new DynamicParameters();
+                parameters.Add("@p_nIdOperacion", id);
+                var products = await connection.QueryAsync<DocumentoSolicitudOperacionListDto>(query, param: parameters, commandType: CommandType.StoredProcedure);
+                return products.AsList();
+            }
+        }
+        public async Task<IReadOnlyList<DocumentoSolicitudOperacionListIdDto>> GetAllDocumentoSolicitudByOperaciones(int id)
+        {
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_Consulta_DocumentosSolicitudEvaluacionOperacionesxId";
+                var parameters = new DynamicParameters();
+                parameters.Add("@p_nIdSolEvalOperaciones", id);
+
+                var products = await connection.QueryAsync<DocumentoSolicitudOperacionListIdDto>(query, param: parameters, commandType: CommandType.StoredProcedure);
+                return products.AsList();
+            }
+        }
+        public async Task DeleteDocumentoAsync(OperacionesSolicitudDeleteDto entity)
+        {
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_Elimina_DocumentosSolicitudEvaluacionOperaciones";
+                var parameters = new DynamicParameters();
+                parameters.Add("@p_nIdDocumentoSolEvalOperaciones", entity.nIdDocumentoSolEvalOperaciones);
+                parameters.Add("@p_cUsuarioActualizacion", entity.UsuarioActualizacion);
+                await connection.ExecuteAsync(query, param: parameters, commandType: CommandType.StoredProcedure);
+            }
+        }
     }
 }
