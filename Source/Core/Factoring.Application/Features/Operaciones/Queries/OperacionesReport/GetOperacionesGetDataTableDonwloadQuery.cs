@@ -18,8 +18,8 @@ namespace Factoring.Application.Features.Operaciones.Queries.OperacionesReport
     public class GetOperacionesGetDataTableDonwloadQuery : IRequest<Response<string>>
     {
         public string? FilterNroOperacion { get; set; }
+        public string? FilterRazonFondeador { get; set; }
         public string? FilterRazonGirador { get; set; }
-        public string? FilterRazonAdquiriente { get; set; }
         public string? FilterFecCrea { get; set; }
         public string? Estado { get; set; }
 

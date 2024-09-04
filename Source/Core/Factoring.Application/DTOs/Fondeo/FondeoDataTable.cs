@@ -2,6 +2,7 @@
 {
     public class FondeoResponseDataTable
     {
+        public int nIdEstadoOperacion { get; set; }
         public int nIdFondeadorFactura { get; set; }
         public int nIdOperaciones { get; set; }
         public string cNroOperacion { get; set; }
@@ -27,6 +28,7 @@
         public decimal nPorcentajeTasaMoraFondeo { get; set; }
         public string? dFechaDesembolsoFondeador { get; set; }
         public string? dFechaCobranzaFondeador { get; set; }
+        public string? nMontoADesembolsarFondeador { get; set; }
 
     }
     public class FondeoRequestDataTable

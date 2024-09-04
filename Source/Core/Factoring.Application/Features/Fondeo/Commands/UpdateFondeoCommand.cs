@@ -14,12 +14,12 @@ namespace Factoring.Application.Features.Fondeo.Commands
         public int IdTipoProducto { get; set; }
         public string? FechaDesembolso { get; set; }
         public string? FechaCobranza { get; set; }
-        public int PorTasaMensual { get; set; }
-        public int PorComisionFactura { get; set; }
-        public int PorSpread { get; set; }
-        public int PorCapitalFinanciado { get; set; }
-        public int PorTasaAnualFondeo { get; set; }
-        public int PorTasaMoraFondeo { get; set; }
+        public decimal PorTasaMensual { get; set; }
+        public decimal PorComisionFactura { get; set; }
+        public decimal PorSpread { get; set; }
+        public decimal PorCapitalFinanciado { get; set; }
+        public decimal PorTasaAnualFondeo { get; set; }
+        public decimal PorTasaMoraFondeo { get; set; }
         public string? UsuarioModificacion { get; set; }
 
         public class UpdateFondeoCommandHandler : IRequestHandler<UpdateFondeoCommand, Response<int>>

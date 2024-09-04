@@ -9,5 +9,6 @@ namespace Factoring.Application.Interfaces.Repositories
         Task<bool> UpdateAsync(FondeoUpdateDto entity);
         Task<bool> InsertAsync(FondeoInsertDto entity);
         Task<bool> UpdateStateAsync(FondeoUpdateStateDto entity);
+        Task<IReadOnlyList<ReporteFondeoDTO>> GetListFondeoDonwload(FondeoRequestDataTable model);
     }
 }
