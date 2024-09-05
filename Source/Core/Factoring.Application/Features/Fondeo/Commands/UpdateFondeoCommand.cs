@@ -21,6 +21,7 @@ namespace Factoring.Application.Features.Fondeo.Commands
         public decimal PorTasaAnualFondeo { get; set; }
         public decimal PorTasaMoraFondeo { get; set; }
         public string? UsuarioModificacion { get; set; }
+        public decimal Igv { get; set; }
 
         public class UpdateFondeoCommandHandler : IRequestHandler<UpdateFondeoCommand, Response<int>>
         {

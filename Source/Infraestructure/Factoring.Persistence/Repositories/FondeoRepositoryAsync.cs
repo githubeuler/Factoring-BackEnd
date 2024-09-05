@@ -83,6 +83,7 @@ namespace Factoring.Persistence.Repositories
                 parameters.Add("@p_dFechaDesembolso", entity.FechaDesembolso);
                 parameters.Add("@p_dFechaCobranza", entity.FechaCobranza);
                 parameters.Add("@p_cUsuarioModificacion", entity.UsuarioModificacion);
+                parameters.Add("@p_nIgv", entity.Igv);
 
                 await connection.ExecuteAsync(query, param: parameters, commandType: CommandType.StoredProcedure);
                 return true;
