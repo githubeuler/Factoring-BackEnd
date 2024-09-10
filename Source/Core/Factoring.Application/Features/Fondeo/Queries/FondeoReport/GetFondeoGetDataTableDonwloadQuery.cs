@@ -66,7 +66,7 @@ namespace Factoring.Application.Features.Fondeo.Queries.FondeoReport
                     worksheet.Cells["X1"].Value = "MONTO A DESEMBOLSAR FONDEADOR";
                     worksheet.Cells["Y1"].Value = "FECHA PAGO FONDEADOR";
                    
-                    using (var r = worksheet.Cells["A1:X1"])
+                    using (var r = worksheet.Cells["A1:Y1"])
                     {
                         //r.Merge = true;
                         r.Style.Font.Color.SetColor(Color.White);
