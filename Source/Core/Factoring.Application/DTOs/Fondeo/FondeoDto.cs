@@ -24,6 +24,7 @@
         public string? MontoCapitalFinanciado { get; set; }
         public string? MontoInteresFondeador { get; set; }
         public string? ComisionFondeador { get; set; }
+        public string? Igv { get; set; }
         public string? MontoADesembolsarFondeador { get; set; }
         public string? FechaPagoFondeador { get; set; }
 

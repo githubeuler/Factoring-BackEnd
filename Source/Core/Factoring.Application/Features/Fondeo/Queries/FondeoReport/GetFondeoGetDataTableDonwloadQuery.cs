@@ -62,8 +62,9 @@ namespace Factoring.Application.Features.Fondeo.Queries.FondeoReport
                     worksheet.Cells["T1"].Value = "MONTO CAPITAL FINANCIADO";
                     worksheet.Cells["U1"].Value = "MONTO INTERES FONDEADOR";
                     worksheet.Cells["V1"].Value = "COMISION FONDEADOR";
-                    worksheet.Cells["W1"].Value = "MONTO A DESEMBOLSAR FONDEADOR";
-                    worksheet.Cells["X1"].Value = "FECHA PAGO FONDEADOR";
+                    worksheet.Cells["W1"].Value = "IGV";
+                    worksheet.Cells["X1"].Value = "MONTO A DESEMBOLSAR FONDEADOR";
+                    worksheet.Cells["Y1"].Value = "FECHA PAGO FONDEADOR";
                    
                     using (var r = worksheet.Cells["A1:X1"])
                     {
@@ -99,8 +100,9 @@ namespace Factoring.Application.Features.Fondeo.Queries.FondeoReport
                         worksheet.Cells[row, 20].Value = item.MontoCapitalFinanciado;
                         worksheet.Cells[row, 21].Value = item.MontoInteresFondeador; ;
                         worksheet.Cells[row, 22].Value = item.ComisionFondeador;
-                        worksheet.Cells[row, 23].Value = item.MontoADesembolsarFondeador;
-                        worksheet.Cells[row, 24].Value = item.FechaPagoFondeador;
+                        worksheet.Cells[row, 23].Value = item.Igv;
+                        worksheet.Cells[row, 24].Value = item.MontoADesembolsarFondeador;
+                        worksheet.Cells[row, 25].Value = item.FechaPagoFondeador;
 
                         row++;
                     }
