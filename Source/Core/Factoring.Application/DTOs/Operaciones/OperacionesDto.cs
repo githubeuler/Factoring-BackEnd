@@ -460,7 +460,7 @@
 
     }
 
-    #region Enviar con Palante(829) 
+    #region Enviar con Factoring(905) 
 
     public class ProcessDetail2
     {
