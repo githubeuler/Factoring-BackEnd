@@ -69,7 +69,7 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
                     {
                         //fondeador = await _operacionesRepositoryAsync.GetObtenerIversionista(query.InvoicesFactura)
                         //GetObtenerIversionistaEnvio
-                        fondeador = await _operacionesRepositoryAsync.GetObtenerIversionistaEnvio(query.nCategoriaFondeador,query.CodParticipante,1);
+                        fondeador = await _operacionesRepositoryAsync.GetObtenerIversionistaEnvio(query.nCategoriaFondeador, query.CodParticipante, 1);
                     }
                     else
                     {
@@ -83,6 +83,8 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
                     var invoiceHolder_NoPafactoring = new InvoiceRootHolder();
                     int nIdOperacion = 0, nIdOperacionFactura = 0, nEstadoOperacion = 0;
                     int nCorrela = await _operacionesRepositoryAsync.GetprocessNumberFacturas();
+
+
                     var processNumber = Convert.ToString(nCorrela);
                     if (fondeador.iCodRUT != null && fondeador.iCodRUT != "0")
                     {
@@ -313,14 +315,14 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
                         //    {
                         //        if (query.nSegundoEnvio != 1)
                         //        {
-                                    var res = await _evaluacionOperacionesRepositoryAsync.AddFacturaEvaluacionAsync(new EvaluacionOperacionesInsertDto
-                                    {
-                                        IdOperaciones = (int)nIdOperacion,
-                                        IdOperacionesFactura = (int)nIdOperacionFactura,
-                                        IdCatalogoEstado = (int)nEstadoOperacion,
-                                        UsuarioCreador = Constantes.UADMIN,
-                                        Comentario = string.Empty
-                                    });
+                        var res = await _evaluacionOperacionesRepositoryAsync.AddFacturaEvaluacionAsync(new EvaluacionOperacionesInsertDto
+                        {
+                            IdOperaciones = (int)nIdOperacion,
+                            IdOperacionesFactura = (int)nIdOperacionFactura,
+                            IdCatalogoEstado = (int)nEstadoOperacion,
+                            UsuarioCreador = Constantes.UADMIN,
+                            Comentario = string.Empty
+                        });
                         //        }
 
                         //    }

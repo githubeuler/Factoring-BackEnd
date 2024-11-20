@@ -142,8 +142,8 @@
             invoiceDetail = new InvoiceDetailHolder();
         }
 
-        public ProcessDetail processDetail { get; set; }
-        public InvoiceDetailHolder invoiceDetail { get; set; }
+        public ProcessDetail? processDetail { get; set; }
+        public InvoiceDetailHolder? invoiceDetail { get; set; }
     }
 
 
