@@ -15,6 +15,7 @@ using Factoring.Application.DTOs.Cavali;
 using Factoring.Application.DTOs.Externo;
 using Factoring.Application.Interfaces.Service;
 using static Factoring.Application.Enums.Enums;
+using System.Diagnostics;
 
 namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCavaliSendQuery
 {
@@ -293,6 +294,10 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
                         else
                         {
                             response = await _cavaliServiceAsync.SendInvoice4012Holder(invoiceHolder, newInvoice2, userAuthCavly.Data.JWToken);
+                        }
+                        
+                        if (response.Data.Valores != null)
+                        { 
                         }
 
                         await _operacionesFacturaRepositoryAsync.AddInvoicesLogCavaliAsync(new OperacionesFacturaInsertCavaliDto

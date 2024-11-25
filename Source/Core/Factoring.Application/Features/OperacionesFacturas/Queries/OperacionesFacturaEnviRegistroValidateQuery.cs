@@ -25,7 +25,7 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries
             public async Task<Response<FacturasGetCabeceraRegistro>> Handle(OperacionesFacturaEnviRegistroValidateQuery query, CancellationToken cancellationToken)
             {
                 FacturasGetCabeceraRegistro oData = new();
-
+                string mensaje = string.Empty;
                 string sFacturas = string.Empty;
                 int cantidad = query.nLstIdFacturas.Count;
                 int contador = 1;
@@ -67,9 +67,19 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries
                             oData.nActivarTransferencia = 0;
                         }
                     }
+                    else
+                    {
+                        oData.nActivarTransferencia = 1;
+                    }
 
                 }
-                return new Response<FacturasGetCabeceraRegistro>(oData);
+                else {
+                    oData.nActivarTransferencia = 0;
+                    mensaje = "No existe facturas con el estado requerido para procesar";
+
+
+                }
+                return new Response<FacturasGetCabeceraRegistro>(oData, mensaje);
 
             }
         }
