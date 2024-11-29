@@ -16,6 +16,7 @@ using Factoring.Application.DTOs.Externo;
 using Factoring.Application.Interfaces.Service;
 using static Factoring.Application.Enums.Enums;
 using System.Diagnostics;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.Engineering;
 
 namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCavaliSendQuery
 {
@@ -75,7 +76,7 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
                     if (query.FlagTransferProcess == 1)
                     {
 
-                        fondeador = await _operacionesRepositoryAsync.GetObtenerIversionistaEnvio(query.nCategoriaFondeador, query.CodParticipante, 1);
+                        fondeador = await _operacionesRepositoryAsync.GetObtenerIversionistaEnvio(query.nCategoriaFondeador, query.CodParticipante, 1, query.nCantidadAsignacion.Value);
                     }
                     else
                     {
@@ -329,7 +330,7 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
                     
                         if (query.nCantidadAsignacion == 1 || (query.nCantidadAsignacion > 1 && query.bFondeadorPlus) && (!response.Data.Error && response.Data.Valores != null))
                         {
-                            var result2 = await _operacionesRepositoryAsync.GetObtenerIversionistaEnvio(query.nCategoriaFondeador, query.CodParticipante, 2);
+                            var result2 = await _operacionesRepositoryAsync.GetObtenerIversionistaEnvio(query.nCategoriaFondeador, query.CodParticipante, 2,query.nCantidadAsignacion.Value);
                             if (response.Data.Valores.statusCode == 200)
                             {
                                 var nTiempoResult = await _mailFunctionsRepositoryAsync.ObtenerTiempo();

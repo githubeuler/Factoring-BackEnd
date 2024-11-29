@@ -21,6 +21,6 @@ namespace Factoring.Application.Interfaces.Repositories
         Task<int> GetprocessNumberFacturas();
         Task<string> GetFileBase64(string filename);
         Task<DivisoGetFondeador> GetObtenerIversionistaFSeleccionado(int iIdFondeador);
-        Task<DivisoGetFondeador> GetObtenerIversionistaEnvio(int nCategoria, int nFondeador, int nNroEnvio);
+        Task<DivisoGetFondeador> GetObtenerIversionistaEnvio(int nCategoria, int nFondeador, int nNroEnvio, int nAsignacion);
     }
 }
