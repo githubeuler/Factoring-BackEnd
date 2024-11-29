@@ -23,7 +23,8 @@ C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Core\Factoring
 C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Core\Factoring.Application\obj\Debug\net6.0\Factoring.Application.AssemblyInfoInputs.cache
 C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Core\Factoring.Application\obj\Debug\net6.0\Factoring.Application.AssemblyInfo.cs
 C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Core\Factoring.Application\obj\Debug\net6.0\Factoring.Application.csproj.CoreCompileInputs.cache
-C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Core\Factoring.Application\obj\Debug\net6.0\Factoring.Application.csproj.CopyComplete
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Core\Factoring.Application\obj\Debug\net6.0\Factoring.Application.sourcelink.json
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Core\Factoring.Application\obj\Debug\net6.0\Factorin.228A24CF.Up2Date
 C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Core\Factoring.Application\obj\Debug\net6.0\Factoring.Application.dll
 C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Core\Factoring.Application\obj\Debug\net6.0\refint\Factoring.Application.dll
 C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Core\Factoring.Application\obj\Debug\net6.0\Factoring.Application.pdb

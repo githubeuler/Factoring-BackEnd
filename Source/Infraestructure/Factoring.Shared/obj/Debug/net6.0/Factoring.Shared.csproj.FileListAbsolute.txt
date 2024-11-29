@@ -27,7 +27,8 @@ C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructur
 C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Shared\obj\Debug\net6.0\Factoring.Shared.AssemblyInfoInputs.cache
 C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Shared\obj\Debug\net6.0\Factoring.Shared.AssemblyInfo.cs
 C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Shared\obj\Debug\net6.0\Factoring.Shared.csproj.CoreCompileInputs.cache
-C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Shared\obj\Debug\net6.0\Factoring.Shared.csproj.CopyComplete
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Shared\obj\Debug\net6.0\Factoring.Shared.sourcelink.json
+C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Shared\obj\Debug\net6.0\Factorin.22211E51.Up2Date
 C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Shared\obj\Debug\net6.0\Factoring.Shared.dll
 C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Shared\obj\Debug\net6.0\refint\Factoring.Shared.dll
 C:\Rafael\FuenteFactoring\RamaDesarrollo\Factoring-BackEnd\Source\Infraestructure\Factoring.Shared\obj\Debug\net6.0\Factoring.Shared.pdb
