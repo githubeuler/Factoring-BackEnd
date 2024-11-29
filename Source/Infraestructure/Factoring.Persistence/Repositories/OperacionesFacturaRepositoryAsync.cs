@@ -306,5 +306,17 @@ namespace Factoring.Persistence.Repositories
                 await connection.ExecuteAsync(query, param: parameters, commandType: CommandType.StoredProcedure);
             }
         }
+
+        public async Task<OperacionesFacturaListDto> GetEstadoOperacion(int id)
+        {
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_ConsultaEstado_Operacion";
+                var parameters = new DynamicParameters();
+                parameters.Add("@pnIdOperacionFactura", id);
+                var invoice = await connection.QueryFirstOrDefaultAsync<OperacionesFacturaListDto>(query, param: parameters, commandType: CommandType.StoredProcedure);
+                return invoice;
+            }
+        }
     }
 }

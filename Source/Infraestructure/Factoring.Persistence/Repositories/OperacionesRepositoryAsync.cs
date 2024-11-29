@@ -184,7 +184,7 @@ namespace Factoring.Persistence.Repositories
         }
 
 
-        public async Task<DivisoGetFondeador> GetObtenerIversionistaEnvio(int nCategoria,int nFondeador,int nNroEnvio)
+        public async Task<DivisoGetFondeador> GetObtenerIversionistaEnvio(int nCategoria,int nFondeador,int nNroEnvio,int nAsignacion)
         {
             using (var connection = _connectionFactory.GetConnection)
             {
@@ -193,6 +193,7 @@ namespace Factoring.Persistence.Repositories
                 parameters.Add("@p_nCategoria", nCategoria);
                 parameters.Add("@p_nFondeador", nFondeador);
                 parameters.Add("@p_nNroEnvio", nNroEnvio);
+                parameters.Add("@nAsignacion", nAsignacion);
                 var inversionista = await connection.QueryFirstOrDefaultAsync<DivisoGetFondeador>(query, param: parameters, commandType: CommandType.StoredProcedure);
                 return inversionista;
             }

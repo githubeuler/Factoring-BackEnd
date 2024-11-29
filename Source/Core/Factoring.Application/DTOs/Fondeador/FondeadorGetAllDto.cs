@@ -49,7 +49,12 @@ namespace Factoring.Application.DTOs.Fondeador
         public int nIdCategoria { get; set; }
         public int nCantOperacion { get; set; }
         public int nCantFacturasRecepcionada { get; set; }
-        public int nCantFacturasEvaluada { get; set; }
+        public bool bFondeadorPlus { get; set; }
+        public int nNumeroAsignaciones { get; set; }
+        public int nIdEstadoOperacionFactura { get; set; }
+        public int nCodFondeadorPlus { get; set; }
+        //public int nEstadoFactura { get; set; }
+
     }
 
     public class FacturasGetCabeceraRegistro

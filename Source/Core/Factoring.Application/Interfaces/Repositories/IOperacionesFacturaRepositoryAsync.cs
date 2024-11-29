@@ -25,5 +25,6 @@ namespace Factoring.Application.Interfaces.Repositories
         Task<IReadOnlyList<DocumentoSolicitudOperacionListDto>> GetDocumentoBySolicitud(int id);
         Task<IReadOnlyList<DocumentoSolicitudOperacionListIdDto>> GetAllDocumentoSolicitudByOperaciones(int id);
         Task DeleteDocumentoAsync(OperacionesSolicitudDeleteDto entity);
+        Task<OperacionesFacturaListDto> GetEstadoOperacion(int id);
     }
 }

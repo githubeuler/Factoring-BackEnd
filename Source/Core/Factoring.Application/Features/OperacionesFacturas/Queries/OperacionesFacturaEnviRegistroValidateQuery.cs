@@ -55,6 +55,7 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries
                             oData.nActivarTransferencia = 0;
                         }
                     }
+
                     else if (query.nTipo == 3)
                     {
                         nCantidadFiltro = olistafacturas.Count();

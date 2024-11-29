@@ -31,6 +31,9 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
         public int nIdModalidad { get; set; }
         public int nSegundoEnvio { get; set; }
         public int nCategoriaFondeador { get; set; }
+        public int? nCantidadAsignacion { get; set; }
+        public int? nIdGiradorPlus { get; set; }
+        public bool bFondeadorPlus { get; set; }
 
         public class InvoicesCavaliSendQueryHandler : IRequestHandler<InvoicesCavaliSendQuery, Response<ResponseCavaliInvoice4012>>
         {
@@ -40,13 +43,15 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
             private readonly IGiradorDireccionRepositoryAsync _giradorDireccionRepositoryAsync;
             private readonly IAdquirienteDireccionRepositoryAsync _adquirienteDireccionRepositoryAsync;
             private readonly IEvaluacionOperacionesRepositoryAsync _evaluacionOperacionesRepositoryAsync;
+            private readonly IMailFunctionsRepositoryAsync _mailFunctionsRepositoryAsync;
             public InvoicesCavaliSendQueryHandler(
                 IOperacionesRepositoryAsync operacionesRepositoryAsync,
                 IOperacionesFacturaRepositoryAsync operacionesFacturaRepositoryAsync,
                 ICavaliServiceAsync cavaliServiceAsync,
                 IGiradorDireccionRepositoryAsync giradorDireccionRepositoryAsync,
                 IAdquirienteDireccionRepositoryAsync adquirienteDireccionRepositoryAsync,
-                IEvaluacionOperacionesRepositoryAsync evaluacionOperacionesRepositoryAsync)
+                IEvaluacionOperacionesRepositoryAsync evaluacionOperacionesRepositoryAsync,
+                IMailFunctionsRepositoryAsync mailFunctionsRepositoryAsync)
             {
                 _operacionesRepositoryAsync = operacionesRepositoryAsync;
                 _operacionesFacturaRepositoryAsync = operacionesFacturaRepositoryAsync;
@@ -54,6 +59,7 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
                 _giradorDireccionRepositoryAsync = giradorDireccionRepositoryAsync;
                 _adquirienteDireccionRepositoryAsync = adquirienteDireccionRepositoryAsync;
                 _evaluacionOperacionesRepositoryAsync = evaluacionOperacionesRepositoryAsync;
+                _mailFunctionsRepositoryAsync = mailFunctionsRepositoryAsync;
             }
 
             public string GetLastTwoCharacter(string input)
@@ -68,8 +74,7 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
                     var fondeador = new DivisoGetFondeador();
                     if (query.FlagTransferProcess == 1)
                     {
-                        //fondeador = await _operacionesRepositoryAsync.GetObtenerIversionista(query.InvoicesFactura)
-                        //GetObtenerIversionistaEnvio
+
                         fondeador = await _operacionesRepositoryAsync.GetObtenerIversionistaEnvio(query.nCategoriaFondeador, query.CodParticipante, 1);
                     }
                     else
@@ -282,11 +287,11 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
                     var userAuthCavly = await _cavaliServiceAsync.AuthenticationApi();
                     if (userAuthCavly.Succeeded)
                     {
-                        if (query.nSegundoEnvio == 1)
-                        {
-                            var resultcodPart = await _operacionesRepositoryAsync.GetObtenerIversionistaFSeleccionado(query.CodParticipante);
-                            invoiceHolder.invoiceDetail.invoice.ForEach(z => z.participantDestination = Convert.ToInt32(resultcodPart.iCodParticipante));
-                        }
+                        //if (query.nSegundoEnvio == 1)
+                        //{
+                        //    var resultcodPart = await _operacionesRepositoryAsync.GetObtenerIversionistaFSeleccionado(query.CodParticipante);
+                        //    invoiceHolder.invoiceDetail.invoice.ForEach(z => z.participantDestination = Convert.ToInt32(resultcodPart.iCodParticipante));
+                        //}
                         if (fondeador.iCodRUT != null && fondeador.iCodRUT != "0")
                         {
                             response = await _cavaliServiceAsync.SendInvoice4012(invoice, newInvoice2, userAuthCavly.Data.JWToken);
@@ -295,9 +300,9 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
                         {
                             response = await _cavaliServiceAsync.SendInvoice4012Holder(invoiceHolder, newInvoice2, userAuthCavly.Data.JWToken);
                         }
-                        
+
                         if (response.Data.Valores != null)
-                        { 
+                        {
                         }
 
                         await _operacionesFacturaRepositoryAsync.AddInvoicesLogCavaliAsync(new OperacionesFacturaInsertCavaliDto
@@ -313,13 +318,6 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
                         });
 
 
-
-                        //if (response.Succeeded && response.Data.Valores != null)
-                        //{
-                        //    if (response.Data.Valores.statusCode == 200)
-                        //    {
-                        //        if (query.nSegundoEnvio != 1)
-                        //        {
                         var res = await _evaluacionOperacionesRepositoryAsync.AddFacturaEvaluacionAsync(new EvaluacionOperacionesInsertDto
                         {
                             IdOperaciones = (int)nIdOperacion,
@@ -328,54 +326,56 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
                             UsuarioCreador = Constantes.UADMIN,
                             Comentario = string.Empty
                         });
-                        //        }
+                    
+                        if (query.nCantidadAsignacion == 1 || (query.nCantidadAsignacion > 1 && query.bFondeadorPlus) && (!response.Data.Error && response.Data.Valores != null))
+                        {
+                            var result2 = await _operacionesRepositoryAsync.GetObtenerIversionistaEnvio(query.nCategoriaFondeador, query.CodParticipante, 2);
+                            if (response.Data.Valores.statusCode == 200)
+                            {
+                                var nTiempoResult = await _mailFunctionsRepositoryAsync.ObtenerTiempo();
+                                int tiempoMaximo = Convert.ToInt32(nTiempoResult); // Máximo tiempo permitido en segundos
+                                var timer = Stopwatch.StartNew(); // Iniciar el temporizador
 
-                        //    }
-                        //}
+                                while (timer.Elapsed.TotalSeconds <= tiempoMaximo)
+                                {
+                                    // Obtener el estado de la operación
+                                    var objNew = await _operacionesFacturaRepositoryAsync.GetEstadoOperacion((int)nIdOperacionFactura);
+                                    if (objNew.nEstado == 9) // Resultado esperado
+                                    {
+                                        await _evaluacionOperacionesRepositoryAsync.AddFacturaEvaluacionAsync(new EvaluacionOperacionesInsertDto
+                                        {
+                                            IdOperaciones = (int)nIdOperacion,
+                                            IdOperacionesFactura = (int)nIdOperacionFactura,
+                                            IdCatalogoEstado = (int)nEstadoOperacion,
+                                            UsuarioCreador = Constantes.UADMIN,
+                                            Comentario = string.Empty
+                                        });
 
+                                        invoiceHolder.invoiceDetail.invoice.ForEach(z =>
+                                            z.participantDestination = Convert.ToInt32(result2.iCodParticipante));
+                                        response = await _cavaliServiceAsync.SendInvoice4012Holder(invoiceHolder, newInvoice2, userAuthCavly.Data.JWToken);
 
+                                        // Guardar logs de la operación
+                                        await _operacionesFacturaRepositoryAsync.AddInvoicesLogCavaliAsync(new OperacionesFacturaInsertCavaliDto
+                                        {
+                                            UsuarioCreador = query.UsuarioCreador,
+                                            ConjuntoFacturasJson = JsonConvert.SerializeObject(facturas),
+                                            TramaEnvio4012 = invoice.processDetail.processNumber == null ? JsonConvert.SerializeObject(invoiceHolder) : JsonConvert.SerializeObject(invoice),
+                                            TramaRespuesta4012 = JsonConvert.SerializeObject(response),
+                                            IdOperaciones = (int)nIdOperacion,
+                                            IdOperacionesFactura = (int)nIdOperacionFactura,
+                                            cParticipantCode = fondeador.iCodParticipante.ToString(),
+                                        });
 
+                                        break; // Salir del bucle porque se encontró el resultado esperado
+                                    }
+                                    // Esperar un pequeño intervalo para evitar llamadas excesivas
+                                    await Task.Delay(1000); // 1 segundo
+                                }
 
-                        //if ((query.nCategoriaFondeador == 1) && (!response.Error && response.Valores != null))
-                        //{
-                        //    //***********Consulta estado operación ************//
-                        //    var resultcodPart = await _operacionesRepositoryAsync.GetObtenerIversionistaEnvio(query.nCategoriaFondeador, query.CodParticipante, 2); ;
-                        //    if (response.Valores.statusCode == 200)
-                        //    {
-                        //        var nTiempoResult = await _mailFunctionsRepositoryAsync.ObtenerTiempo();
-                        //        int nCantidad = Convert.ToInt32(nTiempoResult);
-                        //        var timer = new Stopwatch();
-                        //        timer.Start();
-                        //        int nTiempo = 0;
-                        //        OperacionesFacturaListDto objNew;
-                        //        while (nTiempo <= nCantidad)
-                        //        {
-                        //            TimeSpan timeTaken = timer.Elapsed;
-                        //            nTiempo += timeTaken.Seconds;
-                        //            objNew = new OperacionesFacturaListDto();
-                        //            if (nTiempo >= 20)
-                        //                objNew = await _operacionesFacturaRepositoryAsync.GetEstadoOperacion((int)nIdOperacionFactura);
-                        //            if (objNew.nEstado == 6)
-                        //            {
-                        //                invoiceHolder.invoiceDetail.invoice.ForEach(z => z.participantDestination = Convert.ToInt32(resultcodPart.iCodParticipante));
-                        //                response = await _cavaliServiceAsync.SendInvoice4012Holder(invoiceHolder, newInvoice2, userAuthCavly.Valores);
-                        //                await _operacionesFacturaRepositoryAsync.AddInvoicesLogCavaliAsync(new OperacionesFacturaInsertCavaliDto
-                        //                {
-                        //                    UsuarioCreador = query.UsuarioCreador,
-                        //                    ConjuntoFacturasJson = JsonConvert.SerializeObject(facturas),
-                        //                    TramaEnvio4012 = invoice.processDetail.processNumber == null ? JsonConvert.SerializeObject(invoiceHolder) : JsonConvert.SerializeObject(invoice),
-                        //                    TramaRespuesta4012 = JsonConvert.SerializeObject(response),
-                        //                    IdOperaciones = (int)nIdOperacion,
-                        //                    IdOperacionesFactura = (int)nIdOperacionFactura,
-                        //                    cParticipantCode = fondeador.iCodParticipante.ToString(),
-                        //                });
-                        //                break;
-                        //            }
-                        //        }
-
-
-                        //    }
-                        //}
+                                timer.Stop(); // Detener el temporizador
+                            }
+                        }
                     }
                     return new Response<ResponseCavaliInvoice4012>(response.Data);
                 }
