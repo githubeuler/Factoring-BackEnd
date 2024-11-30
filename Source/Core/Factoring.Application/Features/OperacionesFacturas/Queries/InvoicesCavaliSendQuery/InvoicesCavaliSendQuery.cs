@@ -35,6 +35,7 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
         public int? nCantidadAsignacion { get; set; }
         public int? nIdGiradorPlus { get; set; }
         public bool bFondeadorPlus { get; set; }
+        public bool bSegundoFlagDiferente { get; set; }
 
         public class InvoicesCavaliSendQueryHandler : IRequestHandler<InvoicesCavaliSendQuery, Response<ResponseCavaliInvoice4012>>
         {
@@ -75,7 +76,7 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
                     var fondeador = new DivisoGetFondeador();
                     if (query.FlagTransferProcess == 1)
                     {
-
+                        //if(query.nCategoriaFondeador==1 && query.nCantidadAsignacion=1)
                         fondeador = await _operacionesRepositoryAsync.GetObtenerIversionistaEnvio(query.nCategoriaFondeador, query.CodParticipante, 1, query.nCantidadAsignacion.Value);
                     }
                     else
@@ -328,7 +329,7 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
                             Comentario = string.Empty
                         });
                     
-                        if (query.nCantidadAsignacion == 1 || (query.nCantidadAsignacion > 1 && query.bFondeadorPlus) && (!response.Data.Error && response.Data.Valores != null))
+                        if (query.nCantidadAsignacion == 1 && query.nCategoriaFondeador==1 && query.bFondeadorPlus==false || (!response.Data.Error && response.Data.Valores != null))
                         {
                             var result2 = await _operacionesRepositoryAsync.GetObtenerIversionistaEnvio(query.nCategoriaFondeador, query.CodParticipante, 2,query.nCantidadAsignacion.Value);
                             if (response.Data.Valores.statusCode == 200)
