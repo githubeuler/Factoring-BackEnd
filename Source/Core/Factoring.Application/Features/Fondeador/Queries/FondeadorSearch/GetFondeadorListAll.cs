@@ -2,6 +2,7 @@
 using Factoring.Application.DTOs.Fondeador;
 using Factoring.Application.Interfaces.Repositories;
 using Factoring.Application.Wrappers;
+using Factoring.Domain.Util;
 using MediatR;
 
 namespace Factoring.Application.Features.Fondeador.Queries.FondeadorSearch
@@ -29,6 +30,7 @@ namespace Factoring.Application.Features.Fondeador.Queries.FondeadorSearch
 
             public async Task<Response<IReadOnlyList<FondeadorResponseDataTable>>> Handle(GetFondeadorListAll query, CancellationToken cancellationToken)
             {
+                LogUtil.GetLogger().Info($"Iniciando GetFondeadorListAllQuery - request : {query.ToJson()}");
                 var request = _mapper.Map<FondeadorRequestDataTable>(query);
 
                 var giradorList = await _fondeadorRepositoryAsync.GetListFondeador(request);

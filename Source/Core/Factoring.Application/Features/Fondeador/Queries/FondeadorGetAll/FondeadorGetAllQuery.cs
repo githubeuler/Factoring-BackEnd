@@ -2,6 +2,7 @@
 using Factoring.Application.DTOs.Fondeador;
 using Factoring.Application.Interfaces.Repositories;
 using Factoring.Application.Wrappers;
+using Factoring.Domain.Util;
 using MediatR;
 
 namespace Factoring.Application.Features.Fondeador.Queries.FondeadorGetAll

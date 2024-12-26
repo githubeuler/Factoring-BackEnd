@@ -3,6 +3,7 @@ using Factoring.Application.DTOs.EvaluacionOperaciones;
 //using Factoring.Application.DTOs.EvaluacionOperaciones;
 using Factoring.Application.Interfaces.Repositories;
 using Factoring.Application.Wrappers;
+using Factoring.Domain.Util;
 using Factoring.Persistence.Data;
 using System;
 using System.Collections.Generic;
@@ -21,10 +22,11 @@ namespace Factoring.Persistence.Repositories
             _connectionFactory = connectionFactory;
         }
 
-        public async Task<Response<int>> AddAsync(EvaluacionOperacionesInsertDto entity)
+        public async Task<Response<int>> AddAsync(EvaluacionOperacionesInsertDto entity, string guid = "")
         {
             try
             {
+                LogUtil.GetLogger().Info($"{guid} - Inicio AddAsync - entity : {entity.ToJson()}");
                 using (var connection = _connectionFactory.GetConnection)
                 {
                     var query = "pe_Inserta_EstadosOperacion";
@@ -36,12 +38,14 @@ namespace Factoring.Persistence.Repositories
                     parameters.Add("@p_nIdEstadosOperaciones", DbType.String, direction: ParameterDirection.Output);
                     await connection.QueryAsync<int>(query, param: parameters, commandType: CommandType.StoredProcedure);
                     int respuesta = parameters.Get<int>("p_nIdEstadosOperaciones");
+                    LogUtil.GetLogger().Info($"{guid} - AddAsync - respuesta : {respuesta}");
                     if (respuesta == 0) return new Response<int>("Existen facturas que no estan anotadas en cavally.");
                     else return new Response<int>(respuesta, "Actualizado Correctamente");
                 }
             }
             catch (Exception ex)
             {
+                LogUtil.GetLogger().Error($"{guid} - Error AddAsync - ex : {ex.ToJson()}");
                 var message = ex.Message;
                 return new Response<int>(message);
             }

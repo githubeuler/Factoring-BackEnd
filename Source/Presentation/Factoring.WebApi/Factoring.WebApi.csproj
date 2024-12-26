@@ -7,6 +7,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="ConfigLog\NLog.DES.config" />
+    <Content Remove="ConfigLog\NLog.PRD.config" />
+    <Content Remove="ConfigLog\NLog.PRU.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="ConfigLog\NLog.PRD.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ConfigLog\NLog.PRU.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ConfigLog\NLog.DES.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>

@@ -5,6 +5,7 @@ using Factoring.Application.Interfaces.Repositories;
 using Factoring.Application.Wrappers;
 using System.Threading;
 using System.Threading.Tasks;
+using Factoring.Domain.Util;
 
 namespace Factoring.Application.Features.Operaciones.Commands
 {
@@ -31,7 +32,10 @@ namespace Factoring.Application.Features.Operaciones.Commands
 
         public async Task<Response<int>> Handle(CreateEvaluacionOperacionCommand request, CancellationToken cancellationToken)
         {
+            string guid = Guid.NewGuid().ToString();
+            LogUtil.GetLogger().Info($"{guid} - Iniciando CreateEvaluacionOperacion - request : {request.ToJson()}");
             var evaluacionEntry = _mapper.Map<EvaluacionOperacionesInsertDto>(request);
+            LogUtil.GetLogger().Info($"{guid} - CreateEvaluacionOperacion - evaluacionEntry : {evaluacionEntry.ToJson()}");
             var res = await _evaluacionOperacionesRepositoryAsync.AddAsync(evaluacionEntry);
             return res;
         }

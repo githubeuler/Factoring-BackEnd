@@ -2,6 +2,7 @@
 using Factoring.Application.Exceptions;
 using Factoring.Application.Interfaces.Repositories;
 using Factoring.Application.Wrappers;
+using Factoring.Domain.Util;
 using MediatR;
 
 namespace Factoring.Application.Features.Fondeador.Queries.FondeadorGetByTipoFondeo
@@ -25,11 +26,30 @@ namespace Factoring.Application.Features.Fondeador.Queries.FondeadorGetByTipoFon
 
             public async Task<Response<IReadOnlyList<FondeadorGetByIdDto>>> Handle(GetFondeadorByTipoFondeoQuery query, CancellationToken cancellationToken)
             {
-                var fondeador = await _fondeadorRepositoryAsync.GetByTipoFondeoAsync(query.Id);
-                if (fondeador == null) throw new ApiException($"Fondeadores no encontrado.");
-                //fondeador.FormatoUbigeoPais = JsonConvert.DeserializeObject<string>(fondeador.cFormatoUbigeo).Split(",").ToList();
 
-                return new Response<IReadOnlyList<FondeadorGetByIdDto>>(fondeador);
+                try
+                {
+                    var fondeador = await _fondeadorRepositoryAsync.GetByTipoFondeoAsync(query.Id);
+
+                    if (fondeador == null)
+                    {
+                        throw new ApiException($"Fondeadores no encontrados.");
+                    }
+
+                    return new Response<IReadOnlyList<FondeadorGetByIdDto>>(fondeador);
+                }
+                catch (ApiException ex)
+                {
+                    // Registro del error específico de la API
+                    LogUtil.GetLogger().Error(ex, $"Error en la consulta GetFondeadorByTipoFondeo para Id: {query.Id}");
+                    throw;
+                }
+                catch (Exception ex)
+                {
+                    // Registro de cualquier error inesperado
+                    LogUtil.GetLogger().Error(ex, $"Error inesperado en la consulta GetFondeadorByTipoFondeo para Id: {query.Id}");
+                    throw;
+                }
             }
         }
     }
