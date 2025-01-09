@@ -49,6 +49,8 @@ using Factoring.Application.DTOs.Fondeo;
 using Factoring.Application.Features.Fondeo.Commands;
 using Factoring.Application.Features.OperacionesFacturas.Queries;
 using Factoring.Application.Features.Fondeo.Queries.FondeoReport;
+using Factoring.Application.Features.Usuario.Queries;
+using Factoring.Application.DTOs.Usuario;
 
 namespace Factoring.Application.Mappings
 {
@@ -109,6 +111,12 @@ namespace Factoring.Application.Mappings
 
             CreateMap<DeleteSolicitudOperacionCommand, OperacionesSolicitudDeleteDto>();
             CreateMap<CreateDocumentoSolicitudOperacionesCommand, DocumentosSolicitudperacionesInsertDto>();
+
+            CreateMap<GetUsuarioListAll, UsuarioRequestDataTable>();
+            CreateMap<CreateUsuarioCommand, UsuarioInsertDto>();
+            CreateMap<UpdateUsuarioCommand, UsuarioUpdateDto>();
+            CreateMap<DeleteUsuarioCommand, UsuarioDeleteDto>();
+            CreateMap<GetUsuarioByIdQuery, UsuarioGetByIdDto>();
 
         }
     }

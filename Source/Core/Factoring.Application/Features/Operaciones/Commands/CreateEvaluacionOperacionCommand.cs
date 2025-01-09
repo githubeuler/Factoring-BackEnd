@@ -36,7 +36,7 @@ namespace Factoring.Application.Features.Operaciones.Commands
             LogUtil.GetLogger().Info($"{guid} - Iniciando CreateEvaluacionOperacion - request : {request.ToJson()}");
             var evaluacionEntry = _mapper.Map<EvaluacionOperacionesInsertDto>(request);
             LogUtil.GetLogger().Info($"{guid} - CreateEvaluacionOperacion - evaluacionEntry : {evaluacionEntry.ToJson()}");
-            var res = await _evaluacionOperacionesRepositoryAsync.AddAsync(evaluacionEntry);
+            var res = await _evaluacionOperacionesRepositoryAsync.AddAsync(evaluacionEntry, guid);
             return res;
         }
     }
