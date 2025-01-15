@@ -11,5 +11,6 @@ namespace Factoring.Application.Interfaces.Repositories
     {
         Task<IReadOnlyList<GrupoListDto>> GetListGrupo(int tipo, int? idPais);
         Task<IReadOnlyList<SectorListDto>> GetListSector(int tipo, int? idPais);
+        Task<IReadOnlyList<PaisResponseListDto>> GetListPais();
     }
 }

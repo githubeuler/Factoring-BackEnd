@@ -51,6 +51,8 @@ using Factoring.Application.Features.OperacionesFacturas.Queries;
 using Factoring.Application.Features.Fondeo.Queries.FondeoReport;
 using Factoring.Application.Features.Usuario.Queries;
 using Factoring.Application.DTOs.Usuario;
+using Factoring.Application.Features.Pais.Query;
+using Factoring.Application.DTOs.Pais;
 
 namespace Factoring.Application.Mappings
 {
@@ -117,6 +119,7 @@ namespace Factoring.Application.Mappings
             CreateMap<UpdateUsuarioCommand, UsuarioUpdateDto>();
             CreateMap<DeleteUsuarioCommand, UsuarioDeleteDto>();
             CreateMap<GetUsuarioByIdQuery, UsuarioGetByIdDto>();
+            //CreateMap<PaisListQuery, PaisResponseListDto>();
 
         }
     }

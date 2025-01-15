@@ -5,6 +5,7 @@
     }
     public class UsuarioResponseDataTable
     {
+        public int nIdUsuario { get; set; }
         public string? cCodigoUsuario { get; set; }
         public string? cNombreUsuario { get; set; }
         public string? cFechaRegistro{ get; set; }

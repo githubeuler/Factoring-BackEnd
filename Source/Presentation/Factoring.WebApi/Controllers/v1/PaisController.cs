@@ -27,5 +27,10 @@ namespace Factoring.WebApi.Controllers.v1
         {
             return Ok(await _paisRepositoryAsync.GetListGrupo(idTipo, idPais));
         }
+        [HttpGet("get-pais")]
+        public async Task<IActionResult> GetLisPais()
+        {
+            return Ok(await _paisRepositoryAsync.GetListPais());
+        }
     }
 }

@@ -29,4 +29,9 @@ namespace Factoring.Application.DTOs.Pais
         public int nIdPais { get; set; }
         public string cNombrePais { get; set; }
     }
+    public class PaisResponseListDto
+    {
+        public int nIdPais { get; set; }
+        public string cNombrePais { get; set; }
+    }
 }

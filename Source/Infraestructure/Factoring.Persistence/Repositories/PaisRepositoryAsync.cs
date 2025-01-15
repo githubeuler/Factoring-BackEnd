@@ -30,6 +30,14 @@ namespace Factoring.Persistence.Repositories
             return giradorList.AsList();
         }
 
+        public async Task<IReadOnlyList<PaisResponseListDto>> GetListPais()
+        {
+            using var connection = _connectionFactory.GetConnection;
+            var query = "pe_Consulta_Pais";
+            var List = await connection.QueryAsync<PaisResponseListDto>(query, null, commandType: CommandType.StoredProcedure);
+            return List.AsList();
+        }
+
         public async Task<IReadOnlyList<SectorListDto>> GetListSector(int tipo, int? idPais)
         {
             using var connection = _connectionFactory.GetConnection;
