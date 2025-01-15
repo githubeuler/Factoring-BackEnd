@@ -73,16 +73,18 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
                 var invoice4008 = new Invoice4008();
                 var serieNumero = new SerieNumero();
                 //new List<OperacionesFacturaListDto>();
-                var facturas = new List<OperacionesFacturaListDto>();
-                facturas.Add((await _operacionesFacturaRepositoryAsync.GetFacturaById(query.InvoicesFactura)));
+                //var facturas = new List<OperacionesFacturaListDto>();
+               var facturas=await _operacionesFacturaRepositoryAsync.GetFacturaById(query.InvoicesFactura);
 
-                foreach (var item in facturas)
-                {
+                if (facturas != null)
+                { 
+                //foreach (var item in facturas)
+                //{
                     invoice4008 = new Invoice4008();
-                    nIdOperacion = item.nIdOperaciones;
-                    nIdOperacionFactura = item.nIdOperacionesFacturas;
-                    serieNumero = JsonConvert.DeserializeObject<SerieNumero>(item.cNroDocumento);
-                    invoice4008.providerRuc = (long)Convert.ToInt64(item.rucGirador);
+                    nIdOperacion = facturas.nIdOperaciones;
+                    nIdOperacionFactura = facturas.nIdOperacionesFacturas;
+                    serieNumero = JsonConvert.DeserializeObject<SerieNumero>(facturas.cNroDocumento);
+                    invoice4008.providerRuc = (long)Convert.ToInt64(facturas.rucGirador);
                     invoice4008.series = serieNumero.Serie;
                     invoice4008.numeration = (long)serieNumero.Numero;
                     invoice4008.authorizationNumber = "12345678";
@@ -90,8 +92,8 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries.InvoicesCav
                     invoice4008.additionalFieldOne = query.IdMotivo.ToString();
                     //invoice4008.additionalFieldTwo = query.IdMotivo.ToString();
                     lstinvoice4008.Add(invoice4008);
+                    //}
                 }
-
                 request4008.invoice = lstinvoice4008;
 
                 var userAuth = await _cavaliServiceAsync.AuthenticationApi();
