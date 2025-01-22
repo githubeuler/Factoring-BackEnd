@@ -13,6 +13,7 @@
         public string? cCorreo { get; set; }
         public string? cActivo { get; set; }
         public string? cNombrePais { get; set; }
+        public string? cNombreRol { get; set; }
     }
     public class UsuarioRequestDataTable
     {
@@ -21,7 +22,7 @@
         public string? FilterNombreUsuario { get; set; }
         public string? FilterActivo { get; set; }
         public int FilterIdPais { get; set; }
-
+        public int FilterIdRol { get; set; }
         public int PageSize { get; set; }
         public string? Sorting { get; set; }
         public string? SortOrder { get; set; }

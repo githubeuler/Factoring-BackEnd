@@ -14,6 +14,7 @@ namespace Factoring.Application.Features.Usuario.Commands
         public string? Correo { get; set; }
         public string? UsuarioCreador { get; set; }
         public int IdPais { get; set; }
+        public int IdRol { get; set; }
     }
     public class CreateUsuarioCommandHandler : IRequestHandler<CreateUsuarioCommand, Response<int>>
     {
