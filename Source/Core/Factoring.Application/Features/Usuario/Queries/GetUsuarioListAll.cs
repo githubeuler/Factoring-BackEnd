@@ -14,6 +14,8 @@ namespace Factoring.Application.Features.Usuario.Queries
         public string? FilterActivo { get; set; }
         public int FilterIdPais { get; set; }
 
+        public int FilterIdRol { get; set; }
+
         public int PageSize { get; set; }
         public string? Sorting { get; set; }
         public string? SortOrder { get; set; }

@@ -26,7 +26,7 @@ namespace Factoring.WebApi.Controllers.v1
             return Ok(await Mediator.Send(command));
         }
         [HttpGet("obtener-usuario/{id}")]
-        public async Task<IActionResult> GetPrestamo(int id)
+        public async Task<IActionResult> GetUsuario(int id)
         {
             return Ok(await Mediator.Send(new GetUsuarioByIdQuery { IdUsuario = id }));
         }

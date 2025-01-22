@@ -11,6 +11,7 @@
         public string? Correo { get; set; }
         public string? UsuarioCreador { get; set; }
         public int IdPais{ get; set; }
+        public int IdRol { get; set; }
     }
     public class UsuarioUpdateDto
     {
@@ -24,15 +25,22 @@
     }
     public class UsuarioGetByIdDto
     {
-        public string? cCodigoUsuario { get; set; }
-        public string?  cNombreUsuario { get; set; }
-        public string? cFechaRegistro { get; set; }
-        public string? cFechaCese { get; set; }
-        public string? cCorreo { get; set; }
-        public string? cActivo { get; set; }
-        public string? cNombrePais { get; set; }
-        public string? cPassword { get; set; }
-        public string? cUsuarioRegistro { get; set; }
+        public int IdUsuario { get; set; }
+        public string? CodigoUsuario { get; set; }
+        public string?  NombreUsuario { get; set; }
+        public string? FechaRegistro { get; set; }
+        public string? FechaCese { get; set; }
+        public string? Correo { get; set; }
+        public int IdEstado { get; set; }
+        public string? Estado { get; set; }
+        public string? NombrePais { get; set; }
+        public string? Contrasena { get; set; }
+        public int IdPais { get; set; }
+        public int IdRol { get; set; }
+        public string? Pais { get; set; }
+        public string? Rol { get; set; }
+        public string? UsuarioRegistro { get; set; }
+
     }
     public class UsuarioDeleteDto
     {

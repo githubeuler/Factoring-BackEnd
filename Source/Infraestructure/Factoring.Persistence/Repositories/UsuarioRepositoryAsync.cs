@@ -34,6 +34,7 @@ namespace Factoring.Persistence.Repositories
                 parameters.Add("@p_cCorreo", entity.Correo);
                 parameters.Add("@p_cUsuarioCreador", entity.UsuarioCreador);
                 parameters.Add("@p_nIdPais", entity.IdPais);
+                parameters.Add("@p_nIdRol", entity.IdRol);
                 parameters.Add("@p_nIdUsuario", DbType.String, direction: ParameterDirection.Output);
                 await connection.QueryAsync<int>(query, param: parameters, commandType: CommandType.StoredProcedure);
 
@@ -102,6 +103,7 @@ namespace Factoring.Persistence.Repositories
                 parameters.Add("@filter_cNombreUsuario", model.FilterNombreUsuario);
                 parameters.Add("@filter_nActivo", model.FilterActivo);
                 parameters.Add("@filter_nIdPais", model.FilterIdPais);
+                parameters.Add("@filter_nIdRol", model.FilterIdRol);
                 parameters.Add("@pagesize", model.PageSize);
                 parameters.Add("@Sorting", model.Sorting);
 
