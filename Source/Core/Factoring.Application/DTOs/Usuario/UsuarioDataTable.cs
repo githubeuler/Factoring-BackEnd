@@ -14,6 +14,7 @@
         public string? cActivo { get; set; }
         public string? cNombrePais { get; set; }
         public string? cNombreRol { get; set; }
+        public int TotalRecords { get; set; }
     }
     public class UsuarioRequestDataTable
     {

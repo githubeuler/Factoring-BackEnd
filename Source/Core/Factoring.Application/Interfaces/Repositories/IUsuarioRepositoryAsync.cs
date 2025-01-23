@@ -18,6 +18,8 @@ namespace Factoring.Application.Interfaces.Repositories
         Task<UsuarioGetByIdDto> GetByIdAsync(int id);
         Task<Response<int>> DeleteAsync(UsuarioDeleteDto entity);
         Task<IReadOnlyList<UsuarioResponseDataTable>> GetListUsuario(UsuarioRequestDataTable model);
+
+        Task<Response<int>> ChangePassword(ChangePasswordRequest entity);
         #endregion
 
     }

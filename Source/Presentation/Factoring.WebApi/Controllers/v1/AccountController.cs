@@ -14,5 +14,21 @@ namespace Factoring.WebApi.Controllers.v1
             //comment
             return Ok(await Mediator.Send(command));
         }
+
+        [AllowAnonymous]
+        [HttpPost("change-password")]
+        public async Task<IActionResult> ChangePassword(ChangePasswordCommand command)
+        {
+            //comment
+            return Ok(await Mediator.Send(command));
+        }
+
+        [AllowAnonymous]
+        [HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword(ResetPasswordCommand command)
+        {
+            //comment
+            return Ok(await Mediator.Send(command));
+        }
     }
 }

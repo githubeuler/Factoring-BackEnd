@@ -168,5 +168,25 @@ namespace Factoring.Persistence.Repositories
             }
         }
 
+        public async Task<Response<int>> ChangePassword(ChangePasswordRequest entity)
+        {
+            try
+            {
+                using (var connection = _connectionFactory.GetConnection)
+                {
+                    var query = "pe_Actualiza_Contrasena";
+                    var parameters = new DynamicParameters();
+                    parameters.Add("@p_nIdUsuario", entity.IdUsuario);
+                    parameters.Add("@p_cPassword", entity.NewPassword);
+                    parameters.Add("@p_MustChangePassword", entity.MustChangePassword);
+                    await connection.ExecuteAsync(query, param: parameters, commandType: CommandType.StoredProcedure);
+                }
+                return new Response<int>(entity.IdUsuario,"La contraseña se actualizo correctamente");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

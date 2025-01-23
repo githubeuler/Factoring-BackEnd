@@ -120,6 +120,8 @@ namespace Factoring.Application.Mappings
             CreateMap<DeleteUsuarioCommand, UsuarioDeleteDto>();
             CreateMap<GetUsuarioByIdQuery, UsuarioGetByIdDto>();
             //CreateMap<PaisListQuery, PaisResponseListDto>();
+            CreateMap<ChangePasswordCommand, ChangePasswordRequest>();
+            CreateMap<ResetPasswordCommand, ChangePasswordRequest>();
 
         }
     }

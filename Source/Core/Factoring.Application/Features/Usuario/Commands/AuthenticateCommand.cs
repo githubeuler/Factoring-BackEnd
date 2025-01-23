@@ -5,6 +5,7 @@ using Factoring.Application.Exceptions;
 using Factoring.Application.Interfaces.Repositories;
 using Factoring.Application.Wrappers;
 using Factoring.Domain.Settings;
+using Factoring.Domain.Util;
 using MediatR;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -41,6 +42,8 @@ namespace Factoring.Application.Features.Usuario.Commands
         public async Task<Response<AuthenticationResponse>> Handle(AuthenticateCommand request, CancellationToken cancellationToken)
         {
             var userRequest = _mapper.Map<AuthenticationRequest>(request);
+            string passwordEncrypt = AesEncryption.Encrypt(userRequest.Password, "RFR7YZT8XK92MLGQT4NB", "F@ct0r1n6@91u5P3");
+            userRequest.Password = passwordEncrypt;
             var user = await _usuarioRepositoryAsync.GetUserAuth(userRequest);
 
             if (user == null)
@@ -138,6 +141,8 @@ namespace Factoring.Application.Features.Usuario.Commands
                 new Claim(JwtRegisteredClaimNames.Name, user.cNombreUsuario),
                 new Claim("pais", user.cNombrePais),
                 new Claim("uid", user.cCodigoUsuario),
+                new Claim("uidusuario", user.nIdUsuario.ToString()),
+                new Claim("ucpassword", user.cPassword),
             }
             .Union(roleClaims);
 
@@ -161,5 +166,8 @@ namespace Factoring.Application.Features.Usuario.Commands
             // convert random bytes to hex string
             return BitConverter.ToString(randomBytes).Replace("-", "");
         }
+
+
+       
     }
 }

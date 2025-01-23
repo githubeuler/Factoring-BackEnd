@@ -15,6 +15,9 @@ namespace Factoring.Application.DTOs.Account.Response
         public string JWToken { get; set; }
         [JsonIgnore]
         public string RefreshToken { get; set; }
+        public int MustChangePassword { get; set; }
+        public int nIdUsuario { get; set; }
+        public string cPassword { get; set; }
         public List<MenuResponse> Menu { get; set; }
     }
 }
