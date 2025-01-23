@@ -53,6 +53,8 @@ using Factoring.Application.Features.Usuario.Queries;
 using Factoring.Application.DTOs.Usuario;
 using Factoring.Application.Features.Pais.Query;
 using Factoring.Application.DTOs.Pais;
+using Factoring.Application.Features.ModuloMenu.Queries;
+using Factoring.Application.DTOs.MenuAcciones;
 
 namespace Factoring.Application.Mappings
 {
@@ -119,6 +121,8 @@ namespace Factoring.Application.Mappings
             CreateMap<UpdateUsuarioCommand, UsuarioUpdateDto>();
             CreateMap<DeleteUsuarioCommand, UsuarioDeleteDto>();
             CreateMap<GetUsuarioByIdQuery, UsuarioGetByIdDto>();
+
+            CreateMap<GetListPerfilListQuery, PerfilRequestDto>();
             //CreateMap<PaisListQuery, PaisResponseListDto>();
             CreateMap<ChangePasswordCommand, ChangePasswordRequest>();
             CreateMap<ResetPasswordCommand, ChangePasswordRequest>();

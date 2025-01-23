@@ -14,12 +14,7 @@ namespace Factoring.Shared
     {
         public static void AddSharedInfrastructure(this IServiceCollection services, IConfiguration config)
         {
-            //services.Configure<MailSettings>(config.GetSection("MailSettings"));
-            //services.AddTransient<IDateTimeService, DateTimeService>();
-            //services.AddTransient<IEmailService, EmailService>();
-
             #region AuthServices
-
             services.Configure<JWTSettings>(config.GetSection("JWTSettings"));
             services.AddAuthentication(options =>
             {
