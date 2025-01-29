@@ -55,6 +55,7 @@ using Factoring.Application.Features.Pais.Query;
 using Factoring.Application.DTOs.Pais;
 using Factoring.Application.Features.ModuloMenu.Queries;
 using Factoring.Application.DTOs.MenuAcciones;
+using Factoring.Application.Features.ModuloMenu.Commands;
 
 namespace Factoring.Application.Mappings
 {
@@ -126,6 +127,8 @@ namespace Factoring.Application.Mappings
             //CreateMap<PaisListQuery, PaisResponseListDto>();
             CreateMap<ChangePasswordCommand, ChangePasswordRequest>();
             CreateMap<ResetPasswordCommand, ChangePasswordRequest>();
+            CreateMap<CreateModuloMenuCommand, ModuloDTO>();
+            
 
         }
     }

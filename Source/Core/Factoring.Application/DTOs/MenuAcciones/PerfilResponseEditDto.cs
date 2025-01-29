@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 
 namespace Factoring.Application.DTOs.MenuAcciones
 {
-    public class PerfilResponseDto
+    public class PerfilResponseEditDto
     {
-        public int nIdRoles { get; set; }
+        public int nIdRol { get; set; }
         public string cNombreRol { get; set; }
         public int nActivo { get; set; }
-        public string cDesEstado { get; set; }
-        public int TotalRecords { get; set; }
-
     }
 }

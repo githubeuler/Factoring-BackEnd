@@ -9,29 +9,26 @@ using MediatR;
 
 namespace Factoring.Application.Features.ModuloMenu.Commands
 {
-    public class CreateModuloMenuCommand : IRequest<Response<int>>
+    public class UpdateModuloMenuCommand : IRequest<Response<int>>
     {
-        public int nIdMenu { get; set; }
         public int nIdRol { get; set; }
-        public string? cRol { get; set; }
-        public string? filter_Acciones { get; set; }
     }
-    public class CreateModuloMenuCommandHandler : IRequestHandler<CreateModuloMenuCommand, Response<int>>
+    public class UpdateModuloMenuCommandHandler : IRequestHandler<UpdateModuloMenuCommand, Response<int>>
     {
         private readonly IModuloMenuSeguridadRepositoryAsync _moduloMenuSeguridadRepositoryAsync;
         private readonly IMapper _mapper;
 
-        public CreateModuloMenuCommandHandler(IModuloMenuSeguridadRepositoryAsync moduloMenuSeguridadRepositoryAsync, IMapper mapper)
+        public UpdateModuloMenuCommandHandler(IModuloMenuSeguridadRepositoryAsync moduloMenuSeguridadRepositoryAsync, IMapper mapper)
         {
             _moduloMenuSeguridadRepositoryAsync = moduloMenuSeguridadRepositoryAsync;
             _mapper = mapper;
         }
 
-        public async Task<Response<int>> Handle(CreateModuloMenuCommand request, CancellationToken cancellationToken)
+        public async Task<Response<int>> Handle(UpdateModuloMenuCommand request, CancellationToken cancellationToken)
         {
-            var contacto = _mapper.Map<ModuloDTO>(request);
-            var res = await _moduloMenuSeguridadRepositoryAsync.AddAsync(contacto);
+            var res = await _moduloMenuSeguridadRepositoryAsync.UpdateAsync(request.nIdRol);
             return new Response<int>(res, Constantes.SUCCEDED_REGISTER_DETAIL);
         }
     }
 }
+

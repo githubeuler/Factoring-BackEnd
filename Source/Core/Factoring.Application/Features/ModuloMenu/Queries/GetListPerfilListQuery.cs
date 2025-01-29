@@ -12,9 +12,9 @@ namespace Factoring.Application.Features.ModuloMenu.Queries
     {
         public int Pageno { get; set; }
         public int PageSize { get; set; }
-        public string Sorting { get; set; }
-        public string SortOrder { get; set; }
-        public string cNombrePerfil { get; set; }
+        public string? Sorting { get; set; }
+        public string? SortOrder { get; set; }
+        public string? cNombrePerfil { get; set; }
         public class GetListPerfilListQueryHandler : IRequestHandler<GetListPerfilListQuery, Response<IReadOnlyList<PerfilResponseDto>>>
     {
         private readonly IModuloMenuSeguridadRepositoryAsync _moduloMenuSeguridadRepositoryAsync;
