@@ -1,7 +1,9 @@
 ﻿using Dapper;
+using Factoring.Application.DTOs.Adquiriente.UbicacionAdquiriente;
 using Factoring.Application.DTOs.Fondeador;
 using Factoring.Application.DTOs.MenuAcciones;
 using Factoring.Application.Interfaces.Repositories;
+using Factoring.Domain.Entities;
 using Factoring.Persistence.Data;
 using System;
 using System.Collections.Generic;
@@ -27,7 +29,7 @@ namespace Factoring.Persistence.Repositories
             {
                 var query = "pe_ConsultarModuloMenu";
                 var parameters = new DynamicParameters();
-                parameters.Add("@Pageno", nRol);
+                parameters.Add("@nIdRol", nRol);
                 var fondeadorList = await connection.QueryAsync<MenuAccionesResponseDto>(query, parameters, commandType: CommandType.StoredProcedure);
                 return fondeadorList.AsList();
             }
@@ -47,6 +49,41 @@ namespace Factoring.Persistence.Repositories
                 var fondeadorList = await connection.QueryAsync<PerfilResponseDto>(query, parameters, commandType: CommandType.StoredProcedure);
                 return fondeadorList.AsList();
             }
+        }
+        public async Task<int> AddAsync(ModuloDTO entity)
+        {
+            using var connection = _connectionFactory.GetConnection;
+            var query = "pe_RegistrarRolesMenu";
+            var parameters = new DynamicParameters();
+            parameters.Add("@nIdRol", entity.nIdRol);
+            parameters.Add("@cRol", entity.cRol);
+            parameters.Add("@nIdMenu", entity.nIdMenu);           
+            parameters.Add("@filter_Acciones", entity.filter_Acciones);
+            parameters.Add("@p_nIdRolOutput", DbType.String, direction: ParameterDirection.Output);
+            await connection.QueryAsync<int>(query, param: parameters, commandType: CommandType.StoredProcedure);
+            return parameters.Get<int>("p_nIdRolOutput");
+        }
+
+        public async Task<PerfilResponseEditDto> GetListRolEdit(int nIdRol)
+        {
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_ConsultaRoles";
+                var parameters = new DynamicParameters();
+                parameters.Add("@nIdRol", nIdRol);
+                var fondeadorList = await connection.QueryFirstAsync<PerfilResponseEditDto>(query, parameters, commandType: CommandType.StoredProcedure);
+                return fondeadorList;
+            }
+        }
+        public async Task<int> UpdateAsync(int nIdRol)
+        {
+            using var connection = _connectionFactory.GetConnection;
+            var query = "pe_UpdateRolMenu";
+            var parameters = new DynamicParameters();
+            parameters.Add("@nIdRol", nIdRol);
+            parameters.Add("@p_nIdRolOutput", DbType.String, direction: ParameterDirection.Output);
+            await connection.QueryAsync<int>(query, param: parameters, commandType: CommandType.StoredProcedure);
+            return parameters.Get<int>("p_nIdRolOutput");
         }
     }
 }

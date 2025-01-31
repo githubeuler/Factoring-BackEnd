@@ -11,5 +11,9 @@ namespace Factoring.Application.Interfaces.Repositories
     {
         Task<IReadOnlyList<MenuAccionesResponseDto>> GetListNenuModulo(int nRol);
         Task<IReadOnlyList<PerfilResponseDto>> GetListRol(PerfilRequestDto model);
+        Task<int> AddAsync(ModuloDTO entity);
+        Task<PerfilResponseEditDto> GetListRolEdit(int nIdRol);
+
+        Task<int> UpdateAsync(int nIdRol);
     }
 }
