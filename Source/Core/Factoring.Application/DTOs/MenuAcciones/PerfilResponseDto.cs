@@ -12,6 +12,5 @@ namespace Factoring.Application.DTOs.MenuAcciones
         public string cNombreRol { get; set; }
         public int nActivo { get; set; }
         public string cDesEstado { get; set; }
-1	
     }
 }
