@@ -15,7 +15,16 @@ namespace Factoring.Application.Features.Usuario.Commands
         public string? Correo { get; set; }
         public int Activo { get; set; }
         public string? FechaCese { get; set; }
+        public int IdRol { get; set; }
         public string? UsuarioModificacion { get; set; }
+
+        public int IdTipoDocumento { get; set; }
+        public string? NumeroDocumento { get; set; }
+        public string? Telefono { get; set; }
+        public string? Celular { get; set; }
+        public string? Cargo { get; set; }
+        public string? Ruc { get; set; }
+        public string? RazonSocial { get; set; }
     }
     public class UpdateUsuarioCommandHandler : IRequestHandler<UpdateUsuarioCommand, Response<int>>
     {

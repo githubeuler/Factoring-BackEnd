@@ -14,6 +14,16 @@
         public string? cActivo { get; set; }
         public string? cNombrePais { get; set; }
         public string? cNombreRol { get; set; }
+
+        public int mIdTipoDocumento { get; set; }
+        public string? cNumeroDocumento { get; set; }
+        public string? cTelefono { get; set; }
+        public string? cCelular { get; set; }
+        public string? cCargo { get; set; }
+        public string? cRuc { get; set; }
+        public string? cRazonSocial { get; set; }
+
+
         public int TotalRecords { get; set; }
     }
     public class UsuarioRequestDataTable
