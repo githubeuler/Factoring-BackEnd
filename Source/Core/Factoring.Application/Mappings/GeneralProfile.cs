@@ -128,8 +128,10 @@ namespace Factoring.Application.Mappings
             CreateMap<ChangePasswordCommand, ChangePasswordRequest>();
             CreateMap<ResetPasswordCommand, ChangePasswordRequest>();
             CreateMap<CreateModuloMenuCommand, ModuloDTO>();
-            
 
+            CreateMap<GetAccionesRolListAll, AccionesRequestDto>();
+            CreateMap<CreateModuloMenuAccionCommand, ModuloNewDTO>();
+            
         }
     }
 }

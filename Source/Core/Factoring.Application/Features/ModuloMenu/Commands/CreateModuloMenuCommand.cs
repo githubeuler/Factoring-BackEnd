@@ -11,8 +11,8 @@ namespace Factoring.Application.Features.ModuloMenu.Commands
 {
     public class CreateModuloMenuCommand : IRequest<Response<int>>
     {
-        public int nIdMenu { get; set; }
-        public int nIdRol { get; set; }
+        public int? nIdMenu { get; set; }
+        public int? nIdRol { get; set; }
         public string? cRol { get; set; }
         public string? filter_Acciones { get; set; }
     }

@@ -31,6 +31,13 @@ namespace Factoring.WebApi.Controllers.v1
             return Ok(await Mediator.Send(command));
         }
 
+        [HttpPost("add-accion")]
+        public async Task<IActionResult> PostAccion(CreateModuloMenuAccionCommand command)
+        {
+            return Ok(await Mediator.Send(command));
+        }
+        
+
         [HttpPost("update-perfil")]
         public async Task<IActionResult> PostUpdate(UpdateModuloMenuCommand command)
         {
@@ -39,6 +46,12 @@ namespace Factoring.WebApi.Controllers.v1
 
         [HttpGet("get-perfil-edit")]
         public async Task<IActionResult> GetPerfilEdit([FromQuery] GetListEditPerfilListQuery filter)
+        {
+            return Ok(await Mediator.Send(filter));
+        }
+
+        [HttpGet("get-menu-acciones")]
+        public async Task<IActionResult> GetMenuAcciones([FromQuery] GetAccionesRolListAll filter)
         {
             return Ok(await Mediator.Send(filter));
         }

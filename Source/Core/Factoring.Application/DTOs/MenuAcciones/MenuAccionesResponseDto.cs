@@ -17,6 +17,7 @@ namespace Factoring.Application.DTOs.MenuAcciones
         public bool cConsultar { get; set; }
         public bool cEliminar { get; set; }
         public bool cInsertar { get; set; }
+        public int nExiste { get; set; }
 
     }
 }

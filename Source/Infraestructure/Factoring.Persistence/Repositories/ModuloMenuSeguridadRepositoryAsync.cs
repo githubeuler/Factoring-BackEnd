@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace Factoring.Persistence.Repositories
 {
-    public class ModuloMenuSeguridadRepositoryAsync: IModuloMenuSeguridadRepositoryAsync
+    public class ModuloMenuSeguridadRepositoryAsync : IModuloMenuSeguridadRepositoryAsync
     {
         private readonly IConnectionFactory _connectionFactory;
         public ModuloMenuSeguridadRepositoryAsync(IConnectionFactory connectionFactory)
@@ -57,8 +57,8 @@ namespace Factoring.Persistence.Repositories
             var parameters = new DynamicParameters();
             parameters.Add("@nIdRol", entity.nIdRol);
             parameters.Add("@cRol", entity.cRol);
-            parameters.Add("@nIdMenu", entity.nIdMenu);           
-            parameters.Add("@filter_Acciones", entity.filter_Acciones);
+            //parameters.Add("@nIdMenu", entity.nIdMenu);
+            //parameters.Add("@filter_Acciones", entity.filter_Acciones);
             parameters.Add("@p_nIdRolOutput", DbType.String, direction: ParameterDirection.Output);
             await connection.QueryAsync<int>(query, param: parameters, commandType: CommandType.StoredProcedure);
             return parameters.Get<int>("p_nIdRolOutput");
@@ -81,6 +81,42 @@ namespace Factoring.Persistence.Repositories
             var query = "pe_UpdateRolMenu";
             var parameters = new DynamicParameters();
             parameters.Add("@nIdRol", nIdRol);
+            parameters.Add("@p_nIdRolOutput", DbType.String, direction: ParameterDirection.Output);
+            await connection.QueryAsync<int>(query, param: parameters, commandType: CommandType.StoredProcedure);
+            return parameters.Get<int>("p_nIdRolOutput");
+        }
+
+        public async Task<IReadOnlyList<AccionesResponseDto>> GetListAcciones(AccionesRequestDto model)
+        {
+            try
+            {
+                using (var connection = _connectionFactory.GetConnection)
+                {
+                    var query = "pe_ConsultaRolMenuAccion";
+                    var parameters = new DynamicParameters();
+                    parameters.Add("@nIdRol", model.nIdRol);
+                    parameters.Add("@nIdMenu", model.nIdMenu);
+                    var fondeadorList = await connection.QueryAsync<AccionesResponseDto>(query, parameters, commandType: CommandType.StoredProcedure);
+                    return fondeadorList.AsList();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                string message = ex.Message;
+            }
+            return null;
+        }
+
+
+        public async Task<int> AddAccionesAsync(ModuloNewDTO entity)
+        {
+            using var connection = _connectionFactory.GetConnection;
+            var query = "pe_RegistrarAccionesMenu";
+            var parameters = new DynamicParameters();
+            parameters.Add("@nIdMenu", entity.nIdMenu);
+            parameters.Add("@nIdRol", entity.nIdRol);           
+            parameters.Add("@filter_Acciones", entity.filter_Acciones);
             parameters.Add("@p_nIdRolOutput", DbType.String, direction: ParameterDirection.Output);
             await connection.QueryAsync<int>(query, param: parameters, commandType: CommandType.StoredProcedure);
             return parameters.Get<int>("p_nIdRolOutput");
