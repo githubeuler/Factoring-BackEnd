@@ -16,6 +16,14 @@ namespace Factoring.Application.Features.Usuario.Commands
         public string? UsuarioCreador { get; set; }
         public int IdPais { get; set; }
         public int IdRol { get; set; }
+
+        public int IdTipoDocumento { get; set; }
+        public string? NumeroDocumento { get; set; }
+        public string? Telefono { get; set; }
+        public string? Celular { get; set; }
+        public string? Cargo { get; set; }
+        public string? Ruc { get; set; }
+        public string? RazonSocial { get; set; }
     }
     public class CreateUsuarioCommandHandler : IRequestHandler<CreateUsuarioCommand, Response<int>>
     {

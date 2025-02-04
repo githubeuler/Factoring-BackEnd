@@ -78,7 +78,7 @@ namespace Factoring.Domain.Util
             upperCase[RandomNumberGenerator.GetInt32(upperCase.Length)],
             lowerCase[RandomNumberGenerator.GetInt32(lowerCase.Length)],
             digits[RandomNumberGenerator.GetInt32(digits.Length)],
-            specialChars[RandomNumberGenerator.GetInt32(specialChars.Length)]
+            //specialChars[RandomNumberGenerator.GetInt32(specialChars.Length)]
         };
 
             // Crear un conjunto de caracteres posibles

@@ -35,6 +35,13 @@ namespace Factoring.Persistence.Repositories
                 parameters.Add("@p_cUsuarioCreador", entity.UsuarioCreador);
                 parameters.Add("@p_nIdPais", entity.IdPais);
                 parameters.Add("@p_nIdRol", entity.IdRol);
+                parameters.Add("@p_nIdTipoDocumento", entity.IdTipoDocumento);
+                parameters.Add("@p_cNumeroDocumento", entity.NumeroDocumento);
+                parameters.Add("@p_cTelefono", entity.Telefono);
+                parameters.Add("@p_cCelular", entity.Celular);
+                parameters.Add("@p_cCargo", entity.Cargo);
+                parameters.Add("@p_cRuc", entity.Ruc);
+                parameters.Add("@p_cRazonSocial", entity.RazonSocial);
                 parameters.Add("@p_nIdUsuario", DbType.String, direction: ParameterDirection.Output);
                 await connection.QueryAsync<int>(query, param: parameters, commandType: CommandType.StoredProcedure);
 
@@ -53,6 +60,14 @@ namespace Factoring.Persistence.Repositories
                 parameters.Add("@p_cPassword", entity.Password);
                 parameters.Add("@p_cCorreo", entity.Correo);
                 parameters.Add("@p_cnActivo", entity.Activo);
+                parameters.Add("@p_nIdRol", entity.IdRol);
+                parameters.Add("@p_nIdTipoDocumento", entity.IdTipoDocumento);
+                parameters.Add("@p_cNumeroDocumento", entity.NumeroDocumento);
+                parameters.Add("@p_cTelefono", entity.Telefono);
+                parameters.Add("@p_cCelular", entity.Celular);
+                parameters.Add("@p_cCargo", entity.Cargo);
+                parameters.Add("@p_cRuc", entity.Ruc);
+                parameters.Add("@p_cRazonSocial", entity.RazonSocial);
                 parameters.Add("@p_cUsuarioModificacion", entity.UsuarioModificacion);
 
                 await connection.ExecuteAsync(query, param: parameters, commandType: CommandType.StoredProcedure);

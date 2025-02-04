@@ -12,6 +12,15 @@
         public string? UsuarioCreador { get; set; }
         public int IdPais{ get; set; }
         public int IdRol { get; set; }
+
+        public int IdTipoDocumento { get; set; }
+        public string? NumeroDocumento { get; set; }
+        public string? Telefono { get; set; }
+        public string? Celular { get; set; }
+        public string? Cargo { get; set; }
+        public string? Ruc { get; set; }
+        public string? RazonSocial { get; set; }
+
     }
     public class UsuarioUpdateDto
     {
@@ -22,6 +31,15 @@
         public int Activo { get; set; }
         public string? FechaCese { get; set; }
         public string? UsuarioModificacion { get; set; }
+        public int IdRol { get; set; }
+
+        public int IdTipoDocumento { get; set; }
+        public string? NumeroDocumento { get; set; }
+        public string? Telefono { get; set; }
+        public string? Celular { get; set; }
+        public string? Cargo { get; set; }
+        public string? Ruc { get; set; }
+        public string? RazonSocial { get; set; }
     }
     public class UsuarioGetByIdDto
     {
@@ -40,6 +58,13 @@
         public string? Pais { get; set; }
         public string? Rol { get; set; }
         public string? UsuarioRegistro { get; set; }
+        public int IdTipoDocumento { get; set; }
+        public string? NumeroDocumento { get; set; }
+        public string? Telefono { get; set; }
+        public string? Celular { get; set; }
+        public string? Cargo { get; set; }
+        public string? Ruc { get; set; }
+        public string? RazonSocial { get; set; }
 
     }
     public class UsuarioDeleteDto
