@@ -124,6 +124,11 @@ namespace Factoring.WebApi.Controllers.v1
             return Ok(await Mediator.Send(command));
         }
 
+        [HttpGet("get-factura-x-operaciones")]
+        public async Task<IActionResult> GetFacturaOperaciones([FromQuery] GetFacturaxOperacionQueryAll filter)
+        {
+            return Ok(await Mediator.Send(filter));
+        }
 
     }
 }
