@@ -318,5 +318,20 @@ namespace Factoring.Persistence.Repositories
                 return invoice;
             }
         }
+
+
+        public async Task<IReadOnlyList<OperacionFacturaResponseDto>> GetListFacturasxOperacion(int nIdOperacion)
+        {
+
+            using (var connection = _connectionFactory.GetConnection)
+            {
+                var query = "pe_ListaFacuraxOperaciones";
+                var parameters = new DynamicParameters();
+                parameters.Add("@p_nIdOperaciones", nIdOperacion);
+                var operacionesList = await connection.QueryAsync<OperacionFacturaResponseDto>(query, parameters, commandType: CommandType.StoredProcedure);
+                return operacionesList.AsList();
+            }
+
+        }
     }
 }
