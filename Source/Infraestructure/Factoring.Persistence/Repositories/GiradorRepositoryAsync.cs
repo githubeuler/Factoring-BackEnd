@@ -55,6 +55,7 @@ namespace Factoring.Persistence.Repositories
                 parameters.Add("@filter_FecCrea", model.FilterFecCrea);
                 parameters.Add("@filter_IdSector", model.FilterIdSector == 0 ? null : model.FilterIdSector);
                 parameters.Add("@filter_IdGrupoEconomico", model.FilterIdGrupoEconomico == 0 ? null : model.FilterIdGrupoEconomico);
+                parameters.Add("@usuario", model.Usuario);
                 parameters.Add("@pagesize", model.PageSize);
                 parameters.Add("@Sorting", model.Sorting);
                 parameters.Add("@SortOrder", model.SortOrder);

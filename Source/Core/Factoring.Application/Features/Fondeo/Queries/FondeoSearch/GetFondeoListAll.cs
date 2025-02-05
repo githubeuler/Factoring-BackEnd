@@ -14,6 +14,8 @@ namespace Factoring.Application.Features.Fondeo.Queries.FondeoSearch
         public string? FilterGirador { get; set; }
         public string? FilterFechaRegistro { get; set; }
         public string? FilterEstadoFondeo { get; set; }
+        public string Usuario { get; set; }
+
         public int PageSize { get; set; }
         public string? Sorting { get; set; }
         public string? SortOrder { get; set; }

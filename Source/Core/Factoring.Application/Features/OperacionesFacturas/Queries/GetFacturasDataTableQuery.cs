@@ -21,6 +21,7 @@ namespace Factoring.Application.Features.OperacionesFacturas.Queries
         public string? SortOrder { get; set; }
         public int? nEstado { get; set; }
         public string? FechaCreacion { get; set; }
+        public string Usuario { get; set; }
 
         public class GetFacturasDataTableQueryHandler : IRequestHandler<GetFacturasDataTableQuery, Response<IReadOnlyList<OperacionesFacturaResponseDataTable>>>
         {

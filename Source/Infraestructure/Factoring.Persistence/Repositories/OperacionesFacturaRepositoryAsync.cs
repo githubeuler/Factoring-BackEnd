@@ -141,10 +141,12 @@ namespace Factoring.Persistence.Repositories
                 parameters.Add("@Pageno", model.Pageno);
                 parameters.Add("@nEstado", model.nEstado);
                 parameters.Add("@filter_nNroOperacion", model.FilterNroOperacion);
+                parameters.Add("@usuario", model.Usuario);
                 parameters.Add("@pagesize", model.PageSize);
                 parameters.Add("@Sorting", model.Sorting);
                 parameters.Add("@SortOrder", model.SortOrder);
                 parameters.Add("@FechaCreacion", model.FechaCreacion);
+               
                 var operacionesList = await connection.QueryAsync<OperacionesFacturaResponseDataTable>(query, parameters, commandType: CommandType.StoredProcedure);
                 return operacionesList.AsList();
             }

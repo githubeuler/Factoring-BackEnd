@@ -158,6 +158,7 @@ namespace Factoring.Application.DTOs.Operaciones.OperacionFactura
         public string SortOrder { get; set; }
         public int nEstado { get; set; }
         public string FechaCreacion { get; set; }
+        public string Usuario { get; set; }
     }
 
 

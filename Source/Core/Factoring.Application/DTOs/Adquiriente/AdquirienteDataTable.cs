@@ -9,6 +9,7 @@
         public string FilterFecCrea { get; set; }
         public int FilterIdSector { get; set; }
         public int FilterIdGrupoEconomico { get; set; }
+        public string Usuario { get; set; }
         public int PageSize { get; set; }
         public string Sorting { get; set; }
         public string SortOrder { get; set; }
