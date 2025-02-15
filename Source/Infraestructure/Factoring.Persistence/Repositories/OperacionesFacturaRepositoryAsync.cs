@@ -2,6 +2,7 @@
 using Factoring.Application.DTOs.Fondeador;
 using Factoring.Application.DTOs.Operaciones;
 using Factoring.Application.DTOs.Operaciones.OperacionFactura;
+using Factoring.Application.DTOs.OperacionesFactura;
 using Factoring.Application.Interfaces.Repositories;
 using Factoring.Application.Wrappers;
 using Factoring.Persistence.Data;
@@ -335,5 +336,17 @@ namespace Factoring.Persistence.Repositories
             }
 
         }
+
+
+        public async Task<IReadOnlyList<OperacionesFacturaCalculoDto>> GetAllOperacionesFacturasCalculo(int nIdOperacion)
+        {
+            using var connection = _connectionFactory.GetConnection;
+            var query = "pe_ConsultarMontoCalculadoOperacion";
+            var parameters = new DynamicParameters();
+            parameters.Add("@p_nIdOperacion", nIdOperacion);
+            var products = await connection.QueryAsync<OperacionesFacturaCalculoDto>(query, param: parameters, commandType: CommandType.StoredProcedure);
+            return products.AsList();
+        }
+
     }
 }

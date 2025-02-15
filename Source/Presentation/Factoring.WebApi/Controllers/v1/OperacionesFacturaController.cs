@@ -130,5 +130,11 @@ namespace Factoring.WebApi.Controllers.v1
             return Ok(await Mediator.Send(filter));
         }
 
+        [HttpGet("get-factura-calculada")]
+        public async Task<IActionResult> GetFacturaCalculada([FromQuery] GetFacturaxOperacionCalculoQueryAll filter)
+        {
+            return Ok(await Mediator.Send(filter));
+        }
+
     }
 }

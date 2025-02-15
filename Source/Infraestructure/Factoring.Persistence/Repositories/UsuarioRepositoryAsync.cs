@@ -203,5 +203,25 @@ namespace Factoring.Persistence.Repositories
                 throw new Exception(ex.Message);
             }
         }
+
+        public async Task<AccionRol> GetOpcionRol(string cAccion,int nOpcion)
+        {
+            try
+            {
+                using (var connection = _connectionFactory.GetConnection)
+                {
+                    var query = "pe_Consulta_OpcionRol";
+                    var parameters = new DynamicParameters();
+                    parameters.Add("@p_cOpcion", cAccion);
+                    parameters.Add("@p_Opcion", nOpcion);
+                    var accion = await connection.QueryFirstOrDefaultAsync<AccionRol>(query, param: parameters, commandType: CommandType.StoredProcedure);
+                    return accion;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new ApiException(ex.Message);
+            }
+        }
     }
 }

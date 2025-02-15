@@ -18,6 +18,7 @@ namespace Factoring.Application.DTOs.Account.Response
         public int MustChangePassword { get; set; }
         public int nIdUsuario { get; set; }
         public string cPassword { get; set; }
+        public int nIdRol { get; set; }
         public List<MenuResponse> Menu { get; set; }
     }
 }

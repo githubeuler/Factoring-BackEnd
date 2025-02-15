@@ -20,6 +20,7 @@ namespace Factoring.Application.Interfaces.Repositories
         Task<IReadOnlyList<UsuarioResponseDataTable>> GetListUsuario(UsuarioRequestDataTable model);
 
         Task<Response<int>> ChangePassword(ChangePasswordRequest entity);
+        Task<AccionRol> GetOpcionRol(string cAccion, int nOpcion);
         #endregion
 
     }

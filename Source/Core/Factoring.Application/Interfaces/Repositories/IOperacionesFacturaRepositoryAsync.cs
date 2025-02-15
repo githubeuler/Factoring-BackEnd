@@ -1,6 +1,7 @@
 ﻿using Factoring.Application.DTOs.Fondeador;
 using Factoring.Application.DTOs.Operaciones;
 using Factoring.Application.DTOs.Operaciones.OperacionFactura;
+using Factoring.Application.DTOs.OperacionesFactura;
 using Factoring.Application.Wrappers;
 
 namespace Factoring.Application.Interfaces.Repositories
@@ -27,5 +28,6 @@ namespace Factoring.Application.Interfaces.Repositories
         Task DeleteDocumentoAsync(OperacionesSolicitudDeleteDto entity);
         Task<OperacionesFacturaListDto> GetEstadoOperacion(int id);
         Task<IReadOnlyList<OperacionFacturaResponseDto>> GetListFacturasxOperacion(int nIdOperacion);
+        Task<IReadOnlyList<OperacionesFacturaCalculoDto>> GetAllOperacionesFacturasCalculo(int nIdOperacion);
     }
 }

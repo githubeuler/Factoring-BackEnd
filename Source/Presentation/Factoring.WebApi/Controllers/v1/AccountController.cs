@@ -30,5 +30,10 @@ namespace Factoring.WebApi.Controllers.v1
             //comment
             return Ok(await Mediator.Send(command));
         }
+        [HttpGet("get-acction")]
+        public async Task<IActionResult> GetAccion([FromQuery] AcctionCommand filter)
+        {
+            return Ok(await Mediator.Send(filter));
+        }
     }
 }

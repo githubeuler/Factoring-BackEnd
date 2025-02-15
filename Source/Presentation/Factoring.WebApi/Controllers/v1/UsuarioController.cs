@@ -35,5 +35,7 @@ namespace Factoring.WebApi.Controllers.v1
         {
             return Ok(await Mediator.Send(filter));
         }
+
+       
     }
 }
