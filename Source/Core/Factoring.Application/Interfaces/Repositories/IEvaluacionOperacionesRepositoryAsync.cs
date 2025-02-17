@@ -14,5 +14,6 @@ namespace Factoring.Application.Interfaces.Repositories
         Task<Response<int>> AddFacturaAsync(EvaluacionOperacionesInsertDto entity);
         Task<Response<int>> UpdateFacturaAsync(EvaluacionOperacionesCalculoInsertDto entity);
         Task<int> AddFacturaEvaluacionAsync(EvaluacionOperacionesInsertDto entity);
+        Task<Response<int>> GenerateCalculoFacturaAsync(EvaluacionOperacionesCalculoInsertDto entity);
     }
 }

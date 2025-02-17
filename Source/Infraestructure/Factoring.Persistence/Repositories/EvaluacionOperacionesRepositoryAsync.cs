@@ -128,7 +128,34 @@ namespace Factoring.Persistence.Repositories
             }
 
         }
+        public async Task<Response<int>> GenerateCalculoFacturaAsync(EvaluacionOperacionesCalculoInsertDto entity)
+        {
+            try
+            {
 
+                using (var connection = _connectionFactory.GetConnection)
+                {
+                    var query = "pe_Generar_Calculo_Factura";
+                    var parameters = new DynamicParameters();
+                    parameters.Add("@p_nIdOperaciones", entity.IdOperaciones);
+                    parameters.Add("@p_nIdOperacionesFactura", entity.IdOperacionesFactura);
+                    parameters.Add("@p_nIdCatalogoEstado", entity.IdCatalogoEstado);
+                    parameters.Add("@p_cUsuarioCreador", entity.UsuarioCreador);
+                    parameters.Add("@p_dFecha", entity.cFecha);            
+                    parameters.Add("@p_nIdEstadoFactura", DbType.String, direction: ParameterDirection.Output);
+                    await connection.QueryAsync<int>(query, param: parameters, commandType: CommandType.StoredProcedure);
+                    int respuesta = parameters.Get<int>("p_nIdEstadoFactura");
+                    if (respuesta == 0) return new Response<int>("Existen facturas que no estan anotadas en cavally.");
+                    else return new Response<int>(respuesta, "Calculado Correctamente");
+                }
+            }
+            catch (Exception ex)
+            {
+                var message = ex.Message;
+                return new Response<int>(message);
+            }
+
+        }
 
         //EvaluacionOperacionesCalculoInsertDto
 

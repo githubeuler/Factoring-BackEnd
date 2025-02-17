@@ -131,7 +131,8 @@ namespace Factoring.Application.Mappings
 
             CreateMap<GetAccionesRolListAll, AccionesRequestDto>();
             CreateMap<CreateModuloMenuAccionCommand, ModuloNewDTO>();
-            
+            CreateMap<GenerateFacturaCalculoCommand, EvaluacionOperacionesCalculoInsertDto>();
+
         }
     }
 }
