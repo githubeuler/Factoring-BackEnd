@@ -39,6 +39,7 @@ namespace Factoring.WebApi.Controllers.v1
         public async Task<IActionResult> PostGenerateCalculoFactura(GenerateFacturaCalculoCommand command)
         {
             return Ok(await Mediator.Send(command));
+
         }
     }
 }
