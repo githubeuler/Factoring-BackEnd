@@ -97,6 +97,7 @@ namespace Factoring.Persistence.Repositories
                 await connection.QueryAsync<int>(query, param: parameters, commandType: CommandType.StoredProcedure);
 
                 return parameters.Get<int>("p_nIdEvaluacionOperaciones");
+
             }
         }
 
