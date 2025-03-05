@@ -29,6 +29,7 @@ namespace Factoring.WebApi.Controllers.v1
         public async Task<IActionResult> PostFactura(CreateEstadoFacturaOperacionCommand command)
         {
             return Ok(await Mediator.Send(command));
+
         }
         [HttpPost("update-facura-calculo")]
         public async Task<IActionResult> PostCalculoFactura(UpdateEvaluacionOperacionCalculoCommand command)
